@@ -1,0 +1,197 @@
+.measurement-workspace {
+  display: grid;
+  gap: 24px;
+  min-width: 0;
+}
+.measurement-heading {
+  background: #112e40;
+  color: #fff;
+  padding: 28px;
+  border-radius: 16px;
+}
+.measurement-heading > span {
+  direction: ltr;
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #d6b87c;
+}
+.measurement-heading h1 {
+  font-size: 28px;
+  margin: 16px 0;
+}
+.measurement-heading p {
+  color: #d2dce1;
+}
+.measurement-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+.measurement-score {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 16px 0;
+}
+.measurement-score > strong {
+  font-size: 38px;
+  color: #163b4b;
+}
+.measurement-score small {
+  font-size: 12px;
+  font-weight: 400;
+  margin-inline-start: 8px;
+  color: #667681;
+}
+.measurement-parts {
+  display: grid;
+  gap: 14px;
+}
+.measurement-parts b {
+  float: left;
+}
+.measurement-parts progress {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 6px;
+  margin-top: 8px;
+  border: 0;
+  border-radius: 5px;
+  background: #e9edf0;
+}
+.measurement-parts progress::-webkit-progress-bar {
+  background: #e9edf0;
+  border-radius: 5px;
+}
+.measurement-parts progress::-webkit-progress-value {
+  background: #b59453;
+  border-radius: 5px;
+}
+.measurement-parts progress::-moz-progress-bar {
+  background: #b59453;
+}
+.measurement-kpi-values {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 16px;
+  margin: 18px 0;
+}
+.measurement-kpi-values > div {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  background: #f6f8f9;
+  border-radius: 10px;
+}
+.measurement-kpi-values strong {
+  font-size: 22px;
+  color: #163b4b;
+}
+.measurement-kpi-values small {
+  font-size: 11px;
+  font-weight: 400;
+}
+.measurement-actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.measurement-confirm {
+  margin: 12px 0;
+}
+.measurement-confirm .sys-alert {
+  display: block;
+}
+.measurement-confirm .sys-button {
+  margin-inline-end: 10px;
+}
+.measurement-table {
+  overflow-x: auto;
+  margin: 16px 0;
+}
+.measurement-table table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 580px;
+  text-align: right;
+}
+.measurement-table td,
+.measurement-table th {
+  padding: 14px;
+  border-bottom: 1px solid #e2e7eb;
+  vertical-align: top;
+}
+.measurement-table th {
+  font-size: 12px;
+  color: #687780;
+  background: #f5f7f8;
+}
+.measurement-table small {
+  display: block;
+}
+.measurement-review,
+.measurement-risk {
+  padding: 20px 0;
+  border-bottom: 1px solid #e2e7eb;
+}
+.measurement-review h3 {
+  font-weight: 700;
+}
+.measurement-review ul {
+  list-style: disc;
+  padding-inline-start: 20px;
+}
+.measurement-workspace p,
+.measurement-workspace li {
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+.measurement-workspace details {
+  margin: 16px 0;
+}
+.measurement-workspace summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.measurement-trend {
+  max-width: 450px;
+  margin: 20px 0;
+  color: #28646b;
+  direction: ltr;
+}
+.measurement-trend svg {
+  width: 100%;
+  height: 90px;
+}
+.measurement-trend figcaption {
+  font-size: 11px;
+  direction: rtl;
+  color: #6c7981;
+}
+.measurement-workspace input[type="date"],
+.sys-drawer input[type="date"] {
+  direction: ltr;
+}
+@media (max-width: 900px) {
+  .measurement-columns {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .measurement-heading {
+    padding: 20px;
+  }
+  .measurement-heading h1 {
+    font-size: 23px;
+  }
+  .measurement-kpi-values {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .measurement-score > strong {
+    font-size: 32px;
+  }
+}

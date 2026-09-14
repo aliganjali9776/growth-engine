@@ -1,0 +1,327 @@
+.analysis-workspace {
+  min-width: 0;
+  color: #132b40;
+}
+.analysis-workspace progress::-webkit-progress-bar {
+  background: #dce3df;
+  border-radius: 4px;
+}
+.analysis-workspace progress::-webkit-progress-value {
+  background: #b59a62;
+  border-radius: 4px;
+}
+.analysis-workspace progress::-moz-progress-bar {
+  background: #b59a62;
+  border-radius: 4px;
+}
+.system-app:has(.analysis-workspace) > .system-heading {
+  display: none;
+}
+.analysis-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 15px 0 25px;
+}
+.analysis-nav a {
+  padding: 8px 12px;
+  border: 1px solid #dce3df;
+  border-radius: 8px;
+  background: white;
+  font-size: 12px;
+}
+.analysis-heading {
+  margin: 25px 0;
+}
+.analysis-nav a[aria-current="page"] {
+  background: #132b40;
+  color: white;
+  border-color: #132b40;
+}
+.system-app :is(a, button, input, select, textarea, summary):focus-visible {
+  outline: 3px solid #946c23;
+  outline-offset: 3px;
+}
+.analysis-heading > span {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #9a804d;
+}
+.analysis-heading h1 {
+  font-size: 27px;
+  margin: 12px 0;
+}
+.analysis-heading h2 {
+  font-size: 17px;
+  font-weight: 500;
+}
+.analysis-heading p {
+  font-size: 12px;
+  color: #748078;
+  line-height: 2;
+}
+.friction-panel {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  background: #132b40;
+  color: white;
+  padding: 28px;
+  border-radius: 15px;
+  gap: 35px;
+  margin: 25px 0;
+}
+.friction-panel > div:first-child > strong {
+  display: block;
+  font-size: 60px;
+  margin: 10px 0;
+  color: #d3ba82;
+}
+.friction-panel strong small {
+  font-size: 15px;
+  color: #bac5cb;
+}
+.friction-panel p {
+  font-size: 12px;
+  line-height: 2;
+  color: #c6d0d4;
+}
+.friction-panel > div:last-child {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.friction-component {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px;
+  font-size: 12px;
+}
+.friction-component small,
+.friction-component progress {
+  grid-column: 1/-1;
+}
+.friction-component small {
+  font-size: 10px;
+  color: #b3c0c5;
+  line-height: 1.7;
+}
+.friction-component progress {
+  width: 100%;
+  height: 6px;
+  accent-color: #b59a62;
+}
+.bottleneck-list article {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 0;
+  border-bottom: 1px solid #e9edea;
+}
+.analysis-rank {
+  font-size: 21px;
+  color: #b59a62;
+}
+.bottleneck-list article > div {
+  flex: 1;
+}
+.bottleneck-list strong {
+  font-size: 14px;
+}
+.bottleneck-list p,
+.bottleneck-list small {
+  font-size: 11px;
+  color: #728077;
+  line-height: 1.9;
+}
+.analysis-score {
+  font-size: 25px;
+  color: #9c7535;
+  text-align: center;
+}
+.analysis-score small {
+  display: block;
+}
+.wait-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 13px 0;
+}
+.wait-row strong {
+  font-size: 13px;
+}
+.wait-row span {
+  font-size: 10px;
+  color: #748078;
+}
+.wait-row progress {
+  width: 100%;
+  height: 7px;
+  accent-color: #b59a62;
+}
+.founder-analysis > strong {
+  font-size: 30px;
+  color: #9a804d;
+}
+.founder-analysis p,
+.analysis-workspace .sys-panel > p {
+  font-size: 12px;
+  line-height: 2;
+}
+.ownership-analysis {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid #edf0ed;
+  padding: 13px 0;
+  font-size: 12px;
+}
+.ownership-analysis b,
+.ownership-analysis small {
+  font-size: 10px;
+  color: #748078;
+  font-weight: 400;
+}
+.opportunity-list article {
+  display: flex;
+  gap: 17px;
+  padding: 20px 0;
+  border-bottom: 1px solid #edf0ed;
+}
+.opportunity-list h3 {
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+.opportunity-list p {
+  font-size: 12px;
+  line-height: 1.9;
+  margin: 6px 0;
+}
+.opportunity-list small {
+  font-size: 11px;
+  color: #8c744c;
+}
+.action-tag {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  white-space: nowrap;
+  font-size: 11px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #f2eddf;
+  color: #92763e;
+}
+.action-tag.delegate {
+  background: #edf1f5;
+  color: #34516a;
+}
+.action-tag.automate {
+  background: #e9f1ed;
+  color: #3a6a55;
+}
+.analysis-confirm {
+  border: 1px solid #d8ddd5;
+  border-radius: 12px;
+  padding: 22px;
+  margin: 24px 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  background: #fafbf8;
+}
+.analysis-confirm > div:first-child {
+  flex: 1;
+}
+.analysis-confirm p {
+  font-size: 12px;
+  line-height: 1.9;
+  color: #728077;
+}
+.analysis-confirm-question {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.compare-table-wrap {
+  overflow: auto;
+  background: white;
+  border: 1px solid #dce3df;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 610px;
+}
+.compare-table th,
+.compare-table td {
+  padding: 18px;
+  text-align: right;
+  border-bottom: 1px solid #edf0ed;
+  font-size: 13px;
+}
+.compare-table thead {
+  background: #132b40;
+  color: white;
+}
+.delta-down {
+  color: #426b57;
+}
+.delta-up {
+  color: #a86b37;
+}
+.comparison-changes {
+  font-size: 13px;
+  line-height: 2.2;
+}
+.process-builder.to-be .map-as-is {
+  color: #447665;
+}
+.process-builder.to-be .process-canvas {
+  background: #f2f8f5;
+  border-color: #91aea0;
+}
+.process-builder.to-be .map-heading {
+  border-right: 4px solid #769884;
+  padding-right: 16px;
+}
+@media (max-width: 900px) {
+  .friction-panel {
+    grid-template-columns: 1fr;
+  }
+  .friction-panel > div:first-child > strong {
+    font-size: 45px;
+  }
+  .ownership-analysis {
+    flex-direction: column;
+  }
+  .analysis-heading h1 {
+    font-size: 23px;
+  }
+}
+@media (max-width: 500px) {
+  .friction-panel {
+    padding: 20px;
+  }
+  .friction-panel > div:last-child {
+    grid-template-columns: 1fr;
+  }
+  .opportunity-list article {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .analysis-confirm {
+    padding: 16px;
+  }
+  .bottleneck-list article {
+    gap: 10px;
+  }
+  .analysis-nav a {
+    font-size: 11px;
+    padding: 7px;
+  }
+}

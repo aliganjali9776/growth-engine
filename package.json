@@ -1,0 +1,28 @@
+{
+  "name": "3s-business-os",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fontsource/vazirmatn": "^5.3.0",
+    "@radix-ui/react-dialog": "^1.1.23",
+    "@xyflow/react": "^12.11.6",
+    "lucide-react": "^1.45.0",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "scripts": {
+    "test": "tsc -p tests/tsconfig.json && tsc -p tests/system.tsconfig.json && node --test tests/assessment.cjs tests/system.cjs tests/process-maps.cjs tests/process-analysis.cjs tests/standards.cjs tests/measurement.cjs tests/command-center.cjs tests/hardening.cjs",
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^22.20.2",
+    "@types/react": "^19.3.0",
+    "prettier": "^3.9.6",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2"
+  }
+}
