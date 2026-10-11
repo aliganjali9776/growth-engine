@@ -1,0 +1,222 @@
+TAP version 13
+# 6A context benchmark {"entities":5004,"evidence":5004,"sizes":{"Executive3S":10339,"KR":582,"Process":578,"Constraint":914},"times":{"Executive3S":0.41,"KR":0.69,"Process":0.52,"Constraint":0.6}}
+# 6A canonical context benchmark {"processes":500,"ms":93.21,"bytes":6506}
+# Subtest: 6A registry is unique, read non-writing, all writes need approval
+ok 1 - 6A registry is unique, read non-writing, all writes need approval
+  ---
+  duration_ms: 6.7063
+  type: 'test'
+  ...
+# Subtest: 6A read and prepare capabilities preserve context and business stores
+ok 2 - 6A read and prepare capabilities preserve context and business stores
+  ---
+  duration_ms: 11.3969
+  type: 'test'
+  ...
+# Subtest: 6A unknown capability safely rejects
+ok 3 - 6A unknown capability safely rejects
+  ---
+  duration_ms: 0.7302
+  type: 'test'
+  ...
+# Subtest: 6A wrong domain and entity type safely reject
+ok 4 - 6A wrong domain and entity type safely reject
+  ---
+  duration_ms: 1.1035
+  type: 'test'
+  ...
+# Subtest: 6A malformed read inputs reject
+ok 5 - 6A malformed read inputs reject
+  ---
+  duration_ms: 1.9447
+  type: 'test'
+  ...
+# Subtest: 6A missing capability permission blocks reading and preparation
+ok 6 - 6A missing capability permission blocks reading and preparation
+  ---
+  duration_ms: 0.9481
+  type: 'test'
+  ...
+# Subtest: 6A execution tool cannot bypass action gateway
+ok 7 - 6A execution tool cannot bypass action gateway
+  ---
+  duration_ms: 1.0714
+  type: 'test'
+  ...
+# Subtest: 6A preparing preserves live entity and freezes evidence
+ok 8 - 6A preparing preserves live entity and freezes evidence
+  ---
+  duration_ms: 10.5415
+  type: 'test'
+  ...
+# Subtest: 6A no approval blocks execution
+ok 9 - 6A no approval blocks execution
+  ---
+  duration_ms: 3.8873
+  type: 'test'
+  ...
+# Subtest: 6A approved dry-run succeeds without domain mutation
+ok 10 - 6A approved dry-run succeeds without domain mutation
+  ---
+  duration_ms: 7.8184
+  type: 'test'
+  ...
+# Subtest: 6A high risk remains approval-required even with full permission
+ok 11 - 6A high risk remains approval-required even with full permission
+  ---
+  duration_ms: 1.6309
+  type: 'test'
+  ...
+# Subtest: 6A rejected approval never executes
+ok 12 - 6A rejected approval never executes
+  ---
+  duration_ms: 2.0797
+  type: 'test'
+  ...
+# Subtest: 6A expired approval never executes
+ok 13 - 6A expired approval never executes
+  ---
+  duration_ms: 2.1097
+  type: 'test'
+  ...
+# Subtest: 6A duplicate execution blocked after successful simulation
+ok 14 - 6A duplicate execution blocked after successful simulation
+  ---
+  duration_ms: 2.0597
+  type: 'test'
+  ...
+# Subtest: 6A 500→600 invalidates older 500→700 proposal
+ok 15 - 6A 500→600 invalidates older 500→700 proposal
+  ---
+  duration_ms: 3.2644
+  type: 'test'
+  ...
+# Subtest: 6A payload and evidence edits invalidate approval binding
+ok 16 - 6A payload and evidence edits invalidate approval binding
+  ---
+  duration_ms: 2.8489
+  type: 'test'
+  ...
+# Subtest: 6A wrong domain contract is rejected
+ok 17 - 6A wrong domain contract is rejected
+  ---
+  duration_ms: 1.0199
+  type: 'test'
+  ...
+# Subtest: 6A permission is checked again at execution
+ok 18 - 6A permission is checked again at execution
+  ---
+  duration_ms: 0.8214
+  type: 'test'
+  ...
+# Subtest: 6A missing live entity controlled error
+ok 19 - 6A missing live entity controlled error
+  ---
+  duration_ms: 0.9059
+  type: 'test'
+  ...
+# Subtest: 6A failed domain reader produces controlled error
+ok 20 - 6A failed domain reader produces controlled error
+  ---
+  duration_ms: 1.8101
+  type: 'test'
+  ...
+# Subtest: 6A invalid payloads never prepare
+ok 21 - 6A invalid payloads never prepare
+  ---
+  duration_ms: 2.4755
+  type: 'test'
+  ...
+# Subtest: 6A recommendation evidence references valid frozen snapshot and cross-module sources
+ok 22 - 6A recommendation evidence references valid frozen snapshot and cross-module sources
+  ---
+  duration_ms: 5.1099
+  type: 'test'
+  ...
+# Subtest: 6A no recommendation invented if rules do not match
+ok 23 - 6A no recommendation invented if rules do not match
+  ---
+  duration_ms: 0.7652
+  type: 'test'
+  ...
+# Subtest: 6A audit records proposal, request, approval, simulation and failure
+ok 24 - 6A audit records proposal, request, approval, simulation and failure
+  ---
+  duration_ms: 1.9554
+  type: 'test'
+  ...
+# Subtest: 6A separate persistence and compare-and-swap preserves domain keys
+ok 25 - 6A separate persistence and compare-and-swap preserves domain keys
+  ---
+  duration_ms: 5.193
+  type: 'test'
+  ...
+# Subtest: 6A persisted rejected and executed actions remain non-repeatable
+ok 26 - 6A persisted rejected and executed actions remain non-repeatable
+  ---
+  duration_ms: 2.9458
+  type: 'test'
+  ...
+# Subtest: 6A malformed stored data is preserved with explicit recovery notice
+ok 27 - 6A malformed stored data is preserved with explicit recovery notice
+  ---
+  duration_ms: 1.7429
+  type: 'test'
+  ...
+# Subtest: 6A unknown evidence refs cannot be persisted
+ok 28 - 6A unknown evidence refs cannot be persisted
+  ---
+  duration_ms: 1.1339
+  type: 'test'
+  ...
+# Subtest: 6A real canonical context reads absent sources safely and without writes
+ok 29 - 6A real canonical context reads absent sources safely and without writes
+  ---
+  duration_ms: 8.1277
+  type: 'test'
+  ...
+# Subtest: 6A compact contexts on 5000 unrelated entities and evidence
+ok 30 - 6A compact contexts on 5000 unrelated entities and evidence
+  ---
+  duration_ms: 18.4552
+  type: 'test'
+  ...
+# Subtest: 6A business text is data, never an instruction
+ok 31 - 6A business text is data, never an instruction
+  ---
+  duration_ms: 1.1957
+  type: 'test'
+  ...
+# Subtest: 6A approval binding survives JSON removal of optional undefined fields
+ok 32 - 6A approval binding survives JSON removal of optional undefined fields
+  ---
+  duration_ms: 4.2353
+  type: 'test'
+  ...
+# Subtest: 6A disabled capability has no permission even if allowlist grants it
+ok 33 - 6A disabled capability has no permission even if allowlist grants it
+  ---
+  duration_ms: 0.3936
+  type: 'test'
+  ...
+# Subtest: 6A canonical three-module adapter preserves all stores and matches domain health selectors
+ok 34 - 6A canonical three-module adapter preserves all stores and matches domain health selectors
+  ---
+  duration_ms: 132.2513
+  type: 'test'
+  ...
+# Subtest: 6A full read context stays compact with 500 active processes
+ok 35 - 6A full read context stays compact with 500 active processes
+  ---
+  duration_ms: 95.2026
+  type: 'test'
+  ...
+1..35
+# tests 35
+# suites 0
+# pass 35
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 927.3922

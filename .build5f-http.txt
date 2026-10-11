@@ -1,0 +1,15 @@
+/scale/dashboard 200
+/scale/reports 200
+/scale/reports/executive 200
+/scale/reports/constraints 200
+/scale/reports/ideas 200
+/scale/reports/experiments 200
+/scale/reports/learnings 200
+/scale/reports/funnel 200
+/scale/reports/revenue 200
+/scale/reports/channels 200
+/scale/reports/concentration 200
+/scale/reports/loops 200
+/scale/reports/readiness 200
+/scale/reports/capacity 200
+/scale/reports/decisions 200

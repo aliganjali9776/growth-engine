@@ -1,4 +1,5 @@
 "use client";
+import { businessStorage } from "@/lib/saas/workspace-storage";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { useSystem } from "@/components/system/provider";
 import { type MapStore, type ProcessMap } from "@/lib/system/maps/model";
@@ -8,7 +9,7 @@ import {
   replaceMap,
 } from "@/lib/system/maps/persistence";
 import { seedMaps } from "@/lib/system/maps/seed";
-import { StorageRecovery } from '../system/recovery';
+import { StorageRecovery } from "../system/recovery";
 type Context = {
   store: MapStore | null;
   error: string;
@@ -36,7 +37,7 @@ export function ProcessMapsProvider({
     initial = useRef(data);
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(MAP_STORAGE_KEY);
+      const raw = businessStorage.getItem(MAP_STORAGE_KEY);
       last.current = raw;
       const next = raw ? parseMaps(raw) : seedMaps(initial.current);
       current.current = next;
@@ -55,7 +56,7 @@ export function ProcessMapsProvider({
     const changed = (e: StorageEvent) => {
       if (
         (e.key === MAP_STORAGE_KEY || e.key === null) &&
-        localStorage.getItem(MAP_STORAGE_KEY) !== last.current
+        businessStorage.getItem(MAP_STORAGE_KEY) !== last.current
       ) {
         blocked.current = true;
         setError(
@@ -70,7 +71,7 @@ export function ProcessMapsProvider({
     try {
       if (blocked.current || !current.current)
         throw new Error("برای ادامه صفحه را تازه کنید؛ داده قبلی حفظ شده است.");
-      if (localStorage.getItem(MAP_STORAGE_KEY) !== last.current) {
+      if (businessStorage.getItem(MAP_STORAGE_KEY) !== last.current) {
         blocked.current = true;
         throw new Error(
           "نقشه در زبانه دیگری تغییر کرده است؛ صفحه را تازه کنید.",
@@ -78,12 +79,16 @@ export function ProcessMapsProvider({
       }
       const next = replaceMap(current.current, map),
         raw = JSON.stringify(next);
-      localStorage.setItem(MAP_STORAGE_KEY, raw);
+      businessStorage.setItem(MAP_STORAGE_KEY, raw);
       last.current = raw;
       current.current = next;
       setStore(next);
       setError("");
-      setStatus("همه تغییرات در این مرورگر ذخیره شد");
+      setStatus(
+        businessStorage.serverExecutionDisabled
+          ? "وضعیت ذخیره در بالای صفحه نمایش داده می‌شود"
+          : "همه تغییرات در این مرورگر ذخیره شد",
+      );
     } catch (e) {
       const message = e instanceof Error ? e.message : "ذخیره ممکن نشد.";
       setError(`ذخیره انجام نشد: ${message}`);
@@ -92,7 +97,13 @@ export function ProcessMapsProvider({
   }
   return (
     <MapContext.Provider value={{ store, error, status, save }}>
-      {!store && error && <StorageRecovery storageKey={MAP_STORAGE_KEY} label="نقشه‌ها" validate={parseMaps} />}
+      {!store && error && (
+        <StorageRecovery
+          storageKey={MAP_STORAGE_KEY}
+          label="نقشه‌ها"
+          validate={parseMaps}
+        />
+      )}
       {children}
     </MapContext.Provider>
   );

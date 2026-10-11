@@ -1,0 +1,44 @@
+{
+  "at": "2026-10-05T19:50:19.145Z",
+  "manualScans": [
+    "localhost",
+    "127.0.0.1"
+  ],
+  "rules": 15,
+  "localhostSignals": 31,
+  "localhostPatterns": 3,
+  "localhostPriorities": 2,
+  "statuses": [
+    "Reviewed",
+    "Monitoring",
+    "Dismissed",
+    "Resolved",
+    "Reopened"
+  ],
+  "reloadPersistence": true,
+  "advisorBriefOffline": true,
+  "currentProblemsAnswer": true,
+  "hybridOfflineFallback": true,
+  "debug": true,
+  "missingRoute": true,
+  "viewports": [
+    {
+      "width": 1280,
+      "client": 1265,
+      "content": 1265
+    },
+    {
+      "width": 820,
+      "client": 805,
+      "content": 805
+    },
+    {
+      "width": 390,
+      "client": 375,
+      "content": 375
+    }
+  ],
+  "consoleErrors": [],
+  "businessBrowserEdits": false,
+  "liveProviderTested": false
+}

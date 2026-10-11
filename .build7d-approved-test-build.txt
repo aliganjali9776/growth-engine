@@ -1,0 +1,157 @@
+
+> 3s-business-os@0.1.0 build
+> next build
+
+▲ Next.js 16.3.8 (Turbopack)
+- Environments: .env.local
+✓ Running next.config.ts took 27ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 10.5s
+  Running TypeScript ...
+  Finished TypeScript in 2.6s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/7) ...
+  Generating static pages using 7 workers (1/7) 
+  Generating static pages using 7 workers (3/7) 
+  Generating static pages using 7 workers (5/7) 
+✓ Generating static pages using 7 workers (7/7) in 334ms
+  Finalizing page optimization ...
+Turbopack build encountered 1 warning:
+./lib/server/saas-runtime.ts:30:16
+Warning: Dynamic filesystem access causes tracing of the whole project
+  28 |       const { resolve, relative, isAbsolute } = await import("node:path");
+  29 |       const root = resolve(".data"),
+> 30 |         path = resolve(
+     |                ^^^^^^^
+> 31 |           process.env.DEV_DATABASE_PATH ?? ".data/postgres-saas-dev",
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 32 |         ),
+     | ^^^^^^^^^
+  33 |         rel = relative(root, path);
+  34 |       if (rel.startsWith("..") || isAbsolute(rel))
+  35 |         throw Error("InvalidDevPath");
+
+Static analysis determined that this filesystem access causes the whole project to be traced and included in the output.
+This is usually unintentional and leads to all source files (including the public folder) to be deployed as part of the server code.
+This can slow down deployments or lead to failures when size limits are exceeded.
+To resolve this, you can
+- make sure the path is statically scoped to some subfolder, for example path.join(process.cwd(), 'data', bar), or
+- only use them in development, or
+- opt out by adding an ignore comment to the highlighted call: path.resolve(/*turbopackIgnore: true*/ ...), or
+- remove them.
+
+Import traces:
+  #1 [App Route]:
+    ./lib/server/saas-runtime.ts
+    ./app/api/dev/saas/route.ts
+
+  #2 [Server Component]:
+    ./lib/server/saas-runtime.ts
+    ./app/[module]/page.tsx
+
+  #3 [App Route]:
+    ./lib/server/saas-runtime.ts
+    ./lib/server/saas-runtime.ts
+    ./app/api/advisor/route.ts
+
+
+
+Route (app)
+┌ ƒ /
+├ ƒ /_not-found
+├ ƒ /[module]
+├ ƒ /advisor
+├ ƒ /advisor/actions
+├ ƒ /advisor/actions/[id]
+├ ƒ /advisor/actions/history
+├ ƒ /advisor/authorized-actions
+├ ƒ /advisor/history
+├ ƒ /advisor/insights
+├ ƒ /advisor/insights/[id]
+├ ƒ /advisor/workspace
+├ ƒ /api/advisor
+├ ƒ /api/auth/[...all]
+├ ƒ /api/business-backup
+├ ƒ /api/dev/saas
+├ ƒ /api/saas
+├ ƒ /assessment
+├ ƒ /dev/agent
+├ ○ /icon.svg
+├ ƒ /invite/[token]
+├ ƒ /login
+├ ƒ /onboarding/company
+├ ƒ /organizations
+├ ƒ /scale
+├ ƒ /scale/[section]
+├ ƒ /scale/capacity
+├ ƒ /scale/channels
+├ ƒ /scale/channels/[id]
+├ ƒ /scale/constraints
+├ ƒ /scale/constraints/[id]
+├ ƒ /scale/dashboard
+├ ƒ /scale/diagnosis
+├ ƒ /scale/experiments
+├ ƒ /scale/experiments/[id]
+├ ƒ /scale/funnel
+├ ƒ /scale/funnel/builder
+├ ƒ /scale/funnel/history
+├ ƒ /scale/ideas
+├ ƒ /scale/ideas/[id]
+├ ƒ /scale/loops
+├ ƒ /scale/loops/[id]
+├ ƒ /scale/readiness
+├ ƒ /scale/readiness/[id]
+├ ƒ /scale/reports
+├ ƒ /scale/reports/[report]
+├ ƒ /scale/reports/executive
+├ ƒ /scale/scale-decisions
+├ ƒ /settings/access
+├ ƒ /settings/company
+├ ƒ /settings/data-migration
+├ ƒ /settings/members
+├ ƒ /settings/profile
+├ ƒ /signup
+├ ƒ /strategy
+├ ƒ /strategy/[section]
+├ ƒ /strategy/adapt
+├ ƒ /strategy/adapt/[reviewId]
+├ ƒ /strategy/cycles
+├ ƒ /strategy/cycles/[id]
+├ ƒ /strategy/cycles/[id]/adapt
+├ ƒ /strategy/cycles/[id]/learn
+├ ƒ /strategy/cycles/[id]/objectives
+├ ƒ /strategy/cycles/[id]/objectives/[objectiveId]
+├ ƒ /strategy/cycles/[id]/priorities
+├ ƒ /strategy/dashboard
+├ ƒ /strategy/initiatives
+├ ƒ /strategy/initiatives/[id]
+├ ƒ /strategy/key-results
+├ ƒ /strategy/reports
+├ ƒ /strategy/reports/executive
+├ ƒ /strategy/weekly-review
+├ ƒ /strategy/weekly-review/[reviewId]
+├ ƒ /system
+├ ƒ /system/command-center
+├ ƒ /system/independence
+├ ƒ /system/organization
+├ ƒ /system/people
+├ ƒ /system/pipeline
+├ ƒ /system/processes
+├ ƒ /system/processes/[id]
+├ ƒ /system/processes/[id]/analysis
+├ ƒ /system/processes/[id]/compare
+├ ƒ /system/processes/[id]/implementation
+├ ƒ /system/processes/[id]/improvements
+├ ƒ /system/processes/[id]/kpis
+├ ƒ /system/processes/[id]/map
+├ ƒ /system/processes/[id]/review
+├ ƒ /system/processes/[id]/standardize
+└ ƒ /system/processes/[id]/to-be
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

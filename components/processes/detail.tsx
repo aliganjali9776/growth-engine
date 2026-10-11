@@ -1,4 +1,5 @@
 "use client";
+import { AdvisorEntry } from "@/components/advisor/entry";
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -58,6 +59,7 @@ export function ProcessDetail({ id }: { id: string }) {
         onAdd={() => setEditing(true)}
         addLabel="ویرایش فرآیند"
       />
+      <AdvisorEntry type="process" id={id} />
       <div className="sys-two">
         {isSampleProcess(p) && (
           <p className="sys-alert">

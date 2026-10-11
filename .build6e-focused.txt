@@ -1,0 +1,202 @@
+TAP version 13
+# Subtest: 6E whitelist explicitly allows eight limited creations; every other template defaults disabled
+ok 1 - 6E whitelist explicitly allows eight limited creations; every other template defaults disabled
+  ---
+  duration_ms: 1.0742
+  type: 'test'
+  ...
+# Subtest: 6E canonical creation + verification: GrowthIdea
+ok 2 - 6E canonical creation + verification: GrowthIdea
+  ---
+  duration_ms: 48.3381
+  type: 'test'
+  ...
+# Subtest: 6E canonical creation + verification: Experiment
+ok 3 - 6E canonical creation + verification: Experiment
+  ---
+  duration_ms: 28.7983
+  type: 'test'
+  ...
+# Subtest: 6E canonical creation + verification: Initiative
+ok 4 - 6E canonical creation + verification: Initiative
+  ---
+  duration_ms: 29.2344
+  type: 'test'
+  ...
+# Subtest: 6E canonical creation + verification: Improvement
+ok 5 - 6E canonical creation + verification: Improvement
+  ---
+  duration_ms: 26.6642
+  type: 'test'
+  ...
+# Subtest: 6E canonical creation + verification: KPI
+ok 6 - 6E canonical creation + verification: KPI
+  ---
+  duration_ms: 22.8804
+  type: 'test'
+  ...
+# Subtest: 6E canonical creation + verification: Objective
+ok 7 - 6E canonical creation + verification: Objective
+  ---
+  duration_ms: 18.4295
+  type: 'test'
+  ...
+# Subtest: 6E canonical creation + verification: KR
+ok 8 - 6E canonical creation + verification: KR
+  ---
+  duration_ms: 22.2102
+  type: 'test'
+  ...
+# Subtest: 6E canonical creation + verification: ScalePreparation
+ok 9 - 6E canonical creation + verification: ScalePreparation
+  ---
+  duration_ms: 21.323
+  type: 'test'
+  ...
+# Subtest: 6E unapproved/rejected actions cannot execute
+ok 10 - 6E unapproved/rejected actions cannot execute
+  ---
+  duration_ms: 16.819
+  type: 'test'
+  ...
+# Subtest: 6E changed payload signature blocks execution and revokes approval
+ok 11 - 6E changed payload signature blocks execution and revokes approval
+  ---
+  duration_ms: 8.5474
+  type: 'test'
+  ...
+# Subtest: 6E direct validator detects approved revision tampering
+ok 12 - 6E direct validator detects approved revision tampering
+  ---
+  duration_ms: 4.3039
+  type: 'test'
+  ...
+# Subtest: 6E stale objective blocks initiative and invalidates approval
+ok 13 - 6E stale objective blocks initiative and invalidates approval
+  ---
+  duration_ms: 14.6029
+  type: 'test'
+  ...
+# Subtest: 6E missing execute permission blocks a valid approved action
+ok 14 - 6E missing execute permission blocks a valid approved action
+  ---
+  duration_ms: 5.8867
+  type: 'test'
+  ...
+# Subtest: 6E High/Critical capabilities never execute
+ok 15 - 6E High/Critical capabilities never execute
+  ---
+  duration_ms: 15.5084
+  type: 'test'
+  ...
+# Subtest: 6E missing approval and expired approval blocked
+ok 16 - 6E missing approval and expired approval blocked
+  ---
+  duration_ms: 11.6635
+  type: 'test'
+  ...
+# Subtest: 6E double execution returns prior result, creates exactly one entity
+ok 17 - 6E double execution returns prior result, creates exactly one entity
+  ---
+  duration_ms: 20.0952
+  type: 'test'
+  ...
+# Subtest: 6E approval alone and model execute_now flag cannot mutate anything
+ok 18 - 6E approval alone and model execute_now flag cannot mutate anything
+  ---
+  duration_ms: 10.6686
+  type: 'test'
+  ...
+# Subtest: 6E draft edits revoke approval, require approval for new revision
+ok 19 - 6E draft edits revoke approval, require approval for new revision
+  ---
+  duration_ms: 8.0134
+  type: 'test'
+  ...
+# Subtest: 6E post-write verification failure is never marked success; retry verifies prior entity without duplicate
+ok 20 - 6E post-write verification failure is never marked success; retry verifies prior entity without duplicate
+  ---
+  duration_ms: 27.1839
+  type: 'test'
+  ...
+# Subtest: 6E quota before domain write leaves domain untouched
+ok 21 - 6E quota before domain write leaves domain untouched
+  ---
+  duration_ms: 9.1596
+  type: 'test'
+  ...
+# Subtest: 6E lock blocks reentrant execution
+ok 22 - 6E lock blocks reentrant execution
+  ---
+  duration_ms: 20.6279
+  type: 'test'
+  ...
+# Subtest: 6E growth idea rollback archives only created idea and retains both audits
+ok 23 - 6E growth idea rollback archives only created idea and retains both audits
+  ---
+  duration_ms: 20.3327
+  type: 'test'
+  ...
+# Subtest: 6E rollback refuses edited idea and unsupported actions
+ok 24 - 6E rollback refuses edited idea and unsupported actions
+  ---
+  duration_ms: 39.2701
+  type: 'test'
+  ...
+# Subtest: 6E executed action is immutable to preparation editing/rebuild/archive/reject
+ok 25 - 6E executed action is immutable to preparation editing/rebuild/archive/reject
+  ---
+  duration_ms: 16.8216
+  type: 'test'
+  ...
+# Subtest: 6E corrupt execution storage is preserved and blocks domain writes
+ok 26 - 6E corrupt execution storage is preserved and blocks domain writes
+  ---
+  duration_ms: 6.1858
+  type: 'test'
+  ...
+# Subtest: 6E 6A-6D prior keys survive execution
+ok 27 - 6E 6A-6D prior keys survive execution
+  ---
+  duration_ms: 14.0704
+  type: 'test'
+  ...
+# Subtest: 6E malicious business text cannot call an executor or escalate initial status
+ok 28 - 6E malicious business text cannot call an executor or escalate initial status
+  ---
+  duration_ms: 11.0567
+  type: 'test'
+  ...
+# Subtest: 6E dependency requires actual verified execution, not conceptual approval
+ok 29 - 6E dependency requires actual verified execution, not conceptual approval
+  ---
+  duration_ms: 29.9713
+  type: 'test'
+  ...
+# Subtest: 6E execute validation failure appends audit without domain mutation
+ok 30 - 6E execute validation failure appends audit without domain mutation
+  ---
+  duration_ms: 7.563
+  type: 'test'
+  ...
+# Subtest: 6E write exception preserves canonical data and allows safe retry after verifying absence
+ok 31 - 6E write exception preserves canonical data and allows safe retry after verifying absence
+  ---
+  duration_ms: 29.6039
+  type: 'test'
+  ...
+# Subtest: 6E source owner removal blocks stale execution with no fallback
+ok 32 - 6E source owner removal blocks stale execution with no fallback
+  ---
+  duration_ms: 15.8765
+  type: 'test'
+  ...
+1..32
+# tests 32
+# suites 0
+# pass 32
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 775.1627

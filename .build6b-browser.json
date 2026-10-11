@@ -1,0 +1,83 @@
+{
+  "page": "http://127.0.0.1:3000/advisor",
+  "provider": "none",
+  "liveProviderTested": false,
+  "liveProviderBlocker": "No configured API key",
+  "demoOrigin": "http://localhost:3000",
+  "questions": [
+    "Executive",
+    "System",
+    "Strategy",
+    "Scale",
+    "CrossModule",
+    "MissingCAC",
+    "Comparison",
+    "FollowUp",
+    "SelectedKR"
+  ],
+  "briefVerified": true,
+  "evidenceDetailsAndSourceNavigation": true,
+  "feedbackVerified": true,
+  "sessionRefreshVerified": true,
+  "longPersianInput": 2000,
+  "keyboardSubmission": "Control+Enter",
+  "debug": {
+    "selection": {
+      "type": "kr",
+      "id": "de07d988-d51c-40a7-92d3-85a4cc4dd37e"
+    },
+    "evidenceCount": 20,
+    "provider": "mock",
+    "model": "deterministic-advisor-v1",
+    "promptVersion": "advisor-v1",
+    "schemaValidated": true,
+    "auditEvents": [
+      "AdvisorQuestionAsked",
+      "ContextBuilt",
+      "ModelCalled",
+      "AdvisorResponseCreated",
+      "AdvisorQuestionAsked",
+      "ContextBuilt",
+      "ModelCalled",
+      "AdvisorResponseCreated",
+      "AdvisorQuestionAsked",
+      "ContextBuilt",
+      "ModelCalled",
+      "AdvisorResponseCreated"
+    ],
+    "capabilities": [
+      "strategy.getKR",
+      "scale.getPrimaryConstraint",
+      "system.getProcess",
+      "scale.getExperiments",
+      "scale.getFunnelSummary"
+    ]
+  },
+  "viewports": [
+    {
+      "width": 1280,
+      "height": 900,
+      "clientWidth": 1265,
+      "scrollWidth": 1265
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "clientWidth": 805,
+      "scrollWidth": 805
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "clientWidth": 375,
+      "scrollWidth": 375
+    }
+  ],
+  "consoleErrors": [],
+  "consoleWarnings": [],
+  "notes": [
+    "Only Advisor session data changed on localhost",
+    "Mock browser QA does not verify real LLM reasoning or injection resistance",
+    "Business records and prior Agent artifacts were not edited"
+  ]
+}

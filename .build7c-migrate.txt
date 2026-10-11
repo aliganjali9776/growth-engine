@@ -1,0 +1,5 @@
+
+> 3s-business-os@0.1.0 db:migrate
+> node --conditions=react-server --import tsx scripts/database.ts migrate
+
+Formal migrations applied

@@ -54,7 +54,7 @@ export function SystemOverview() {
           <GitBranch size={34} />
           <strong>{fa(m.total)}</strong>
           <span>فرآیند در مسیر سیستم‌سازی</span>
-          <small>بر مبنای فرآیندهای فعال همین فضای محلی</small>
+          <small>بر مبنای فرآیندهای فعال همین فضای کسب‌وکار</small>
         </div>
       </div>
       <div className="sys-metrics">

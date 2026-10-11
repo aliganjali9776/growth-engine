@@ -1,4 +1,5 @@
 "use client";
+import { businessStorage } from "@/lib/saas/workspace-storage";
 import { useEffect, useRef, useState } from "react";
 import { RotateCcw, Check, TriangleAlert } from "lucide-react";
 import {
@@ -33,7 +34,7 @@ export function AssessmentExperience() {
   const recoveryBlocked = useRef(false);
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
+      const raw = businessStorage.getItem(STORAGE_KEY);
       if (raw) setDraft(parseDraft(raw));
     } catch {
       recoveryBlocked.current = true;
@@ -46,7 +47,7 @@ export function AssessmentExperience() {
   useEffect(() => {
     if (!ready || recoveryBlocked.current) return;
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(draft));
+      businessStorage.setItem(STORAGE_KEY, JSON.stringify(draft));
       setStorageError("");
     } catch {
       setStorageError(
@@ -100,7 +101,7 @@ export function AssessmentExperience() {
     recoveryBlocked.current = false;
     const fresh = emptyDraft();
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(fresh));
+      businessStorage.setItem(STORAGE_KEY, JSON.stringify(fresh));
     } catch {
       setStorageError(
         "ذخیره در این مرورگر ممکن نیست؛ شروع مجدد فقط در همین صفحه انجام شد.",
@@ -231,7 +232,9 @@ export function AssessmentExperience() {
       {draft.screen !== "intro" && !storageError && (
         <p className="assessment-save-status">
           <Check size={13} />
-          پیشرفت شما در همین مرورگر ذخیره شده است.
+          {businessStorage.serverExecutionDisabled
+            ? "پیشرفت شما به فضای همین شرکت متصل است."
+            : "پیشرفت شما در همین مرورگر ذخیره شده است."}
         </p>
       )}
       {confirmRestart && (

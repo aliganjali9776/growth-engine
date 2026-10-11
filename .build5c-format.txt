@@ -1,0 +1,8 @@
+lib/scale/funnel/logic.ts 237ms
+lib/scale/funnel/model.ts 56ms (unchanged)
+lib/scale/funnel/mutations.ts 96ms
+lib/scale/funnel/validation.ts 85ms
+components/scale/funnel-editors.tsx 131ms
+components/scale/funnel-revenue.tsx 91ms
+components/scale/funnel.tsx 119ms
+tests/funnel.cjs 102ms

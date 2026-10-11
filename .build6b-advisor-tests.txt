@@ -1,0 +1,245 @@
+TAP version 13
+# Subtest: 6B A provider independent real adapter and explicit mock status
+ok 1 - 6B A provider independent real adapter and explicit mock status
+  ---
+  duration_ms: 1.4397
+  type: 'test'
+  ...
+# Subtest: 6B B context only Observe capabilities no prepare execute
+ok 2 - 6B B context only Observe capabilities no prepare execute
+  ---
+  duration_ms: 4.2837
+  type: 'test'
+  ...
+# Subtest: 6B C mutation rejected Delete all KRs
+ok 3 - 6B C mutation rejected Delete all KRs
+  ---
+  duration_ms: 2.5474
+  type: 'test'
+  ...
+# Subtest: 6B C mutation rejected هدف این نتیجه کلیدی را تغییر بده
+ok 4 - 6B C mutation rejected هدف این نتیجه کلیدی را تغییر بده
+  ---
+  duration_ms: 1.2451
+  type: 'test'
+  ...
+# Subtest: 6B C mutation rejected آزمایش را لغو کن
+ok 5 - 6B C mutation rejected آزمایش را لغو کن
+  ---
+  duration_ms: 1.5175
+  type: 'test'
+  ...
+# Subtest: 6B C mutation rejected فرآیند را حذف کن
+ok 6 - 6B C mutation rejected فرآیند را حذف کن
+  ---
+  duration_ms: 2.5392
+  type: 'test'
+  ...
+# Subtest: 6B D canonical sources and old artifacts never change
+ok 7 - 6B D canonical sources and old artifacts never change
+  ---
+  duration_ms: 39.1554
+  type: 'test'
+  ...
+# Subtest: 6B E narrow KR selected and linked context only
+ok 8 - 6B E narrow KR selected and linked context only
+  ---
+  duration_ms: 6.2432
+  type: 'test'
+  ...
+# Subtest: 6B F nonexistent selected entity never falls back
+ok 9 - 6B F nonexistent selected entity never falls back
+  ---
+  duration_ms: 6.0178
+  type: 'test'
+  ...
+# Subtest: 6B G bounded history cannot be system prompt
+ok 10 - 6B G bounded history cannot be system prompt
+  ---
+  duration_ms: 1.2774
+  type: 'test'
+  ...
+# Subtest: 6B H prompt version trust boundary and no raw source payload
+ok 11 - 6B H prompt version trust boundary and no raw source payload
+  ---
+  duration_ms: 0.7543
+  type: 'test'
+  ...
+# Subtest: 6B I missing CAC ignores revenue target 1.5B
+ok 12 - 6B I missing CAC ignores revenue target 1.5B
+  ---
+  duration_ms: 0.9238
+  type: 'test'
+  ...
+# Subtest: 6B J sources must match source ids
+ok 13 - 6B J sources must match source ids
+  ---
+  duration_ms: 0.6787
+  type: 'test'
+  ...
+# Subtest: 6B K invented metrics rejected
+ok 14 - 6B K invented metrics rejected
+  ---
+  duration_ms: 0.8058
+  type: 'test'
+  ...
+# Subtest: 6B L model confidence and chain-of-thought disallowed
+ok 15 - 6B L model confidence and chain-of-thought disallowed
+  ---
+  duration_ms: 0.8574
+  type: 'test'
+  ...
+# Subtest: 6B M frozen evidence remains unchanged after context edit
+ok 16 - 6B M frozen evidence remains unchanged after context edit
+  ---
+  duration_ms: 0.8076
+  type: 'test'
+  ...
+# Subtest: 6B N deterministic confidence declines for gaps
+ok 17 - 6B N deterministic confidence declines for gaps
+  ---
+  duration_ms: 0.6763
+  type: 'test'
+  ...
+# Subtest: 6B O brief and comparison schema
+ok 18 - 6B O brief and comparison schema
+  ---
+  duration_ms: 8.1314
+  type: 'test'
+  ...
+# Subtest: 6B P followup retains intent and entity context
+ok 19 - 6B P followup retains intent and entity context
+  ---
+  duration_ms: 0.7048
+  type: 'test'
+  ...
+# Subtest: 6B Q no provider controlled error
+ok 20 - 6B Q no provider controlled error
+  ---
+  duration_ms: 0.9416
+  type: 'test'
+  ...
+# Subtest: 6B R external question deterministic limitation
+ok 21 - 6B R external question deterministic limitation
+  ---
+  duration_ms: 0.7094
+  type: 'test'
+  ...
+# Subtest: 6B S compact handoff rejects raw store prompt model headers
+ok 22 - 6B S compact handoff rejects raw store prompt model headers
+  ---
+  duration_ms: 2.9677
+  type: 'test'
+  ...
+# Subtest: 6B T excessive nested evidence unsafe routes metric mismatch
+ok 23 - 6B T excessive nested evidence unsafe routes metric mismatch
+  ---
+  duration_ms: 1.7092
+  type: 'test'
+  ...
+# Subtest: 6B U separate session persistence CAS and new session preserve all business data
+ok 24 - 6B U separate session persistence CAS and new session preserve all business data
+  ---
+  duration_ms: 1.1774
+  type: 'test'
+  ...
+# Subtest: 6B V corrupt session retained without overwrite
+ok 25 - 6B V corrupt session retained without overwrite
+  ---
+  duration_ms: 0.1265
+  type: 'test'
+  ...
+# Subtest: 6B W empty sources return data gaps and Low confidence
+ok 26 - 6B W empty sources return data gaps and Low confidence
+  ---
+  duration_ms: 0.8021
+  type: 'test'
+  ...
+# Subtest: 6B injection note remains quoted data no execution or mutation
+ok 27 - 6B injection note remains quoted data no execution or mutation
+  ---
+  duration_ms: 0.8192
+  type: 'test'
+  ...
+# Subtest: 6B refreshed semantic fingerprint ignores read timestamp changes but captures values
+ok 28 - 6B refreshed semantic fingerprint ignores read timestamp changes but captures values
+  ---
+  duration_ms: 10.4342
+  type: 'test'
+  ...
+# Subtest: 6B openai transport fixed endpoint strict output no tools or store
+ok 29 - 6B openai transport fixed endpoint strict output no tools or store
+  ---
+  duration_ms: 18.9106
+  type: 'test'
+  ...
+# Subtest: 6B provider HTTP error sanitized 401
+ok 30 - 6B provider HTTP error sanitized 401
+  ---
+  duration_ms: 1.4584
+  type: 'test'
+  ...
+# Subtest: 6B provider HTTP error sanitized 429
+ok 31 - 6B provider HTTP error sanitized 429
+  ---
+  duration_ms: 0.9224
+  type: 'test'
+  ...
+# Subtest: 6B provider HTTP error sanitized 500
+ok 32 - 6B provider HTTP error sanitized 500
+  ---
+  duration_ms: 0.7637
+  type: 'test'
+  ...
+# 6B benchmark {"experiments":500,"keyResults":100,"processes":250,"bytes":6662,"ms":37,"evidence":6}
+# Subtest: 6B timeout network and abort controlled
+ok 33 - 6B timeout network and abort controlled
+  ---
+  duration_ms: 18.6302
+  type: 'test'
+  ...
+# Subtest: 6B malformed provider response controlled not json
+ok 34 - 6B malformed provider response controlled not json
+  ---
+  duration_ms: 1.7881
+  type: 'test'
+  ...
+# Subtest: 6B malformed provider response controlled {"status":"incomplet
+ok 35 - 6B malformed provider response controlled {"status":"incomplet
+  ---
+  duration_ms: 1.4219
+  type: 'test'
+  ...
+# Subtest: 6B malformed provider response controlled {"status":"completed
+ok 36 - 6B malformed provider response controlled {"status":"completed
+  ---
+  duration_ms: 1.2676
+  type: 'test'
+  ...
+# Subtest: 6B linked cross-module chain and partial win is not proof
+ok 37 - 6B linked cross-module chain and partial win is not proof
+  ---
+  duration_ms: 7.4241
+  type: 'test'
+  ...
+# Subtest: 6B large dataset 500 experiments 100 KRs 250 processes narrow payload
+ok 38 - 6B large dataset 500 experiments 100 KRs 250 processes narrow payload
+  ---
+  duration_ms: 41.0818
+  type: 'test'
+  ...
+# Subtest: 6B corrupted stored response rejected safely; frozen valid response reloads
+ok 39 - 6B corrupted stored response rejected safely; frozen valid response reloads
+  ---
+  duration_ms: 2.0791
+  type: 'test'
+  ...
+1..39
+# tests 39
+# suites 0
+# pass 39
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 351.2214

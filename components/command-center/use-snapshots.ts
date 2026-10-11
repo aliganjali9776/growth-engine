@@ -1,4 +1,5 @@
 "use client";
+import { businessStorage } from "@/lib/saas/workspace-storage";
 import { useEffect, useRef, useState } from "react";
 import {
   SNAPSHOT_KEY,
@@ -15,7 +16,7 @@ export function useSnapshots() {
     blocked = useRef(false);
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(SNAPSHOT_KEY),
+      const raw = businessStorage.getItem(SNAPSHOT_KEY),
         next = raw
           ? parseSnapshots(raw)
           : { version: 1 as const, snapshots: [] };
@@ -43,7 +44,7 @@ export function useSnapshots() {
         throw new Error("تاریخچه آماده ذخیره نیست؛ صفحه را تازه کنید.");
       const raw = JSON.stringify({ version: 1, snapshots }),
         next = parseSnapshots(raw);
-      writeTogether(localStorage, [
+      writeTogether(businessStorage, [
         { key: SNAPSHOT_KEY, expected: last.current, value: raw },
       ]);
       last.current = raw;

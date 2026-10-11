@@ -1,0 +1,88 @@
+{
+  "checkedAt": "2026-10-06T21:11:03.650Z",
+  "organizationId": "984bc0f2-1a5e-412b-8330-bd0d8f8c5c2a",
+  "filename": "C:\\Users\\Win11\\Downloads\\growth-engine-server-984bc0f2-1a5e-412b-8330-bd0d8f8c5c2a-2026-10-06.json",
+  "bytes": 64041,
+  "sha256": "7304d21d4d1f7b2817dc5342145624301e518f02544a60c4fc84f97eb4c4df78",
+  "forbiddenFields": 0,
+  "foreignRows": 0,
+  "parity": [
+    {
+      "storeKey": "growth-engine.assessment.v2",
+      "equal": true,
+      "records": 0
+    },
+    {
+      "storeKey": "growth-engine.system.v1",
+      "equal": true,
+      "records": 33
+    },
+    {
+      "storeKey": "growth-engine.process-maps.v1",
+      "equal": true,
+      "records": 0
+    },
+    {
+      "storeKey": "growth-engine.process-analysis.v1",
+      "equal": true,
+      "records": 0
+    },
+    {
+      "storeKey": "growth-engine.process-standards.v1",
+      "equal": true,
+      "records": 0
+    },
+    {
+      "storeKey": "growth-engine.process-measurement.v1",
+      "equal": true,
+      "records": 0
+    },
+    {
+      "storeKey": "growth-engine.system-health-history.v1",
+      "equal": true,
+      "records": 0
+    },
+    {
+      "storeKey": "growth-engine.strategy.v1",
+      "equal": true,
+      "records": 10
+    },
+    {
+      "storeKey": "growth-engine.scale.v1",
+      "equal": true,
+      "records": 0
+    },
+    {
+      "storeKey": "growth-engine.agent.v1",
+      "equal": true,
+      "records": 0
+    },
+    {
+      "storeKey": "growth-engine.advisor.v1",
+      "equal": true,
+      "records": 0
+    },
+    {
+      "storeKey": "growth-engine.agent.diagnosis.v1",
+      "equal": true,
+      "records": 0
+    },
+    {
+      "storeKey": "growth-engine.agent.preparation.v1",
+      "equal": true,
+      "records": 0
+    },
+    {
+      "storeKey": "growth-engine.agent.execution.v1",
+      "equal": true,
+      "records": 0
+    },
+    {
+      "storeKey": "growth-engine.agent.workspace.v1",
+      "equal": true,
+      "records": 0
+    }
+  ],
+  "acceptedByMigration": false,
+  "restoreDisposition": "DEFERRED by approved Beta scope: full automated PostgreSQL business-backup restore. PostgreSQL-level backup/restore is the Beta recovery mechanism. No lossy conversion is permitted."
+}

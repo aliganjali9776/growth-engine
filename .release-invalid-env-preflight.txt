@@ -1,0 +1,5 @@
+
+> 3s-business-os@0.1.0 prestart
+> node --import tsx scripts/validate-production.ts
+
+Production environment invalid: DATABASE_URL must be a PostgreSQL URL; Embedded development databases are disabled in production

@@ -1,4 +1,5 @@
 "use client";
+import { businessStorage } from "@/lib/saas/workspace-storage";
 import { StorageRecovery } from "../system/recovery";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { useSystem } from "@/components/system/provider";
@@ -16,7 +17,7 @@ import {
 } from "@/lib/system/measurement/model";
 import { confirmMeasurement } from "@/lib/system/measurement/readiness";
 import type { ProcessEvidence } from "@/lib/system/measurement/health";
-import { writeTogether } from "@/lib/system/storage-transaction";
+import { persistMeasurement } from "@/lib/system/measurement/commands";
 type Value = {
   store: MeasurementStore | null;
   error: string;
@@ -48,7 +49,7 @@ export function MeasurementProvider({
     blocked = useRef(false);
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(MEASUREMENT_KEY),
+      const raw = businessStorage.getItem(MEASUREMENT_KEY),
         next = raw
           ? parseMeasurement(raw)
           : { version: 1 as const, records: [] };
@@ -98,12 +99,16 @@ export function MeasurementProvider({
         raw = JSON.stringify(next),
         write = { key: MEASUREMENT_KEY, value: raw, expected: last.current };
       if (nextSystem) commit(nextSystem, write);
-      else writeTogether(localStorage, [write]);
+      else persistMeasurement(businessStorage, next, last.current);
       last.current = raw;
       current.current = next;
       setStore(next);
       setError("");
-      setStatus("تغییرات در این مرورگر ذخیره شد");
+      setStatus(
+        businessStorage.serverExecutionDisabled
+          ? "وضعیت ذخیره در بالای صفحه نمایش داده می‌شود"
+          : "تغییرات در این مرورگر ذخیره شد",
+      );
     } catch (e) {
       setError(e instanceof Error ? e.message : "ذخیره نشد.");
       throw e;

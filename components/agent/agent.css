@@ -1,0 +1,149 @@
+.agent-lab {
+  max-width: 1240px;
+  margin: auto;
+  padding: 24px;
+  display: grid;
+  gap: 24px;
+  color: #172438;
+}
+.agent-hero {
+  background: #13243b;
+  color: #fff;
+  border-radius: 20px;
+  padding: 32px;
+}
+.agent-hero > span {
+  color: #d6b66e;
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+.agent-hero h1 {
+  margin: 14px 0;
+}
+.agent-tags,
+.agent-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 18px 0;
+}
+.agent-tags span {
+  border: 1px solid #657287;
+  border-radius: 30px;
+  padding: 6px 12px;
+  font-size: 12px;
+}
+.agent-notice {
+  padding: 16px;
+  border-right: 4px solid #c4a057;
+  background: #f5f0e3;
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+}
+.agent-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 14px;
+  margin: 18px 0;
+}
+.agent-grid article,
+.agent-evidence {
+  padding: 18px;
+  border: 1px solid #e1e5eb;
+  border-radius: 14px;
+  background: #fafbfc;
+}
+.agent-evidence {
+  display: grid;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+  overflow-wrap: anywhere;
+}
+.agent-evidence span,
+.agent-evidence small {
+  color: #687687;
+  font-size: 12px;
+}
+.agent-evidence:hover {
+  border-color: #ba9652;
+}
+.agent-table {
+  overflow: auto;
+}
+.agent-table table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 13px;
+}
+.agent-table td,
+.agent-table th {
+  padding: 12px;
+  text-align: right;
+  border-bottom: 1px solid #e1e5eb;
+}
+.agent-table summary {
+  cursor: pointer;
+  min-width: 180px;
+}
+.agent-preview,
+.agent-recommendation,
+.agent-approval {
+  border: 1px solid #dfe4ec;
+  border-radius: 14px;
+  padding: 20px;
+  margin: 18px 0;
+  overflow-wrap: anywhere;
+}
+.agent-audit {
+  border-bottom: 1px solid #e2e7ef;
+  padding: 12px 0;
+}
+.agent-audit strong {
+  font-size: 12px;
+}
+.agent-lab pre {
+  max-height: 380px;
+  overflow: auto;
+  background: #f4f6f9;
+  padding: 16px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+.agent-lab :focus-visible {
+  outline: 3px solid #a77c32;
+  outline-offset: 4px;
+}
+.agent-lab select,
+.agent-lab input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccd3dd;
+  border-radius: 8px;
+  background: white;
+  font: inherit;
+}
+.agent-lab details {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 600px) {
+  .agent-lab {
+    padding: 14px;
+    gap: 16px;
+  }
+  .agent-hero {
+    padding: 22px;
+  }
+  .agent-lab .sys-panel {
+    padding: 16px;
+  }
+  .agent-preview {
+    padding: 14px;
+  }
+  .agent-table {
+    max-width: 100%;
+  }
+  .agent-hero h1 {
+    font-size: 24px;
+  }
+}

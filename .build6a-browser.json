@@ -1,0 +1,68 @@
+{
+  "url": "http://localhost:3000/dev/agent",
+  "console": [],
+  "packets": [
+    {
+      "type": "فرآیند سیستم",
+      "visible": true
+    },
+    {
+      "type": "هدف استراتژی",
+      "visible": true
+    },
+    {
+      "type": "نتیجه کلیدی",
+      "visible": true
+    },
+    {
+      "type": "گلوگاه رشد",
+      "visible": true
+    },
+    {
+      "type": "آزمایش رشد",
+      "visible": true
+    },
+    {
+      "type": "مدیریت سه ماژول",
+      "visible": true
+    }
+  ],
+  "dom": {
+    "auditEvents": [
+      "ActionExecuted",
+      "ActionApproved",
+      "ApprovalRequested",
+      "ActionPrepared",
+      "ActionFailed",
+      "ActionApproved",
+      "ApprovalRequested",
+      "ActionPrepared",
+      "ActionFailed",
+      "ActionExecuted",
+      "ActionApproved",
+      "ApprovalRequested",
+      "ActionPrepared",
+      "ActionFailed",
+      "ActionRejected",
+      "ApprovalRequested",
+      "ActionPrepared",
+      "RecommendationCreated",
+      "ObservationCreated"
+    ],
+    "krOptions": "مدیریت سه ماژولفرآیند سیستمهدف استراتژینتیجه کلیدیگلوگاه رشدآزمایش رشد",
+    "registryRows": 42,
+    "scrollWidth": 1265,
+    "sections": [
+      "۱. وضعیت معماری",
+      "۲. فهرست قابلیت‌ها",
+      "۳. ماتریس مجوزها",
+      "۴. مرور شواهد",
+      "۵. پیش‌نمایش زمینه",
+      "۶. نمونه توصیهٔ مبتنی بر قواعد",
+      "۷. پیش‌نمایش اقدام پیشنهادی",
+      "۸. صف تأیید",
+      "۹. تاریخچهٔ حسابرسی"
+    ],
+    "width": 1265
+  }
+}

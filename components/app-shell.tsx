@@ -305,7 +305,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <AppSidebar open={open} onClose={() => setOpen(false)} />
       <div className="workspace">
         <TopBar onMenu={() => setOpen(true)} />
-        <main id="main-content">{children}</main>
+        <main id="main-content" tabIndex={-1}>{children}</main>
         <footer className="workspace-footer">
           <span>با تمرکز مدیریت کنید. با اطمینان رشد کنید.</span>
           <span dir="ltr">

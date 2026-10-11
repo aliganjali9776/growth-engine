@@ -1,0 +1,4 @@
+components/advisor/workspace.tsx 396ms
+lib/agent/workspace.ts 103ms
+lib/workspace-storage.ts 25ms
+lib/agent/evidence.ts 4ms

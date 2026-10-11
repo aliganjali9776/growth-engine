@@ -1,0 +1,130 @@
+TAP version 13
+# Subtest: 7D export contains exactly the 15 allowlisted stores and keeps legacy IDs
+ok 1 - 7D export contains exactly the 15 allowlisted stores and keeps legacy IDs
+  ---
+  duration_ms: 2723.299
+  type: 'test'
+  ...
+# Subtest: 7D existing local envelope remains unchanged
+ok 2 - 7D existing local envelope remains unchanged
+  ---
+  duration_ms: 0.3433
+  type: 'test'
+  ...
+# Subtest: 7D unsupported export schema is rejected
+ok 3 - 7D unsupported export schema is rejected
+  ---
+  duration_ms: 1.241
+  type: 'test'
+  ...
+# Subtest: 7D omitted module cannot become an empty valid import
+ok 4 - 7D omitted module cannot become an empty valid import
+  ---
+  duration_ms: 0.9638
+  type: 'test'
+  ...
+# Subtest: 7D unexpected auth store is rejected
+ok 5 - 7D unexpected auth store is rejected
+  ---
+  duration_ms: 0.6969
+  type: 'test'
+  ...
+# Subtest: 7D nested credential fields are rejected
+ok 6 - 7D nested credential fields are rejected
+  ---
+  duration_ms: 1.1623
+  type: 'test'
+  ...
+# Subtest: 7D duplicate primary IDs are rejected by shared local validators
+ok 7 - 7D duplicate primary IDs are rejected by shared local validators
+  ---
+  duration_ms: 1.3358
+  type: 'test'
+  ...
+# Subtest: 7D cross-module missing owner is reported without repairing it
+ok 8 - 7D cross-module missing owner is reported without repairing it
+  ---
+  duration_ms: 3.6967
+  type: 'test'
+  ...
+# Subtest: 7D preview counts match actual System and Strategy data
+ok 9 - 7D preview counts match actual System and Strategy data
+  ---
+  duration_ms: 3.9299
+  type: 'test'
+  ...
+# Subtest: 7D checksum ignores export date and JSON object key order
+ok 10 - 7D checksum ignores export date and JSON object key order
+  ---
+  duration_ms: 5.4235
+  type: 'test'
+  ...
+# Subtest: 7D checksum detects historical value changes
+ok 11 - 7D checksum detects historical value changes
+  ---
+  duration_ms: 6.3091
+  type: 'test'
+  ...
+# Subtest: 7D empty company preview writes only lifecycle/audit metadata
+ok 12 - 7D empty company preview writes only lifecycle/audit metadata
+  ---
+  duration_ms: 95.2959
+  type: 'test'
+  ...
+# Subtest: 7D Viewer cannot preview whole-company import
+ok 13 - 7D Viewer cannot preview whole-company import
+  ---
+  duration_ms: 53.8117
+  type: 'test'
+  ...
+# Subtest: 7D Editor cannot preview whole-company import
+ok 14 - 7D Editor cannot preview whole-company import
+  ---
+  duration_ms: 43.8211
+  type: 'test'
+  ...
+# Subtest: 7D Consultant cannot preview whole-company import
+ok 15 - 7D Consultant cannot preview whole-company import
+  ---
+  duration_ms: 53.4277
+  type: 'test'
+  ...
+# Subtest: 7D foreign organization target is denied
+ok 16 - 7D foreign organization target is denied
+  ---
+  duration_ms: 30.5466
+  type: 'test'
+  ...
+# Subtest: 7D company with just one department blocks full import
+ok 17 - 7D company with just one department blocks full import
+  ---
+  duration_ms: 58.4996
+  type: 'test'
+  ...
+# Subtest: 7D preview history is tenant scoped
+ok 18 - 7D preview history is tenant scoped
+  ---
+  duration_ms: 86.141
+  type: 'test'
+  ...
+# Subtest: 7D invalid package leaves migration records and business data untouched
+ok 19 - 7D invalid package leaves migration records and business data untouched
+  ---
+  duration_ms: 36.324
+  type: 'test'
+  ...
+# Subtest: 7D business DB backup excludes invitations, memberships, sessions and raw workspaces
+ok 20 - 7D business DB backup excludes invitations, memberships, sessions and raw workspaces
+  ---
+  duration_ms: 69.9676
+  type: 'test'
+  ...
+1..20
+# tests 20
+# suites 0
+# pass 20
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4541.0392

@@ -1,0 +1,186 @@
+TAP version 13
+# 5G performance {"stress":false,"counts":[20,150,150,30,30,24,20,30,50],"times":{"getScaleDashboard":34.69,"getScaleHealth":14.47,"getScaleEvidence":1.49,"getScaleMomentum":16.06,"getScaleAttention":10.97,"getExperimentPortfolio":0.83,"getFunnelExecutiveSummary":3.62,"getRevenueExecutiveSummary":3.25,"getChannelPortfolioSummary":2.83,"getChannelConcentrationSummary":3.31,"getLoopPortfolioSummary":0.11,"getScaleCandidatePortfolio":1.31,"getCapacityExecutiveSummary":2.08,"getScaleReadinessTrend":0.12,"getScaleDataCompleteness":0.14,"getScaleDataFreshness":0.41,"getScaleDataConfidence":0.9}}
+# 5G performance {"stress":true,"counts":[50,500,500,52,75,36,50,75,100],"times":{"getScaleDashboard":77.33,"getScaleHealth":52.03,"getScaleEvidence":6.26,"getScaleMomentum":38.85,"getScaleAttention":46.91,"getExperimentPortfolio":12.46,"getFunnelExecutiveSummary":11.42,"getRevenueExecutiveSummary":5.89,"getChannelPortfolioSummary":24.5,"getChannelConcentrationSummary":21.11,"getLoopPortfolioSummary":0.14,"getScaleCandidatePortfolio":4.57,"getCapacityExecutiveSummary":5.94,"getScaleReadinessTrend":0,"getScaleDataCompleteness":0.02,"getScaleDataFreshness":0.57,"getScaleDataConfidence":2.69}}
+# Subtest: 5G same Tehran day duration is zero across UTC midnight; reversed time is unknown
+ok 1 - 5G same Tehran day duration is zero across UTC midnight; reversed time is unknown
+  ---
+  duration_ms: 8.4338
+  type: 'test'
+  ...
+# Subtest: 5G dates at Tehran midnight use local calendar day
+ok 2 - 5G dates at Tehran midnight use local calendar day
+  ---
+  duration_ms: 1.0314
+  type: 'test'
+  ...
+# Subtest: 5G future completion is not recent activity
+ok 3 - 5G future completion is not recent activity
+  ---
+  duration_ms: 1.1885
+  type: 'test'
+  ...
+# Subtest: 5G freshness includes completed loop periods and missing remains missing
+ok 4 - 5G freshness includes completed loop periods and missing remains missing
+  ---
+  duration_ms: 0.4715
+  type: 'test'
+  ...
+# Subtest: 5G report result distribution and table share filtered portfolio
+ok 5 - 5G report result distribution and table share filtered portfolio
+  ---
+  duration_ms: 0.8019
+  type: 'test'
+  ...
+# Subtest: 5G malformed missing result does not masquerade as failed performance
+ok 6 - 5G malformed missing result does not masquerade as failed performance
+  ---
+  duration_ms: 3.462
+  type: 'test'
+  ...
+# Subtest: 5G snapshot role corruption is rejected before UI rendering
+ok 7 - 5G snapshot role corruption is rejected before UI rendering
+  ---
+  duration_ms: 8.3711
+  type: 'test'
+  ...
+# Subtest: 5G snapshot malformed nested rows are rejected
+ok 8 - 5G snapshot malformed nested rows are rejected
+  ---
+  duration_ms: 1.6888
+  type: 'test'
+  ...
+# Subtest: 5G capacity cannot be reparented to another candidate
+ok 9 - 5G capacity cannot be reparented to another candidate
+  ---
+  duration_ms: 2.5142
+  type: 'test'
+  ...
+# Subtest: 5G candidate source bypass rejected at persistence boundary
+ok 10 - 5G candidate source bypass rejected at persistence boundary
+  ---
+  duration_ms: 2.5717
+  type: 'test'
+  ...
+# Subtest: 5G manually jumping to ready needs assessment evidence
+ok 11 - 5G manually jumping to ready needs assessment evidence
+  ---
+  duration_ms: 0.7079
+  type: 'test'
+  ...
+# Subtest: 5G archived candidate cannot silently reenter execution
+ok 12 - 5G archived candidate cannot silently reenter execution
+  ---
+  duration_ms: 0.508
+  type: 'test'
+  ...
+# Subtest: 5G decision report retains stopped and archived candidate history
+ok 13 - 5G decision report retains stopped and archived candidate history
+  ---
+  duration_ms: 1.0794
+  type: 'test'
+  ...
+# Subtest: 5G missing one of two linked processes cannot silently improve readiness
+ok 14 - 5G missing one of two linked processes cannot silently improve readiness
+  ---
+  duration_ms: 0.5735
+  type: 'test'
+  ...
+# Subtest: 5G wrong-objective KR is not reported as valid alignment
+ok 15 - 5G wrong-objective KR is not reported as valid alignment
+  ---
+  duration_ms: 1.3724
+  type: 'test'
+  ...
+# Subtest: 5G archived Strategy sources disappear from current choices without changing storage
+ok 16 - 5G archived Strategy sources disappear from current choices without changing storage
+  ---
+  duration_ms: 14.8825
+  type: 'test'
+  ...
+# Subtest: 5G monetary Strategy target drives backsolve read-only and unavailable target stays unknown
+ok 17 - 5G monetary Strategy target drives backsolve read-only and unavailable target stays unknown
+  ---
+  duration_ms: 4.8235
+  type: 'test'
+  ...
+# Subtest: 5G demand and measurement quality do not reward repeated observations twice
+ok 18 - 5G demand and measurement quality do not reward repeated observations twice
+  ---
+  duration_ms: 0.8136
+  type: 'test'
+  ...
+# Subtest: 5G repeated experiment lineage is not independent demand repeatability
+ok 19 - 5G repeated experiment lineage is not independent demand repeatability
+  ---
+  duration_ms: 0.6373
+  type: 'test'
+  ...
+# Subtest: 5G history and explicit decision survive capacity improvement
+ok 20 - 5G history and explicit decision survive capacity improvement
+  ---
+  duration_ms: 1.2276
+  type: 'test'
+  ...
+# Subtest: 5G channel metadata changes preserve historical attribution
+ok 21 - 5G channel metadata changes preserve historical attribution
+  ---
+  duration_ms: 1.9935
+  type: 'test'
+  ...
+# Subtest: 5G funnel history and scenario remain independent of live structure
+ok 22 - 5G funnel history and scenario remain independent of live structure
+  ---
+  duration_ms: 2.8913
+  type: 'test'
+  ...
+# Subtest: 5G documented revenue backsolve is 12 contracts 40 proposals 80 meetings
+ok 23 - 5G documented revenue backsolve is 12 contracts 40 proposals 80 meetings
+  ---
+  duration_ms: 1.1191
+  type: 'test'
+  ...
+# Subtest: 5G empty and broken external references never fabricate health or trend
+ok 24 - 5G empty and broken external references never fabricate health or trend
+  ---
+  duration_ms: 3.9899
+  type: 'test'
+  ...
+# Subtest: 5G missing financial capacity remains null and gate is not a decision
+ok 25 - 5G missing financial capacity remains null and gate is not a decision
+  ---
+  duration_ms: 0.7179
+  type: 'test'
+  ...
+# Subtest: 5G persistence round trip preserves previous builds and snapshots
+ok 26 - 5G persistence round trip preserves previous builds and snapshots
+  ---
+  duration_ms: 3.1832
+  type: 'test'
+  ...
+# Subtest: 5G invalid capacities and orphan internal relations rejected before save
+ok 27 - 5G invalid capacities and orphan internal relations rejected before save
+  ---
+  duration_ms: 1.2413
+  type: 'test'
+  ...
+# Subtest: 5G realistic complete selector workload remains deterministic and finite
+ok 28 - 5G realistic complete selector workload remains deterministic and finite
+  ---
+  duration_ms: 232.2832
+  type: 'test'
+  ...
+# Subtest: 5G stress complete selector workload remains deterministic and finite
+ok 29 - 5G stress complete selector workload remains deterministic and finite
+  ---
+  duration_ms: 732.0874
+  type: 'test'
+  ...
+1..29
+# tests 29
+# suites 0
+# pass 29
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1306.9203

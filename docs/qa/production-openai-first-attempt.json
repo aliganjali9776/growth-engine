@@ -1,0 +1,17 @@
+{
+  "model": "gpt-6-luna",
+  "evidenceCount": 17,
+  "httpStatus": 200,
+  "responseStatus": "completed",
+  "incompleteReason": null,
+  "usage": {
+    "inputTokens": 4446,
+    "outputTokens": 720
+  },
+  "result": "failed",
+  "errorCode": "InvalidResponse",
+  "validationLocations": [
+    "validation.ts:284:9",
+    "validation.ts:391:47"
+  ]
+}

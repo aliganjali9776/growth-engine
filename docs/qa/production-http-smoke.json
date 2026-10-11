@@ -1,0 +1,75 @@
+[
+  {
+    "path": "/api/health",
+    "status": 200,
+    "location": null,
+    "securityHeaders": true,
+    "body": {
+      "status": "ok"
+    }
+  },
+  {
+    "path": "/api/health/ready",
+    "status": 503,
+    "location": null,
+    "securityHeaders": true,
+    "body": {
+      "status": "not_ready"
+    }
+  },
+  {
+    "path": "/dev/agent",
+    "status": 404,
+    "location": null,
+    "securityHeaders": true
+  },
+  {
+    "path": "/api/dev/saas",
+    "status": 404,
+    "location": null,
+    "securityHeaders": true
+  },
+  {
+    "path": "/login",
+    "status": 200,
+    "location": null,
+    "securityHeaders": true
+  },
+  {
+    "path": "/companies",
+    "status": 307,
+    "location": "/login?returnTo=%2Fcompanies",
+    "securityHeaders": true
+  },
+  {
+    "path": "/system",
+    "status": 307,
+    "location": "/login?returnTo=%2Fsystem",
+    "securityHeaders": true
+  },
+  {
+    "path": "/strategy",
+    "status": 307,
+    "location": "/login?returnTo=%2Fstrategy",
+    "securityHeaders": true
+  },
+  {
+    "path": "/scale",
+    "status": 307,
+    "location": "/login?returnTo=%2Fscale",
+    "securityHeaders": true
+  },
+  {
+    "path": "/advisor/workspace",
+    "status": 307,
+    "location": "/login?returnTo=%2Fadvisor%2Fworkspace",
+    "securityHeaders": true
+  },
+  {
+    "path": "auth/DB-failure",
+    "status": 503,
+    "body": {
+      "error": "AuthenticationUnavailable"
+    }
+  }
+]

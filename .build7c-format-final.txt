@@ -1,0 +1,7 @@
+package.json 30ms
+lib/server/context.ts 117ms
+lib/server/services/workspace.ts 108ms
+lib/server/services/workspace-permissions.ts 100ms
+lib/server/services/agent-authorization.ts 81ms
+components/saas/shell.tsx 92ms
+app/advisor/authorized-actions/page.tsx 32ms

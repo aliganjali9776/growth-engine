@@ -1,0 +1,277 @@
+TAP version 13
+# 4F benchmark 10/40/60/13 ms: 45.4, 50.7, 37.6, 44.4, 36.6
+# 4F benchmark 25/100/150/26 ms: 177.0, 151.1, 141.6, 102.9, 97.5
+# 4G 50/250/400/52 aggregation ms 505.2, 445.4, 420.5 filter ms 449.3
+# Subtest: 4F A progress uses canonical weighted objective results
+ok 1 - 4F A progress uses canonical weighted objective results
+  ---
+  duration_ms: 70.4233
+  type: 'test'
+  ...
+# Subtest: 4F B health explains weights, availability, contributions and risk caps
+ok 2 - 4F B health explains weights, availability, contributions and risk caps
+  ---
+  duration_ms: 10.417
+  type: 'test'
+  ...
+# Subtest: 4F C missing confidence stays null and is not a zero score
+ok 3 - 4F C missing confidence stays null and is not a zero score
+  ---
+  duration_ms: 7.722
+  type: 'test'
+  ...
+# Subtest: 4F D no history has no synthetic trend
+ok 4 - 4F D no history has no synthetic trend
+  ---
+  duration_ms: 9.6274
+  type: 'test'
+  ...
+# Subtest: 4F E high weight off-track KR vetoes positive health
+ok 5 - 4F E high weight off-track KR vetoes positive health
+  ---
+  duration_ms: 3.5424
+  type: 'test'
+  ...
+# Subtest: 4F F confidence decline comes from completed consecutive reviews
+ok 6 - 4F F confidence decline comes from completed consecutive reviews
+  ---
+  duration_ms: 85.4831
+  type: 'test'
+  ...
+# Subtest: 4F G recurring blocker ranks above comparable single blocker and resolved is removed
+ok 7 - 4F G recurring blocker ranks above comparable single blocker and resolved is removed
+  ---
+  duration_ms: 52.2848
+  type: 'test'
+  ...
+# Subtest: 4F H high execution with low result is surfaced without causality
+ok 8 - 4F H high execution with low result is surfaced without causality
+  ---
+  duration_ms: 4.9978
+  type: 'test'
+  ...
+# Subtest: 4F I ineffective and unevaluated initiatives are distinct
+ok 9 - 4F I ineffective and unevaluated initiatives are distinct
+  ---
+  duration_ms: 7.1696
+  type: 'test'
+  ...
+# Subtest: 4F J alignment exposes missing relationships and owners
+ok 10 - 4F J alignment exposes missing relationships and owners
+  ---
+  duration_ms: 6.6565
+  type: 'test'
+  ...
+# Subtest: 4F K completeness changes with missing data independently of progress
+ok 11 - 4F K completeness changes with missing data independently of progress
+  ---
+  duration_ms: 8.1939
+  type: 'test'
+  ...
+# Subtest: 4F L freshness distinguishes never updated, stale and this week
+ok 12 - 4F L freshness distinguishes never updated, stale and this week
+  ---
+  duration_ms: 9.1158
+  type: 'test'
+  ...
+# Subtest: 4F M historical core uses final frozen evidence and recorded date
+ok 13 - 4F M historical core uses final frozen evidence and recorded date
+  ---
+  duration_ms: 73.7796
+  type: 'test'
+  ...
+# Subtest: 4F N trends use snapshots and never rewrite with live KR values
+ok 14 - 4F N trends use snapshots and never rewrite with live KR values
+  ---
+  duration_ms: 39.5151
+  type: 'test'
+  ...
+# Subtest: 4F trend ranges preserve missing weeks and events use dated audit records
+ok 15 - 4F trend ranges preserve missing weeks and events use dated audit records
+  ---
+  duration_ms: 40.7179
+  type: 'test'
+  ...
+# Subtest: 4F O changes and audit reasons are retained
+ok 16 - 4F O changes and audit reasons are retained
+  ---
+  duration_ms: 5.9648
+  type: 'test'
+  ...
+# Subtest: 4F P summary reflects actual data and unknown states
+ok 17 - 4F P summary reflects actual data and unknown states
+  ---
+  duration_ms: 6.3738
+  type: 'test'
+  ...
+# Subtest: 4F Q primary focus deterministically selects the highest ranked evidence
+ok 18 - 4F Q primary focus deterministically selects the highest ranked evidence
+  ---
+  duration_ms: 81.1112
+  type: 'test'
+  ...
+# Subtest: 4F R no hidden aggregate persistence or synthetic performance
+ok 19 - 4F R no hidden aggregate persistence or synthetic performance
+  ---
+  duration_ms: 6.175
+  type: 'test'
+  ...
+# Subtest: 4F filters and cycles remain isolated
+ok 20 - 4F filters and cycles remain isolated
+  ---
+  duration_ms: 4.8842
+  type: 'test'
+  ...
+# Subtest: 4F unknown confidence and unevaluated effectiveness never earn strong health
+ok 21 - 4F unknown confidence and unevaluated effectiveness never earn strong health
+  ---
+  duration_ms: 9.8524
+  type: 'test'
+  ...
+# Subtest: 4F S aggregation benchmark 10/40/60/13
+ok 22 - 4F S aggregation benchmark 10/40/60/13
+  ---
+  duration_ms: 327.5526
+  type: 'test'
+  ...
+# Subtest: 4F S aggregation benchmark 25/100/150/26
+ok 23 - 4F S aggregation benchmark 25/100/150/26
+  ---
+  duration_ms: 862.0854
+  type: 'test'
+  ...
+# Subtest: 4G A completed weekly artifacts survive live measurements and central guard rejects rewrites
+ok 24 - 4G A completed weekly artifacts survive live measurements and central guard rejects rewrites
+  ---
+  duration_ms: 34.4388
+  type: 'test'
+  ...
+# Subtest: 4G B dashboard and unfiltered report count the same eligible off-track KRs
+ok 25 - 4G B dashboard and unfiltered report count the same eligible off-track KRs
+  ---
+  duration_ms: 3.9624
+  type: 'test'
+  ...
+# Subtest: 4G C changing report filters never changes cycle-wide executive headlines
+ok 26 - 4G C changing report filters never changes cycle-wide executive headlines
+  ---
+  duration_ms: 4.4968
+  type: 'test'
+  ...
+# Subtest: 4G D final cycle snapshot survives carry-forward without inheriting weekly history
+ok 27 - 4G D final cycle snapshot survives carry-forward without inheriting weekly history
+  ---
+  duration_ms: 55.1865
+  type: 'test'
+  ...
+# Subtest: 4G E completed to archived preserves historical reporting and rejects other edits
+ok 28 - 4G E completed to archived preserves historical reporting and rejects other edits
+  ---
+  duration_ms: 66.5081
+  type: 'test'
+  ...
+# Subtest: 4G F missing confidence remains unknown after serialization and dashboard filtering
+ok 29 - 4G F missing confidence remains unknown after serialization and dashboard filtering
+  ---
+  duration_ms: 9.065
+  type: 'test'
+  ...
+# Subtest: 4G G unevaluated completion is not an ineffective outcome
+ok 30 - 4G G unevaluated completion is not an ineffective outcome
+  ---
+  duration_ms: 2.6474
+  type: 'test'
+  ...
+# Subtest: 4G H stale observation affects freshness but not measured result
+ok 31 - 4G H stale observation affects freshness but not measured result
+  ---
+  duration_ms: 4.3076
+  type: 'test'
+  ...
+# Subtest: 4G I Tehran midnight and cycle boundary weeks are exact
+ok 32 - 4G I Tehran midnight and cycle boundary weeks are exact
+  ---
+  duration_ms: 0.5707
+  type: 'test'
+  ...
+# Subtest: 4G J malformed storage is rejected and dangling ownership has safe reporting
+ok 33 - 4G J malformed storage is rejected and dangling ownership has safe reporting
+  ---
+  duration_ms: 9.8074
+  type: 'test'
+  ...
+# Subtest: 4G K critical weighted KR outranks informational audit changes
+ok 34 - 4G K critical weighted KR outranks informational audit changes
+  ---
+  duration_ms: 3.6689
+  type: 'test'
+  ...
+# Subtest: 4G L changing initiative execution never changes KR result
+ok 35 - 4G L changing initiative execution never changes KR result
+  ---
+  duration_ms: 8.2757
+  type: 'test'
+  ...
+# Subtest: 4G M empty extension collections do not invent trend or trend events
+ok 36 - 4G M empty extension collections do not invent trend or trend events
+  ---
+  duration_ms: 5.2129
+  type: 'test'
+  ...
+# Subtest: 4G N health and contributions stay finite with zero/missing data
+ok 37 - 4G N health and contributions stay finite with zero/missing data
+  ---
+  duration_ms: 8.1659
+  type: 'test'
+  ...
+# Subtest: 4G O large 50/250/400/52 reports and filters are deterministic
+ok 38 - 4G O large 50/250/400/52 reports and filters are deterministic
+  ---
+  duration_ms: 1928.7874
+  type: 'test'
+  ...
+# Subtest: 4G P cancelled Objective and KR do not leak into active KR reporting
+ok 39 - 4G P cancelled Objective and KR do not leak into active KR reporting
+  ---
+  duration_ms: 2.1063
+  type: 'test'
+  ...
+# Subtest: 4G Q old saved data round trips without reseeding or duplicate IDs
+ok 40 - 4G Q old saved data round trips without reseeding or duplicate IDs
+  ---
+  duration_ms: 1.4726
+  type: 'test'
+  ...
+# Subtest: 4G R audit old/new payload cannot be rewritten at commit
+ok 41 - 4G R audit old/new payload cannot be rewritten at commit
+  ---
+  duration_ms: 28.6818
+  type: 'test'
+  ...
+# Subtest: 4G S entity drill-down includes the actual Objective and KR IDs
+ok 42 - 4G S entity drill-down includes the actual Objective and KR IDs
+  ---
+  duration_ms: 1.9888
+  type: 'test'
+  ...
+# Subtest: 4G T controlled reopen only unlocks the latest review and preserves snapshots
+ok 43 - 4G T controlled reopen only unlocks the latest review and preserves snapshots
+  ---
+  duration_ms: 30.8122
+  type: 'test'
+  ...
+# Subtest: 4G partial last week becomes due only after the cycle ends
+ok 44 - 4G partial last week becomes due only after the cycle ends
+  ---
+  duration_ms: 0.4704
+  type: 'test'
+  ...
+1..44
+# tests 44
+# suites 0
+# pass 44
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4503.9848

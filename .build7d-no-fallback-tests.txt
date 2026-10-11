@@ -1,0 +1,188 @@
+
+> 3s-business-os@0.1.0 test:auth
+> node --conditions=react-server --import tsx --test tests/auth.test.ts
+
+TAP version 13
+# Subtest: 7B A/C signup creates a real identity and scrypt credential without plaintext
+ok 1 - 7B A/C signup creates a real identity and scrypt credential without plaintext
+  ---
+  duration_ms: 9034.4668
+  type: 'test'
+  ...
+# Subtest: 7B B duplicate email does not create another user
+ok 2 - 7B B duplicate email does not create another user
+  ---
+  duration_ms: 80.5571
+  type: 'test'
+  ...
+# Subtest: 7B D/E separate credential login succeeds and incorrect password is rejected
+ok 3 - 7B D/E separate credential login succeeds and incorrect password is rejected
+  ---
+  duration_ms: 358.6914
+  type: 'test'
+  ...
+# Subtest: 7B G session survives repeated server resolution; tampered and expired sessions fail
+ok 4 - 7B G session survives repeated server resolution; tampered and expired sessions fail
+  ---
+  duration_ms: 228.7533
+  type: 'test'
+  ...
+# Subtest: 7B J no active companies points to onboarding; forged user identity is rejected
+ok 5 - 7B J no active companies points to onboarding; forged user identity is rejected
+  ---
+  duration_ms: 52.9133
+  type: 'test'
+  ...
+# Subtest: 7B K company creation transaction creates Owner profile settings and current company
+ok 6 - 7B K company creation transaction creates Owner profile settings and current company
+  ---
+  duration_ms: 129.8537
+  type: 'test'
+  ...
+# Subtest: 7B L/M two companies use unique hidden slugs and membership-checked session switch
+ok 7 - 7B L/M two companies use unique hidden slugs and membership-checked session switch
+  ---
+  duration_ms: 121.7687
+  type: 'test'
+  ...
+# Subtest: 7B N/Z workspace starts clean; shared data and private Agent context never cross tenants/users
+ok 8 - 7B N/Z workspace starts clean; shared data and private Agent context never cross tenants/users
+  ---
+  duration_ms: 463.4323
+  type: 'test'
+  ...
+# Subtest: 7B O/P invitation creation stores only a hash, scopes role and supersedes pending invite
+ok 9 - 7B O/P invitation creation stores only a hash, scopes role and supersedes pending invite
+  ---
+  duration_ms: 47.03
+  type: 'test'
+  ...
+# Subtest: 7B Q invitation activates real second user and Manager role in one transaction
+ok 10 - 7B Q invitation activates real second user and Manager role in one transaction
+  ---
+  duration_ms: 267.2914
+  type: 'test'
+  ...
+# Subtest: 7B U accepted invitation cannot be reused and does not duplicate membership
+ok 11 - 7B U accepted invitation cannot be reused and does not duplicate membership
+  ---
+  duration_ms: 5.8642
+  type: 'test'
+  ...
+# Subtest: 7B V existing user accepts a second company with a different role
+ok 12 - 7B V existing user accepts a second company with a different role
+  ---
+  duration_ms: 35.7838
+  type: 'test'
+  ...
+# Subtest: 7B R wrong-email account cannot claim another invitation
+ok 13 - 7B R wrong-email account cannot claim another invitation
+  ---
+  duration_ms: 197.2575
+  type: 'test'
+  ...
+# Subtest: 7B S/T expired and revoked invitation tokens cannot activate a membership
+ok 14 - 7B S/T expired and revoked invitation tokens cannot activate a membership
+  ---
+  duration_ms: 44.1739
+  type: 'test'
+  ...
+# Subtest: 7B W final Owner demotion suspension and removal are denied without partial mutation
+ok 15 - 7B W final Owner demotion suspension and removal are denied without partial mutation
+  ---
+  duration_ms: 57.2634
+  type: 'test'
+  ...
+# Subtest: 7B membership role change suspend restore and remove retain records and reject stale versions
+ok 16 - 7B membership role change suspend restore and remove retain records and reject stale versions
+  ---
+  duration_ms: 109.3158
+  type: 'test'
+  ...
+# Subtest: 7B X/Y suspended/outsider contexts cannot access scoped API even with forged organization header
+ok 17 - 7B X/Y suspended/outsider contexts cannot access scoped API even with forged organization header
+  ---
+  duration_ms: 41.231
+  type: 'test'
+  ...
+# Subtest: 7B Viewer sees company but cannot invite change roles or write a business draft
+ok 18 - 7B Viewer sees company but cannot invite change roles or write a business draft
+  ---
+  duration_ms: 120.7795
+  type: 'test'
+  ...
+# Subtest: 7B malicious origin and client identity cannot authorize API mutations
+ok 19 - 7B malicious origin and client identity cannot authorize API mutations
+  ---
+  duration_ms: 14.4983
+  type: 'test'
+  ...
+# Subtest: 7B AA BusinessRole is independent of login grants and name collisions do not link Person
+ok 20 - 7B AA BusinessRole is independent of login grants and name collisions do not link Person
+  ---
+  duration_ms: 18.6858
+  type: 'test'
+  ...
+# Subtest: 7B F disabled and suspended User cannot create or use a session
+ok 21 - 7B F disabled and suspended User cannot create or use a session
+  ---
+  duration_ms: 311.1485
+  type: 'test'
+  ...
+# Subtest: 7B profile edits use session user and validate timezone avatar URL and no email change
+ok 22 - 7B profile edits use session user and validate timezone avatar URL and no email change
+  ---
+  duration_ms: 26.6896
+  type: 'test'
+  ...
+# Subtest: 7B password change requires current password revokes other sessions and updates hash
+ok 23 - 7B password change requires current password revokes other sessions and updates hash
+  ---
+  duration_ms: 831.3666
+  type: 'test'
+  ...
+# Subtest: 7B H logout invalidates current session without deleting company records
+ok 24 - 7B H logout invalidates current session without deleting company records
+  ---
+  duration_ms: 17.0492
+  type: 'test'
+  ...
+# Subtest: 7B open redirects are constrained to internal locations
+ok 25 - 7B open redirects are constrained to internal locations
+  ---
+  duration_ms: 0.4649
+  type: 'test'
+  ...
+# Subtest: 7B clean company document validates against existing module parsers without samples
+ok 26 - 7B clean company document validates against existing module parsers without samples
+  ---
+  duration_ms: 0.9776
+  type: 'test'
+  ...
+# Subtest: 7B credential rate protection rejects a ninth attempt from the same address
+ok 27 - 7B credential rate protection rejects a ninth attempt from the same address
+  ---
+  duration_ms: 1055.1959
+  type: 'test'
+  ...
+# Subtest: 7B HTTPS origin issues Secure HttpOnly SameSite cookies
+ok 28 - 7B HTTPS origin issues Secure HttpOnly SameSite cookies
+  ---
+  duration_ms: 150.5451
+  type: 'test'
+  ...
+# Subtest: 7B closed company workspace cannot fall back to anonymous local data
+ok 29 - 7B closed company workspace cannot fall back to anonymous local data
+  ---
+  duration_ms: 1.0952
+  type: 'test'
+  ...
+1..29
+# tests 29
+# suites 0
+# pass 29
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 23258.069

@@ -1,0 +1,221 @@
+TAP version 13
+# 6C source benchmark {"ms":142,"signals":226,"patterns":175,"diagnoses":175}
+# Subtest: golden connected closing chain collapses into one primary issue with four independent sources
+ok 1 - golden connected closing chain collapses into one primary issue with four independent sources
+  ---
+  duration_ms: 7.5057
+  type: 'test'
+  ...
+# Subtest: scan never mutates source input or previous state
+ok 2 - scan never mutates source input or previous state
+  ---
+  duration_ms: 0.9599
+  type: 'test'
+  ...
+# Subtest: stable rerun updates same ID without duplicate diagnoses or evidence
+ok 3 - stable rerun updates same ID without duplicate diagnoses or evidence
+  ---
+  duration_ms: 1.2468
+  type: 'test'
+  ...
+# Subtest: manual status reviewed survives rerun
+ok 4 - manual status reviewed survives rerun
+  ---
+  duration_ms: 1.157
+  type: 'test'
+  ...
+# Subtest: monitoring workflow creates history
+ok 5 - monitoring workflow creates history
+  ---
+  duration_ms: 0.8125
+  type: 'test'
+  ...
+# Subtest: dismissed diagnosis stays dismissed on repeat
+ok 6 - dismissed diagnosis stays dismissed on repeat
+  ---
+  duration_ms: 2.3592
+  type: 'test'
+  ...
+# Subtest: disappearing pattern resolves but keeps historical evidence
+ok 7 - disappearing pattern resolves but keeps historical evidence
+  ---
+  duration_ms: 1.0581
+  type: 'test'
+  ...
+# Subtest: resolved recurrence reopens same ID
+ok 8 - resolved recurrence reopens same ID
+  ---
+  duration_ms: 0.9391
+  type: 'test'
+  ...
+# Subtest: unavailable source does not falsely resolve existing issue
+ok 9 - unavailable source does not falsely resolve existing issue
+  ---
+  duration_ms: 0.889
+  type: 'test'
+  ...
+# Subtest: new evidence freezes previous history
+ok 10 - new evidence freezes previous history
+  ---
+  duration_ms: 1.9645
+  type: 'test'
+  ...
+# Subtest: quality-only stale KR becomes low-confidence data-quality issue
+ok 11 - quality-only stale KR becomes low-confidence data-quality issue
+  ---
+  duration_ms: 0.3784
+  type: 'test'
+  ...
+# Subtest: ready candidate is opportunity and never an automatic action
+ok 12 - ready candidate is opportunity and never an automatic action
+  ---
+  duration_ms: 0.229
+  type: 'test'
+  ...
+# Subtest: unlinked signals never combine merely because domains match
+ok 13 - unlinked signals never combine merely because domains match
+  ---
+  duration_ms: 0.2264
+  type: 'test'
+  ...
+# Subtest: duplicate metric family cannot inflate independent source count
+ok 14 - duplicate metric family cannot inflate independent source count
+  ---
+  duration_ms: 0.2218
+  type: 'test'
+  ...
+# Subtest: executive priorities capped at three deterministically
+ok 15 - executive priorities capped at three deterministically
+  ---
+  duration_ms: 1.7633
+  type: 'test'
+  ...
+# Subtest: empty input creates no fabricated problem
+ok 16 - empty input creates no fabricated problem
+  ---
+  duration_ms: 0.1507
+  type: 'test'
+  ...
+# Subtest: registry contains fifteen enabled rules with required domain declarations
+ok 17 - registry contains fifteen enabled rules with required domain declarations
+  ---
+  duration_ms: 0.2009
+  type: 'test'
+  ...
+# Subtest: new storage writes only diagnosis key and roundtrips references
+ok 18 - new storage writes only diagnosis key and roundtrips references
+  ---
+  duration_ms: 2.5989
+  type: 'test'
+  ...
+# Subtest: corrupt prior storage remains unchanged and write fails
+ok 19 - corrupt prior storage remains unchanged and write fails
+  ---
+  duration_ms: 1.1132
+  type: 'test'
+  ...
+# Subtest: concurrent tab save rejected without overwriting
+ok 20 - concurrent tab save rejected without overwriting
+  ---
+  duration_ms: 1.8197
+  type: 'test'
+  ...
+# Subtest: dangling evidence rejected
+ok 21 - dangling evidence rejected
+  ---
+  duration_ms: 1.0788
+  type: 'test'
+  ...
+# Subtest: unsafe external evidence route rejected
+ok 22 - unsafe external evidence route rejected
+  ---
+  duration_ms: 2.2696
+  type: 'test'
+  ...
+# Subtest: missing status target rejected
+ok 23 - missing status target rejected
+  ---
+  duration_ms: 1.2341
+  type: 'test'
+  ...
+# Subtest: source adapter reads empty stores without writing
+ok 24 - source adapter reads empty stores without writing
+  ---
+  duration_ms: 3.6792
+  type: 'test'
+  ...
+# Subtest: corrupt business store is reported rather than written
+ok 25 - corrupt business store is reported rather than written
+  ---
+  duration_ms: 0.8476
+  type: 'test'
+  ...
+# Subtest: fingerprints change on relevant metric changes
+ok 26 - fingerprints change on relevant metric changes
+  ---
+  duration_ms: 0.1932
+  type: 'test'
+  ...
+# Subtest: suppression does not remove frozen evidence
+ok 27 - suppression does not remove frozen evidence
+  ---
+  duration_ms: 0.6777
+  type: 'test'
+  ...
+# Subtest: large signal fixture remains bounded and finishes under five seconds
+ok 28 - large signal fixture remains bounded and finishes under five seconds
+  ---
+  duration_ms: 49.3823
+  type: 'test'
+  ...
+# Subtest: diagnosis brief persists through existing advisor validator
+ok 29 - diagnosis brief persists through existing advisor validator
+  ---
+  duration_ms: 9.6022
+  type: 'test'
+  ...
+# Subtest: changed context produces stale warning instead of current problem claim
+ok 30 - changed context produces stale warning instead of current problem claim
+  ---
+  duration_ms: 0.9451
+  type: 'test'
+  ...
+# Subtest: stale evidence replaces performance without declaring issue resolved
+ok 31 - stale evidence replaces performance without declaring issue resolved
+  ---
+  duration_ms: 0.7409
+  type: 'test'
+  ...
+# Subtest: hybrid wording cannot alter severity, confidence, evidence, status or priorities
+ok 32 - hybrid wording cannot alter severity, confidence, evidence, status or priorities
+  ---
+  duration_ms: 1.3695
+  type: 'test'
+  ...
+# Subtest: hybrid rejects unsupported numbers and causal certainty
+ok 33 - hybrid rejects unsupported numbers and causal certainty
+  ---
+  duration_ms: 1.2728
+  type: 'test'
+  ...
+# Subtest: hybrid rejects extra action fields
+ok 34 - hybrid rejects extra action fields
+  ---
+  duration_ms: 0.5071
+  type: 'test'
+  ...
+# Subtest: source adapter benchmark: 50 processes, 100 KRs, 500 experiments, 75 channels, 50 loops, 75 candidates
+ok 35 - source adapter benchmark: 50 processes, 100 KRs, 500 experiments, 75 channels, 50 loops, 75 candidates
+  ---
+  duration_ms: 192.8895
+  type: 'test'
+  ...
+1..35
+# tests 35
+# suites 0
+# pass 35
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 565.0547

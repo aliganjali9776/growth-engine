@@ -1,0 +1,15 @@
+
+> 3s-business-os@0.1.0 start
+> next start --hostname 127.0.0.1 --port 3002
+
+▲ Next.js 16.3.8
+- Local:         http://127.0.0.1:3002
+- Network:       http://127.0.0.1:3002
+✓ Ready in 178ms
+✓ Running next.config.ts took 36ms
+Failed to prepare server Error: An error occurred while loading instrumentation hook: Production environment invalid: DATABASE_URL must be a PostgreSQL URL; Embedded development databases are disabled in production
+    at <unknown> (D:\3S-business-OS\.next\server\chunks\lib_server_production-environment_ts_186--me._.js:1:1241)
+    at Module.s [as register] (D:\3S-business-OS\.next\server\chunks\_16nhnvr._.js:1:114)
+⨯ unhandledRejection: Error: An error occurred while loading instrumentation hook: Production environment invalid: DATABASE_URL must be a PostgreSQL URL; Embedded development databases are disabled in production
+    at <unknown> (D:\3S-business-OS\.next\server\chunks\lib_server_production-environment_ts_186--me._.js:1:1241)
+    at Module.s [as register] (D:\3S-business-OS\.next\server\chunks\_16nhnvr._.js:1:114)

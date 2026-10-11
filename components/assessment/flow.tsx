@@ -57,7 +57,7 @@ export function AssessmentIntro({ onStart }: { onStart: () => void }) {
             </span>
             <span>
               <LockKeyhole size={15} />
-              ذخیره فقط در این مرورگر
+              ذخیره در فضای کسب‌وکار شما
             </span>
           </div>
         </div>

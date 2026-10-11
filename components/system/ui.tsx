@@ -1,5 +1,6 @@
 "use client";
 import * as Dialog from "@radix-ui/react-dialog";
+import { useRef } from "react";
 import { X, Plus, ArrowUpLeft } from "lucide-react";
 import Link from "next/link";
 import { priorities } from "@/lib/system/config";
@@ -85,18 +86,41 @@ export function Drawer({
   title,
   description,
   children,
+  returnFocusElement,
 }: {
   open: boolean;
   onClose: () => void;
   title: string;
   description: string;
   children: React.ReactNode;
+  returnFocusElement?: HTMLElement | null;
 }) {
+  const returnFocus = useRef<HTMLElement | null>(null);
   return (
     <Dialog.Root open={open} onOpenChange={(o) => !o && onClose()}>
       <Dialog.Portal>
         <Dialog.Overlay className="sys-overlay" />
-        <Dialog.Content className="sys-drawer" dir="rtl">
+        <Dialog.Content
+          className="sys-drawer"
+          dir="rtl"
+          onOpenAutoFocus={() => {
+            returnFocus.current =
+              document.activeElement instanceof HTMLElement
+                ? document.activeElement
+                : null;
+          }}
+          onCloseAutoFocus={(event) => {
+            if (returnFocusElement?.isConnected) {
+              event.preventDefault();
+              returnFocusElement.focus();
+              return;
+            }
+            if (returnFocus.current?.isConnected) {
+              event.preventDefault();
+              returnFocus.current.focus();
+            }
+          }}
+        >
           <header>
             <div>
               <Dialog.Title>{title}</Dialog.Title>

@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-10-06T20:51:33.644Z",
+  "organizationId": "984bc0f2-1a5e-412b-8330-bd0d8f8c5c2a",
+  "sharedUsers": 2,
+  "sharedStateEqual": true,
+  "viewerWriteDenied": true,
+  "tenantScopeDenied": true,
+  "processes": 15,
+  "objectives": 3,
+  "survivedApplicationRestart": true,
+  "storesSha256": "77e85646d2c9d40063b044a29e462dfb04929c214f952eba7e86cefe9e59c406",
+  "backupTables": 98,
+  "agentExecutionEnabled": false
+}

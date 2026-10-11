@@ -1,0 +1,22 @@
+lib/server/context.ts 120ms
+lib/server/db/connection.ts 11ms
+lib/server/db/errors.ts 13ms
+lib/server/db/schema.ts 414ms
+lib/server/db/types.ts 4ms (unchanged)
+lib/server/dev-api.ts 31ms
+lib/server/dev/seed.ts 34ms
+lib/server/permissions.ts 11ms
+lib/server/persistence.ts 10ms
+lib/server/repositories/domains.ts 18ms
+lib/server/repositories/organization.ts 7ms
+lib/server/services/domains.ts 41ms
+lib/server/services/migration.ts 14ms
+lib/server/services/organization.ts 41ms
+lib/persistence/export.ts 29ms
+lib/persistence/provider.ts 11ms
+scripts/database.ts 26ms
+tests/saas.test.ts 194ms
+drizzle.config.ts 3ms
+app/api/dev/saas/route.ts 2ms
+docs/DATA-INVENTORY.md 94ms
+docs/SAAS-DATA-ARCHITECTURE.md 121ms (unchanged)

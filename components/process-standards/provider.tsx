@@ -1,4 +1,5 @@
 "use client";
+import { businessStorage } from "@/lib/saas/workspace-storage";
 import { StorageRecovery } from "../system/recovery";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { useSystem } from "@/components/system/provider";
@@ -52,7 +53,7 @@ export function StandardsProvider({ children }: { children: React.ReactNode }) {
     blocked = useRef(false);
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(STANDARDS_KEY),
+      const raw = businessStorage.getItem(STANDARDS_KEY),
         next = raw ? parseStandards(raw) : { version: 1 as const, records: [] };
       last.current = raw;
       current.current = next;
@@ -88,12 +89,16 @@ export function StandardsProvider({ children }: { children: React.ReactNode }) {
         raw = JSON.stringify(next),
         write = { key: STANDARDS_KEY, expected: last.current, value: raw };
       if (nextSystem) commit(nextSystem, write);
-      else writeTogether(localStorage, [write]);
+      else writeTogether(businessStorage, [write]);
       last.current = raw;
       current.current = next;
       setStore(next);
       setError("");
-      setStatus("تغییرات در این مرورگر ذخیره شد");
+      setStatus(
+        businessStorage.serverExecutionDisabled
+          ? "وضعیت ذخیره در بالای صفحه نمایش داده می‌شود"
+          : "تغییرات در این مرورگر ذخیره شد",
+      );
     } catch (e) {
       setError(e instanceof Error ? e.message : "ذخیره ممکن نشد.");
       throw e;

@@ -1,0 +1,119 @@
+TAP version 13
+# 6F bounded persistence + 300 diagnoses/500 entity projections/200 contextual reads: 116ms
+# Subtest: 6F A: executive session and no business writes
+ok 1 - 6F A: executive session and no business writes
+  ---
+  duration_ms: 17.724
+  type: 'test'
+  ...
+# Subtest: 6F B,C: entity packet and follow-up remain on KR
+ok 2 - 6F B,C: entity packet and follow-up remain on KR
+  ---
+  duration_ms: 34.8421
+  type: 'test'
+  ...
+# Subtest: 6F D,V,W: switch, resume and new session preserve earlier messages
+ok 3 - 6F D,V,W: switch, resume and new session preserve earlier messages
+  ---
+  duration_ms: 4.3185
+  type: 'test'
+  ...
+# Subtest: 6F E: ambiguous options do not prepare or execute
+ok 4 - 6F E: ambiguous options do not prepare or execute
+  ---
+  duration_ms: 0.4401
+  type: 'test'
+  ...
+# Subtest: 6F contextual ordinals resolve visible list only
+ok 5 - 6F contextual ordinals resolve visible list only
+  ---
+  duration_ms: 0.1494
+  type: 'test'
+  ...
+# Subtest: 6F F,G,U: diagnosis options and actual KR-constraint-process relationships
+ok 6 - 6F F,G,U: diagnosis options and actual KR-constraint-process relationships
+  ---
+  duration_ms: 4.3866
+  type: 'test'
+  ...
+# Subtest: 6F H: prepare intent creates only existing 6D draft
+ok 7 - 6F H: prepare intent creates only existing 6D draft
+  ---
+  duration_ms: 8.0753
+  type: 'test'
+  ...
+# Subtest: 6F I,J: missing number resolves from Persian text, without guessing multiple fields
+ok 8 - 6F I,J: missing number resolves from Persian text, without guessing multiple fields
+  ---
+  duration_ms: 0.3896
+  type: 'test'
+  ...
+# Subtest: 6F labelled dates and unique dropdown labels only
+ok 9 - 6F labelled dates and unique dropdown labels only
+  ---
+  duration_ms: 0.429
+  type: 'test'
+  ...
+# Subtest: 6F K,L,M: approval and execution intent only return confirmation controls
+ok 10 - 6F K,L,M: approval and execution intent only return confirmation controls
+  ---
+  duration_ms: 5.898
+  type: 'test'
+  ...
+# Subtest: 6F N,O,P,Y: explicit approved dry run and execution keep truthful entity link
+ok 11 - 6F N,O,P,Y: explicit approved dry run and execution keep truthful entity link
+  ---
+  duration_ms: 27.6249
+  type: 'test'
+  ...
+# Subtest: 6F Q: changed source prevents execution after contextual follow-up
+ok 12 - 6F Q: changed source prevents execution after contextual follow-up
+  ---
+  duration_ms: 8.571
+  type: 'test'
+  ...
+# Subtest: 6F R,S: deterministic options and safe intents have no provider dependency
+ok 13 - 6F R,S: deterministic options and safe intents have no provider dependency
+  ---
+  duration_ms: 3.9958
+  type: 'test'
+  ...
+# Subtest: 6F T: response evidence snapshot persists independently of current sources
+ok 14 - 6F T: response evidence snapshot persists independently of current sources
+  ---
+  duration_ms: 3.7132
+  type: 'test'
+  ...
+# Subtest: 6F X,Z: import prior Advisor once and preserve all 6A-6E keys
+ok 15 - 6F X,Z: import prior Advisor once and preserve all 6A-6E keys
+  ---
+  duration_ms: 3.1505
+  type: 'test'
+  ...
+# Subtest: 6F corrupt storage is retained and rejects overwrite
+ok 16 - 6F corrupt storage is retained and rejects overwrite
+  ---
+  duration_ms: 2.7076
+  type: 'test'
+  ...
+# Subtest: 6F conflict and quota preserve prior workspace
+ok 17 - 6F conflict and quota preserve prior workspace
+  ---
+  duration_ms: 3.3737
+  type: 'test'
+  ...
+# Subtest: 6F capacity: 100 sessions / 1000 messages and large artifact projections
+ok 18 - 6F capacity: 100 sessions / 1000 messages and large artifact projections
+  ---
+  duration_ms: 122.4113
+  type: 'test'
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 18
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 433.7645

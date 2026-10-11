@@ -1,0 +1,21 @@
+lib/server/permissions.ts 121ms
+lib/server/context.ts 67ms
+lib/server/db/errors.ts 16ms (unchanged)
+lib/server/services/workspace-permissions.ts 54ms
+lib/server/services/workspace.ts 112ms
+lib/server/services/agent-authorization.ts 71ms
+lib/server/services/companies.ts 168ms
+lib/server/services/domains.ts 48ms
+lib/server/saas-api.ts 71ms
+lib/saas/agent-action-permissions.ts 5ms
+app/template.tsx 19ms
+app/api/advisor/route.ts 36ms
+app/settings/access/page.tsx 16ms
+app/advisor/authorized-actions/page.tsx 35ms
+components/saas/shell.tsx 70ms
+components/saas/pages.tsx 121ms
+tests/rbac.test.ts 72ms
+scripts/rbac-migration.ts 13ms
+scripts/rbac-seed.ts 25ms
+scripts/rbac-docs.ts 6ms
+docs/RBAC-MATRIX.md 129ms

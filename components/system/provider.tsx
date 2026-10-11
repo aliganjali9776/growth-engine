@@ -1,4 +1,5 @@
 "use client";
+import { businessStorage } from "@/lib/saas/workspace-storage";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -59,7 +60,7 @@ export function SystemProvider({ children }: { children: React.ReactNode }) {
   const lastRaw = useRef<string | null>(null);
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(SYSTEM_STORAGE_KEY);
+      const raw = businessStorage.getItem(SYSTEM_STORAGE_KEY);
       lastRaw.current = raw;
       setData(raw ? parseSystem(raw) : createSystemSeed());
       setSaved(!!raw);
@@ -105,20 +106,20 @@ export function SystemProvider({ children }: { children: React.ReactNode }) {
         const rawStandards =
             companion?.key === STANDARDS_KEY
               ? companion.value
-              : localStorage.getItem(STANDARDS_KEY),
+              : businessStorage.getItem(STANDARDS_KEY),
           record = rawStandards
             ? parseStandards(rawStandards).records.find(
                 (r) => r.processId === p.id,
               )
             : undefined,
-          rawMaps = localStorage.getItem(MAP_STORAGE_KEY),
+          rawMaps = businessStorage.getItem(MAP_STORAGE_KEY),
           asis = (rawMaps ? parseMaps(rawMaps) : seedMaps(data!)).maps.find(
             (m) => m.processId === p.id,
           ),
           rawAnalysis =
             companion?.key === ANALYSIS_KEY
               ? companion.value
-              : localStorage.getItem(ANALYSIS_KEY),
+              : businessStorage.getItem(ANALYSIS_KEY),
           analysis = rawAnalysis
             ? parseAnalysis(rawAnalysis).records.find(
                 (r) => r.processId === p.id,
@@ -129,7 +130,7 @@ export function SystemProvider({ children }: { children: React.ReactNode }) {
           const raw =
             companion?.key === MEASUREMENT_KEY
               ? companion.value
-              : localStorage.getItem(MEASUREMENT_KEY);
+              : businessStorage.getItem(MEASUREMENT_KEY);
           guardMeasurementStage(
             p.systemizationStage,
             raw
@@ -158,7 +159,7 @@ export function SystemProvider({ children }: { children: React.ReactNode }) {
         (p) => !valid.processes.some((n) => n.id === p.id),
       ) ?? [];
     if (removedProcesses.length) {
-      const mapRaw = localStorage.getItem(MAP_STORAGE_KEY);
+      const mapRaw = businessStorage.getItem(MAP_STORAGE_KEY);
       const used = new Set(
         (mapRaw ? parseMaps(mapRaw) : seedMaps(data!)).maps.map(
           (m) => m.processId,
@@ -169,7 +170,7 @@ export function SystemProvider({ children }: { children: React.ReactNode }) {
         [STANDARDS_KEY, parseStandards],
         [MEASUREMENT_KEY, parseMeasurement],
       ] as const) {
-        const raw = localStorage.getItem(key);
+        const raw = businessStorage.getItem(key);
         if (raw)
           for (const record of parse(raw).records) used.add(record.processId);
       }
@@ -183,7 +184,7 @@ export function SystemProvider({ children }: { children: React.ReactNode }) {
     if (removedRoles.length) {
       let usedRoles: (string | undefined)[];
       try {
-        const mapRaw = localStorage.getItem(MAP_STORAGE_KEY);
+        const mapRaw = businessStorage.getItem(MAP_STORAGE_KEY);
         usedRoles = (mapRaw ? parseMaps(mapRaw) : seedMaps(data!)).maps.flatMap(
           (m) => m.steps.map((s) => s.ownerRoleId),
         );
@@ -192,15 +193,15 @@ export function SystemProvider({ children }: { children: React.ReactNode }) {
           "ارتباط نقش با نقشه‌ها قابل بررسی نیست؛ ابتدا مشکل حافظه نقشه را برطرف کنید.",
         );
       }
-      const analysisRaw = localStorage.getItem(ANALYSIS_KEY);
+      const analysisRaw = businessStorage.getItem(ANALYSIS_KEY);
       if (analysisRaw)
         usedRoles.push(
           ...parseAnalysis(analysisRaw).records.flatMap(
             (r) => r.toBe?.steps.map((s) => s.ownerRoleId) ?? [],
           ),
         );
-      const standardsRaw = localStorage.getItem(STANDARDS_KEY);
-      const measurementRaw = localStorage.getItem(MEASUREMENT_KEY);
+      const standardsRaw = businessStorage.getItem(STANDARDS_KEY);
+      const measurementRaw = businessStorage.getItem(MEASUREMENT_KEY);
       if (measurementRaw)
         usedRoles.push(
           ...parseMeasurement(measurementRaw).records.flatMap((r) => [
@@ -220,11 +221,11 @@ export function SystemProvider({ children }: { children: React.ReactNode }) {
     }
     const raw = JSON.stringify(valid);
     try {
-      if (localStorage.getItem(SYSTEM_STORAGE_KEY) !== lastRaw.current)
+      if (businessStorage.getItem(SYSTEM_STORAGE_KEY) !== lastRaw.current)
         throw new Error(
           "اطلاعات در زبانه دیگری تغییر کرده است؛ صفحه را تازه کنید.",
         );
-      writeTogether(localStorage, [
+      writeTogether(businessStorage, [
         { key: SYSTEM_STORAGE_KEY, expected: lastRaw.current, value: raw },
         ...(companion ? [companion] : []),
       ]);
@@ -255,7 +256,9 @@ export function SystemProvider({ children }: { children: React.ReactNode }) {
         <span className="system-local">
           <CheckCircle2 size={14} />
           {saved
-            ? "تغییرات در این مرورگر ذخیره شد"
+            ? businessStorage.serverExecutionDisabled
+              ? "وضعیت ذخیره در بالای صفحه نمایش داده می‌شود"
+              : "تغییرات در این مرورگر ذخیره شد"
             : "فضای محلی · شروع با داده نمونه"}
         </span>
       </header>

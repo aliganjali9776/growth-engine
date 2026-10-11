@@ -1,4 +1,6 @@
 import Link from "next/link";
+import {appMode} from "@/lib/server/saas-runtime";
+import {CompanyHome} from "@/components/saas/pages";
 import {
   ArrowLeft,
   CalendarDays,
@@ -16,6 +18,7 @@ import {
   SectionCard,
 } from "@/components/ui";
 export default function Home() {
+  if(appMode()==="saas")return <CompanyHome/>;
   return (
     <>
       <PageHeader

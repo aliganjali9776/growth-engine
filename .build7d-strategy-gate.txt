@@ -1,0 +1,418 @@
+TAP version 13
+# Subtest: canonical codec retains all fields and ordering: growth-engine.assessment.v2
+ok 1 - canonical codec retains all fields and ordering: growth-engine.assessment.v2
+  ---
+  duration_ms: 11351.5277
+  type: 'test'
+  ...
+# Subtest: canonical codec retains all fields and ordering: growth-engine.system.v1
+ok 2 - canonical codec retains all fields and ordering: growth-engine.system.v1
+  ---
+  duration_ms: 1.872
+  type: 'test'
+  ...
+# Subtest: canonical codec retains all fields and ordering: growth-engine.process-maps.v1
+ok 3 - canonical codec retains all fields and ordering: growth-engine.process-maps.v1
+  ---
+  duration_ms: 0.3248
+  type: 'test'
+  ...
+# Subtest: canonical codec retains all fields and ordering: growth-engine.process-analysis.v1
+ok 4 - canonical codec retains all fields and ordering: growth-engine.process-analysis.v1
+  ---
+  duration_ms: 0.1795
+  type: 'test'
+  ...
+# Subtest: canonical codec retains all fields and ordering: growth-engine.process-standards.v1
+ok 5 - canonical codec retains all fields and ordering: growth-engine.process-standards.v1
+  ---
+  duration_ms: 0.1867
+  type: 'test'
+  ...
+# Subtest: canonical codec retains all fields and ordering: growth-engine.process-measurement.v1
+ok 6 - canonical codec retains all fields and ordering: growth-engine.process-measurement.v1
+  ---
+  duration_ms: 0.2837
+  type: 'test'
+  ...
+# Subtest: canonical codec retains all fields and ordering: growth-engine.system-health-history.v1
+ok 7 - canonical codec retains all fields and ordering: growth-engine.system-health-history.v1
+  ---
+  duration_ms: 0.1285
+  type: 'test'
+  ...
+# Subtest: canonical codec retains all fields and ordering: growth-engine.strategy.v1
+ok 8 - canonical codec retains all fields and ordering: growth-engine.strategy.v1
+  ---
+  duration_ms: 0.7039
+  type: 'test'
+  ...
+# Subtest: canonical codec retains all fields and ordering: growth-engine.scale.v1
+ok 9 - canonical codec retains all fields and ordering: growth-engine.scale.v1
+  ---
+  duration_ms: 0.7058
+  type: 'test'
+  ...
+# Subtest: canonical codec retains all fields and ordering: growth-engine.agent.v1
+ok 10 - canonical codec retains all fields and ordering: growth-engine.agent.v1
+  ---
+  duration_ms: 0.3109
+  type: 'test'
+  ...
+# Subtest: canonical codec retains all fields and ordering: growth-engine.advisor.v1
+ok 11 - canonical codec retains all fields and ordering: growth-engine.advisor.v1
+  ---
+  duration_ms: 0.2556
+  type: 'test'
+  ...
+# Subtest: canonical codec retains all fields and ordering: growth-engine.agent.diagnosis.v1
+ok 12 - canonical codec retains all fields and ordering: growth-engine.agent.diagnosis.v1
+  ---
+  duration_ms: 0.193
+  type: 'test'
+  ...
+# Subtest: canonical codec retains all fields and ordering: growth-engine.agent.preparation.v1
+ok 13 - canonical codec retains all fields and ordering: growth-engine.agent.preparation.v1
+  ---
+  duration_ms: 0.1789
+  type: 'test'
+  ...
+# Subtest: canonical codec retains all fields and ordering: growth-engine.agent.execution.v1
+ok 14 - canonical codec retains all fields and ordering: growth-engine.agent.execution.v1
+  ---
+  duration_ms: 0.1359
+  type: 'test'
+  ...
+# Subtest: canonical codec retains all fields and ordering: growth-engine.agent.workspace.v1
+ok 15 - canonical codec retains all fields and ordering: growth-engine.agent.workspace.v1
+  ---
+  duration_ms: 0.1461
+  type: 'test'
+  ...
+# Subtest: null stores stay null
+ok 16 - null stores stay null
+  ---
+  duration_ms: 0.1732
+  type: 'test'
+  ...
+# Subtest: duplicate entity identities fail rather than overwrite a history
+ok 17 - duplicate entity identities fail rather than overwrite a history
+  ---
+  duration_ms: 0.4422
+  type: 'test'
+  ...
+# Subtest: messages become separate rows scoped to their session
+ok 18 - messages become separate rows scoped to their session
+  ---
+  duration_ms: 0.1334
+  type: 'test'
+  ...
+# Subtest: conversion verifies all 15 stores, preserves its source and is idempotent
+ok 19 - conversion verifies all 15 stores, preserves its source and is idempotent
+  ---
+  duration_ms: 185.9572
+  type: 'test'
+  ...
+# Subtest: invalid duplicate in later store rolls back all earlier conversions
+ok 20 - invalid duplicate in later store rolls back all earlier conversions
+  ---
+  duration_ms: 158.2982
+  type: 'test'
+  ...
+# Subtest: isolated PostgreSQL entity rows preserve System IDs and all fields
+ok 21 - isolated PostgreSQL entity rows preserve System IDs and all fields
+  ---
+  duration_ms: 33.2788
+  type: 'test'
+  ...
+# Subtest: rollback leaves no Strategy rows or header after injected failure
+ok 22 - rollback leaves no Strategy rows or header after injected failure
+  ---
+  duration_ms: 12.2317
+  type: 'test'
+  ...
+# Subtest: historical messages retain order and are isolated by owner
+ok 23 - historical messages retain order and are isolated by owner
+  ---
+  duration_ms: 10.5665
+  type: 'test'
+  ...
+# Subtest: domain service rejects broken role references without changing persisted data
+ok 24 - domain service rejects broken role references without changing persisted data
+  ---
+  duration_ms: 17.9186
+  type: 'test'
+  ...
+# Subtest: two readers cannot overwrite a newer domain version
+ok 25 - two readers cannot overwrite a newer domain version
+  ---
+  duration_ms: 56.4243
+  type: 'test'
+  ...
+# Subtest: a service cannot read another user's private scope
+ok 26 - a service cannot read another user's private scope
+  ---
+  duration_ms: 5.2244
+  type: 'test'
+  ...
+# Subtest: active Assessment/System path preserves its recovery archive and persists only entity rows
+ok 27 - active Assessment/System path preserves its recovery archive and persists only entity rows
+  ---
+  duration_ms: 135.7888
+  type: 'test'
+  ...
+# Subtest: active Strategy path preserves cycle and objective IDs without overwriting the archive
+ok 28 - active Strategy path preserves cycle and objective IDs without overwriting the archive
+  ---
+  duration_ms: 88.8738
+  type: 'test'
+  ...
+# Subtest: matrix Owner resolves exact fresh database grants
+ok 29 - matrix Owner resolves exact fresh database grants
+  ---
+  duration_ms: 11167.0948
+  type: 'test'
+  ...
+# Subtest: matrix Admin resolves exact fresh database grants
+ok 30 - matrix Admin resolves exact fresh database grants
+  ---
+  duration_ms: 10.3957
+  type: 'test'
+  ...
+# Subtest: matrix Consultant resolves exact fresh database grants
+ok 31 - matrix Consultant resolves exact fresh database grants
+  ---
+  duration_ms: 4.9349
+  type: 'test'
+  ...
+# Subtest: matrix Manager resolves exact fresh database grants
+ok 32 - matrix Manager resolves exact fresh database grants
+  ---
+  duration_ms: 5.8603
+  type: 'test'
+  ...
+# Subtest: matrix Editor resolves exact fresh database grants
+ok 33 - matrix Editor resolves exact fresh database grants
+  ---
+  duration_ms: 5.7556
+  type: 'test'
+  ...
+# Subtest: matrix Viewer resolves exact fresh database grants
+ok 34 - matrix Viewer resolves exact fresh database grants
+  ---
+  duration_ms: 5.0112
+  type: 'test'
+  ...
+# Subtest: Viewer cannot write system
+ok 35 - Viewer cannot write system
+  ---
+  duration_ms: 7.335
+  type: 'test'
+  ...
+# Subtest: Viewer cannot write strategy
+ok 36 - Viewer cannot write strategy
+  ---
+  duration_ms: 4.9962
+  type: 'test'
+  ...
+# Subtest: Viewer cannot write scale
+ok 37 - Viewer cannot write scale
+  ---
+  duration_ms: 5.8881
+  type: 'test'
+  ...
+# Subtest: Consultant cannot approve or execute Agent
+ok 38 - Consultant cannot approve or execute Agent
+  ---
+  duration_ms: 24.0657
+  type: 'test'
+  ...
+# Subtest: Manager cannot approve or execute Agent
+ok 39 - Manager cannot approve or execute Agent
+  ---
+  duration_ms: 16.5679
+  type: 'test'
+  ...
+# Subtest: Editor cannot approve or execute Agent
+ok 40 - Editor cannot approve or execute Agent
+  ---
+  duration_ms: 17.6537
+  type: 'test'
+  ...
+# Subtest: Viewer cannot approve or execute Agent
+ok 41 - Viewer cannot approve or execute Agent
+  ---
+  duration_ms: 19.0135
+  type: 'test'
+  ...
+# Subtest: Manager cannot manage access roles
+ok 42 - Manager cannot manage access roles
+  ---
+  duration_ms: 15.9345
+  type: 'test'
+  ...
+# Subtest: Editor cannot manage access roles
+ok 43 - Editor cannot manage access roles
+  ---
+  duration_ms: 13.98
+  type: 'test'
+  ...
+# Subtest: Viewer cannot manage access roles
+ok 44 - Viewer cannot manage access roles
+  ---
+  duration_ms: 13.4612
+  type: 'test'
+  ...
+# Subtest: Editor KR target change denied
+ok 45 - Editor KR target change denied
+  ---
+  duration_ms: 8.2759
+  type: 'test'
+  ...
+# Subtest: Editor SOP approval denied
+ok 46 - Editor SOP approval denied
+  ---
+  duration_ms: 5.674
+  type: 'test'
+  ...
+# Subtest: Editor cycle management denied
+ok 47 - Editor cycle management denied
+  ---
+  duration_ms: 5.3139
+  type: 'test'
+  ...
+# Subtest: Editor Scale decision denied
+ok 48 - Editor Scale decision denied
+  ---
+  duration_ms: 4.142
+  type: 'test'
+  ...
+# Subtest: unaffiliated tenant rejected
+ok 49 - unaffiliated tenant rejected
+  ---
+  duration_ms: 1.0506
+  type: 'test'
+  ...
+# Subtest: resource scope denies foreign tenant
+ok 50 - resource scope denies foreign tenant
+  ---
+  duration_ms: 5.003
+  type: 'test'
+  ...
+# Subtest: own-record scope denies another creator
+ok 51 - own-record scope denies another creator
+  ---
+  duration_ms: 7.0505
+  type: 'test'
+  ...
+# Subtest: assigned scope rejects unassigned id
+ok 52 - assigned scope rejects unassigned id
+  ---
+  duration_ms: 6.931
+  type: 'test'
+  ...
+# Subtest: any permissions fail on empty grants
+ok 53 - any permissions fail on empty grants
+  ---
+  duration_ms: 10.1126
+  type: 'test'
+  ...
+# Subtest: client forged permissions are re-resolved
+ok 54 - client forged permissions are re-resolved
+  ---
+  duration_ms: 13.5188
+  type: 'test'
+  ...
+# Subtest: page guards map nested modules and audit
+ok 55 - page guards map nested modules and audit
+  ---
+  duration_ms: 0.4467
+  type: 'test'
+  ...
+# Subtest: Consultant prepares, Owner approves, executor stays disabled
+ok 56 - Consultant prepares, Owner approves, executor stays disabled
+  ---
+  duration_ms: 74.8697
+  type: 'test'
+  ...
+# Subtest: Viewer prepare rejected
+ok 57 - Viewer prepare rejected
+  ---
+  duration_ms: 9.9334
+  type: 'test'
+  ...
+# Subtest: unknown capability rejected
+ok 58 - unknown capability rejected
+  ---
+  duration_ms: 5.326
+  type: 'test'
+  ...
+# Subtest: cross-tenant action id hidden
+ok 59 - cross-tenant action id hidden
+  ---
+  duration_ms: 25.5313
+  type: 'test'
+  ...
+# Subtest: role change invalidates captured context and audit has old/new roles
+ok 60 - role change invalidates captured context and audit has old/new roles
+  ---
+  duration_ms: 47.0528
+  type: 'test'
+  ...
+# Subtest: Agent preparation requires target-domain permission
+ok 61 - Agent preparation requires target-domain permission
+  ---
+  duration_ms: 14.8847
+  type: 'test'
+  ...
+# Subtest: execution rechecks revoked target permission after approval
+ok 62 - execution rechecks revoked target permission after approval
+  ---
+  duration_ms: 44.0902
+  type: 'test'
+  ...
+# Subtest: last Owner cannot be demoted
+ok 63 - last Owner cannot be demoted
+  ---
+  duration_ms: 18.3513
+  type: 'test'
+  ...
+# Subtest: restricted module documents are masked
+ok 64 - restricted module documents are masked
+  ---
+  duration_ms: 26.7738
+  type: 'test'
+  ...
+# Subtest: Editor can manually create an ordinary Initiative without Agent execute
+ok 65 - Editor can manually create an ordinary Initiative without Agent execute
+  ---
+  duration_ms: 13.4804
+  type: 'test'
+  ...
+# Subtest: approval requires target module approval in addition to Agent approval
+ok 66 - approval requires target module approval in addition to Agent approval
+  ---
+  duration_ms: 27.9982
+  type: 'test'
+  ...
+# Subtest: approval refuses a proposal after shared business state changes
+ok 67 - approval refuses a proposal after shared business state changes
+  ---
+  duration_ms: 25.9345
+  type: 'test'
+  ...
+# Subtest: delegated member role permission cannot assign a more powerful role
+ok 68 - delegated member role permission cannot assign a more powerful role
+  ---
+  duration_ms: 22.7744
+  type: 'test'
+  ...
+1..68
+# tests 68
+# suites 0
+# pass 68
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 20322.1166

@@ -1,0 +1,19 @@
+{
+  "url": "http://127.0.0.1:3000/advisor/workspace",
+  "console": [],
+  "responsiveWidths": [
+    1440,
+    1280,
+    820,
+    390
+  ],
+  "screenshots": [
+    "docs/build-6f-desktop.png",
+    "docs/build-6f-tablet.png",
+    "docs/build-6f-mobile.png",
+    "docs/build-6f-final.png"
+  ],
+  "qaNamespace": "localhost",
+  "provider": "offline",
+  "goldenFlow": "Improvement explicit approval and execution; GrowthIdea explicit approval/execution/compensating archive"
+}

@@ -1,0 +1,67 @@
+# Build 4G — Strategy v1 release hardening
+
+Growth Engine by 1 Minute Manager · final verification 2026-09-25
+
+Scope: hardening Builds 4A–4F. No new product framework, AI, backend, authentication, billing, notifications or forecasting was added. This report supersedes earlier build notes where they describe work that was subsequently implemented.
+
+## Release readiness report
+
+1. **Issues discovered.** Completed weekly evidence could be changed through a general transition; archive controls conflicted with the closed-cycle guard; native date edits could retain old dates; some reporting dates used UTC rather than Tehran; dashboard KR rows included draft-Objective KRs while counters excluded them; a final short week was not counted after cycle end; cycle context was lost in some links; fragment navigation could run before persisted data rendered; controlled drawers lost keyboard focus on close. Closed-cycle creation controls and ambiguous quality/pacing labels also needed correction.
+
+2. **Issues fixed.** Completed-review payloads and audit history now have central transition protection. Completed cycles can make the explicit, audited transition to archive without changing their contents. Date fields capture the current native input value. Tehran-day helpers and cached formatters replace inconsistent day extraction. Dashboard KR rows use the same active-Objective scope as their counters. Final partial weeks become due after cycle end. Navigation carries the selected cycle, query-dependent pages reset correctly, and persisted fragment targets scroll into view. Drawers return focus to their opening button; closed-cycle creation controls are hidden. Initiative Adapt confirmation is next to the affected decision. Copy distinguishes expected time progress from a forecast and keyword quality checks from semantic analysis.
+
+3. **Lifecycle audit.** The UI golden path covered draft, activation, review, completion and archive. Activation explicitly moved the previous active cycle into review. Closing required final review evidence and confirmation. Archive retained content and recorded the transition. Completed cycles remain protected against ordinary edits. Only the latest eligible weekly review can explicitly reopen; reopening itself must preserve its existing evidence until a later draft edit/recompletion.
+
+4. **Entity integrity.** Stable cycle/priority/Objective/KR/initiative/review IDs underpin cross-references. Validation rejects invalid relationships, dates and malformed core data. Missing owners have visible fallbacks. Cancellation excludes entities from applicable active calculations without deleting their history. System roles are read as reference data, not modified by Strategy. Automated cases cover orphan references, missing owners, cancelled entities and old payloads.
+
+5. **Historical integrity.** Completed weekly check-ins, decisions and snapshots are immutable through ordinary transitions. Adapt and final cycle reviews retain their evidence and dated changes. The browser test changed a live KR target from 100 to 120, then its value to 70: week 1 still showed 25/100 and confidence 8; week 2 still showed 40/100 and confidence 7. Final cycle evidence continued to drive historical reporting after archive. Legacy records without final snapshots use the labelled fallback; they do not acquire invented history.
+
+6. **Persistence and recovery.** App Router pages render client workspaces under one StrategyProvider. Domain modules live in `lib/strategy` (core, KR, initiatives, weekly, Adapt and dashboard). `growth-engine.strategy.v1` remains the Strategy localStorage key. Only an absent key seeds the sample; missing optional collections remain empty. Validation and storage writes precede committing the new UI state. Tests cover corrupt JSON, invalid extensions, quota/write failure and concurrent-change checks. These failure scenarios were tested in code, not by corrupting the user's browser storage. Browser refresh verified successful writes. No server backup or multi-user transactional guarantee exists.
+
+7. **Formula audit.** Increase/decrease progress is bounded to 0–100%; binary is 0/100%; milestone progress uses explicit weights. Missing values stay unknown. Equal/custom KR weighting uses the canonical KR module; invalid custom totals produce unknown progress rather than silent normalization. Active Objective progress is averaged equally over calculable Objectives, with coverage shown. Known confidence is distinct from missing confidence. Expected progress is elapsed cycle time, bounded to 0–100, and is only a comparison baseline. Status and freshness remain separate: a stale result is not automatically assigned lower measured progress. Date boundaries use Tehran calendar days.
+
+8. **Final Strategy Health formula.** Version 4F.1 remains: pacing 35%, confidence 20%, evaluated initiative effectiveness 20%, review discipline 15%, alignment 10%. Pacing is `100 − max(0, expected − actual)`, weighted within Objectives and averaged across known active Objectives. Confidence uses known active KR values ×10. Effectiveness maps effective/promising/weak/ineffective to 100/75/35/0; unevaluated is excluded. Discipline combines due weekly and 30-day Adapt coverage. Alignment combines applicable relationship/ownership coverage. Available weights are normalized only when at least 60% of base weight and calculable pacing exist. Critical/high/medium-or-incomplete evidence caps are 39/59/74. Objective health has zero additional weight to avoid counting the same evidence twice. Breakdown, missing evidence and caps remain visible. This is an explained management heuristic, not a calibrated probability.
+
+9. **Dashboard integrity.** Dashboard, executive view and report center use the same pure `getStrategyDashboard` selectors and canonical domain calculations. They do not store aggregate scores or create history. Active KR row/counter eligibility now agrees. Filters narrow rows without silently changing cycle-wide headline values. Result progress, execution progress, confidence, completeness and health remain separate measures.
+
+10. **Reporting consistency.** All ten reports were inspected: Objectives, KRs, trends, confidence, initiative effectiveness, execution/result, alignment, blockers, changes and learning. The golden-path historical dashboard/report values agreed: progress 50.9%, health 74, confidence 7 and completeness 87.5%. Initiative execution stayed 20%; its gap from result progress was −30.9 points. Unevaluated initiatives were not treated as ineffective. Source links and dated before/after reasons were visible.
+
+11. **Trend integrity.** Trends use stored completed-review snapshots, not reconstructed live values. Golden-path weeks remained 32.4% and 44.8% after the live result reached 50.9%. Missing weeks and unknown values remain gaps. The default 13-week window ends at the latest stored review; 26/all ranges do not fabricate future observations. Trend filtering and deterministic ordering are covered by integration tests.
+
+12. **Carry-forward integrity.** The UI selected one priority, Objective, KR and lesson. The new cycle received new IDs; its selected KR began at baseline/current 70, target 150, progress 0%, missing confidence and no observation/history. The copied Objective remained draft and the priority required selection. Old weekly, Adapt and final-cycle evidence was preserved. A future draft cycle did not show fabricated completed reviews or active performance.
+
+13. **Language and RTL.** Pacing and quality wording was clarified; additional Adapt/Learn numbers use Persian formatting. Date display uses the common Tehran-day conversion. RTL layout was checked at 390, 820, 1280 and 1440 viewport widths. Some raw counts/audit values and the English brand remain mixed-script; full typographic localization is a remaining polish item.
+
+14. **Accessibility.** Labelled form controls, textual status explanations and table/graph alternatives remain available. Tab and Shift-Tab in a cycle drawer were exercised; Escape closed it and returned focus to the exact opening edit button. Direct KR fragments now scroll to the rendered card after storage hydration (verified target top approximately 30px). This is targeted keyboard/accessibility QA, not a formal WCAG certification or a complete screen-reader audit.
+
+15. **Visual hardening.** Dashboard, executive report, weekly review, Adapt, Objectives, KRs and initiatives were checked for document overflow at mobile 390, tablet 820 and desktop 1280/1440. Document width equalled viewport content width on each checked page. Representative screenshots covered dashboard/executive, weekly, Adapt, KR/Objective and initiative surfaces; the tablet Objectives view was rechecked after data loaded. Horizontal section navigation is intentional. No redesign was introduced. Geometry checks are broader than screenshot coverage; this was not a screenshot of every page at every size.
+
+16. **Large-data performance.** Pure aggregation/filter/sort/trend fixtures covered 25 Objectives/100 KRs/150 initiatives/26 weeks and 50/250/400/52 weeks. Representative combined runs: small 145.1, 164.1, 149.0, 112.8 and 114.3ms; large 413.3, 404.4 and 322.2ms; filtered 26-week large run 215.0ms. A run during heavy build load exceeded two seconds; caching the reused date formatter removed significant repeated overhead. Final tests passed. These are local in-memory timings, not storage-capacity, rendering-load or service-level guarantees. Large histories may exceed browser storage quota.
+
+17. **Tests.** `npm.cmd test`: **343 passed, 0 failed**, approximately 3.97s in the final recorded run. The 21 new cases cover A–T integration scenarios plus the final partial week: snapshot protection, report scope, filters, carry-forward, archive, unknown confidence/effectiveness, independent freshness/execution, Tehran boundaries, corrupt/legacy data, deterministic risks, empty history, finite health, large fixtures, cancellation, immutable audits, drill-down IDs and latest-review reopening. `npx.cmd tsc --noEmit` completed without errors.
+
+18. **Production build.** `npm.cmd run build` passed on Next.js 16.3.5, including its TypeScript and route generation stages. The production server started successfully with `npm.cmd run start`. Earlier duplicate-server port contention and stale generated development output were resolved; no security policies were changed. Final checks used the production server.
+
+19. **Browser QA.** The complete workflow was performed through localhost UI, with no localStorage editing: context → selected priority/focus/not-now → Objective → increase/decrease/milestone KRs → initiative → two completed weekly reviews → blocker/confidence change → applied Adapt target/initiative decisions → final learning/review → selected carry-forward → old/new reports → archive. Nested refresh, cycle context, Back/Forward, direct KR navigation and missing-cycle recovery were checked. Final captured browser warnings/errors: none. Ten Strategy routes returned HTTP 200; all 23 referenced Next assets returned successfully. This is a targeted HTTP/asset check plus browser console inspection, not a claim that every possible network request was exhaustively traced. Test mutations stayed on localhost; the user's 127.0.0.1 Strategy, System and Assessment data were not edited.
+
+20. **Known limitations.** Local browser persistence only; no authentication, server backup, cross-device sync or transactional multi-user operation. Health, quality, pacing and blocker matching are explained rules, not prediction or causal inference. Very large persistent histories remain constrained by localStorage. No PDF/Excel export workflow was added. Targeted QA does not replace broad browser/device or assistive-technology certification. Mixed-script numeric polish remains. These limitations must accompany any demonstration.
+
+21. **Strategy Module v1 close decision.** Ready to close for the defined local, single-browser prototype scope: core lifecycle, history, change control, reporting and carry-forward have passed the recorded tests and UI path. No known blocking defect remains in that tested scope. This does not designate a hosted, multi-user production SaaS release.
+
+22. **Before SCALE.** No blocker was found to beginning the next explicitly scoped SCALE prototype build. Preserve the Strategy contract and its regression suite. Any move to real multi-user operation needs a separate persistence/authentication/backup/concurrency design and migration plan; those were intentionally outside Build 4G.
+
+## Reproducible UI evidence
+
+All IDs below belong to the localhost test origin.
+
+| Record | ID / result |
+| --- | --- |
+| Archived 4G cycle | `c6c603e1-632a-4de2-a780-f30b9c190891`, 2026-09-01–2026-11-30 |
+| Week 1 | `2156ed3c-be1e-48b2-854e-5d3f62513c81`, 32.4%, confidence 8 |
+| Week 2 | `f6861292-e7d1-4239-851d-d9cc1bb01cd1`, 44.8%, confidence 7 |
+| Completed Adapt | `3a50db1f-197b-48ca-91f2-b7240435c7c6`, snapshot 42.6%, confidence 7 |
+| Final review | 50.9%, confidence 7; explicit lesson and outcome evidence |
+| New draft cycle | `dbcd8329-70fa-4ce5-bfa1-917d9c1708eb`, 2026-12-01–2027-02-28 |
+| Carried KR | `e11d97cc-e515-4cd9-8ae3-ffdf1463b76a`, baseline/current 70, target 150, no inherited history |
+
+Earlier localhost samples remain available. The prior active 4A cycle was explicitly moved to review during activation of the test cycle. No test records were deleted after verification.

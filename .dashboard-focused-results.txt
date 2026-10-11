@@ -1,0 +1,144 @@
+TAP version 13
+# 4F benchmark 10/40/60/13 ms: 66.1, 66.9, 63.3, 64.5, 62.7
+# 4F benchmark 25/100/150/26 ms: 101.6, 138.6, 81.4, 93.3, 73.9
+# Subtest: 4F A progress uses canonical weighted objective results
+ok 1 - 4F A progress uses canonical weighted objective results
+  ---
+  duration_ms: 57.9405
+  type: 'test'
+  ...
+# Subtest: 4F B health explains weights, availability, contributions and risk caps
+ok 2 - 4F B health explains weights, availability, contributions and risk caps
+  ---
+  duration_ms: 6.6245
+  type: 'test'
+  ...
+# Subtest: 4F C missing confidence stays null and is not a zero score
+ok 3 - 4F C missing confidence stays null and is not a zero score
+  ---
+  duration_ms: 4.1264
+  type: 'test'
+  ...
+# Subtest: 4F D no history has no synthetic trend
+ok 4 - 4F D no history has no synthetic trend
+  ---
+  duration_ms: 5.4606
+  type: 'test'
+  ...
+# Subtest: 4F E high weight off-track KR vetoes positive health
+ok 5 - 4F E high weight off-track KR vetoes positive health
+  ---
+  duration_ms: 4.384
+  type: 'test'
+  ...
+# Subtest: 4F F confidence decline comes from completed consecutive reviews
+ok 6 - 4F F confidence decline comes from completed consecutive reviews
+  ---
+  duration_ms: 40.48
+  type: 'test'
+  ...
+# Subtest: 4F G recurring blocker ranks above comparable single blocker and resolved is removed
+ok 7 - 4F G recurring blocker ranks above comparable single blocker and resolved is removed
+  ---
+  duration_ms: 36.5154
+  type: 'test'
+  ...
+# Subtest: 4F H high execution with low result is surfaced without causality
+ok 8 - 4F H high execution with low result is surfaced without causality
+  ---
+  duration_ms: 4.7548
+  type: 'test'
+  ...
+# Subtest: 4F I ineffective and unevaluated initiatives are distinct
+ok 9 - 4F I ineffective and unevaluated initiatives are distinct
+  ---
+  duration_ms: 6.9807
+  type: 'test'
+  ...
+# Subtest: 4F J alignment exposes missing relationships and owners
+ok 10 - 4F J alignment exposes missing relationships and owners
+  ---
+  duration_ms: 5.2011
+  type: 'test'
+  ...
+# Subtest: 4F K completeness changes with missing data independently of progress
+ok 11 - 4F K completeness changes with missing data independently of progress
+  ---
+  duration_ms: 7.441
+  type: 'test'
+  ...
+# Subtest: 4F L freshness distinguishes never updated, stale and this week
+ok 12 - 4F L freshness distinguishes never updated, stale and this week
+  ---
+  duration_ms: 12.3908
+  type: 'test'
+  ...
+# Subtest: 4F M historical core uses final frozen evidence and recorded date
+ok 13 - 4F M historical core uses final frozen evidence and recorded date
+  ---
+  duration_ms: 48.7414
+  type: 'test'
+  ...
+# Subtest: 4F N trends use snapshots and never rewrite with live KR values
+ok 14 - 4F N trends use snapshots and never rewrite with live KR values
+  ---
+  duration_ms: 42.8375
+  type: 'test'
+  ...
+# Subtest: 4F O changes and audit reasons are retained
+ok 15 - 4F O changes and audit reasons are retained
+  ---
+  duration_ms: 9.4145
+  type: 'test'
+  ...
+# Subtest: 4F P summary reflects actual data and unknown states
+ok 16 - 4F P summary reflects actual data and unknown states
+  ---
+  duration_ms: 7.8141
+  type: 'test'
+  ...
+# Subtest: 4F Q primary focus deterministically selects the highest ranked evidence
+ok 17 - 4F Q primary focus deterministically selects the highest ranked evidence
+  ---
+  duration_ms: 126.6723
+  type: 'test'
+  ...
+# Subtest: 4F R no hidden aggregate persistence or synthetic performance
+ok 18 - 4F R no hidden aggregate persistence or synthetic performance
+  ---
+  duration_ms: 9.3893
+  type: 'test'
+  ...
+# Subtest: 4F filters and cycles remain isolated
+ok 19 - 4F filters and cycles remain isolated
+  ---
+  duration_ms: 8.7852
+  type: 'test'
+  ...
+# Subtest: 4F unknown confidence and unevaluated effectiveness never earn strong health
+ok 20 - 4F unknown confidence and unevaluated effectiveness never earn strong health
+  ---
+  duration_ms: 9.348
+  type: 'test'
+  ...
+# Subtest: 4F S aggregation benchmark 10/40/60/13
+ok 21 - 4F S aggregation benchmark 10/40/60/13
+  ---
+  duration_ms: 392.8595
+  type: 'test'
+  ...
+# Subtest: 4F S aggregation benchmark 25/100/150/26
+ok 22 - 4F S aggregation benchmark 25/100/150/26
+  ---
+  duration_ms: 605.3368
+  type: 'test'
+  ...
+1..22
+# tests 22
+# suites 0
+# pass 22
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1621.4919

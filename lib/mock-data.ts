@@ -1,7 +1,13 @@
 export const navigation = [
+  { href: "/advisor/workspace", label: "مشاور مدیریتی", icon: "dashboard" },
   { href: "/", label: "خانه", icon: "home" },
   { href: "/assessment", label: "ارزیابی 3S", icon: "assessment" },
-  { href: "/system/command-center", label: "سیستم", icon: "system", step: "01" },
+  {
+    href: "/system/command-center",
+    label: "سیستم",
+    icon: "system",
+    step: "01",
+  },
   { href: "/strategy", label: "استراتژی", icon: "strategy", step: "02" },
   { href: "/scale", label: "اسکیل", icon: "scale", step: "03" },
   { href: "/execution", label: "اجرا", icon: "execution" },

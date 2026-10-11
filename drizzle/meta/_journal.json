@@ -1,0 +1,62 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1791281880993,
+      "tag": "0000_multi_tenant_foundation",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1791284108860,
+      "tag": "0001_relational_links_and_assessment",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1791284115029,
+      "tag": "0002_audit_immutability",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1791287004541,
+      "tag": "0003_auth_sessions_and_workspace",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1791287639692,
+      "tag": "0004_auth_security_events",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1791290000000,
+      "tag": "0005_rbac_default_grants",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1791300000000,
+      "tag": "0006_data_migration_lifecycle",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1791400000000,
+      "tag": "0007_canonical_domain_records",
+      "breakpoints": true
+    }
+  ]
+}

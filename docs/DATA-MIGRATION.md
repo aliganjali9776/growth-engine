@@ -1,0 +1,15 @@
+# Data migration — current implementation boundary
+
+Current approved connection: `executeDataMigration` now rechecks Owner/Admin, selected company, initiating user, checksum, preview status, occupancy and profile/reference validation under an organization lock. All 15 stores are imported and verified by reading back; a savepoint rolls back business rows on late failure while retaining Failed/audit. Historical actors/IDs remain unchanged; row provenance is LegacyLocal, and migration audit identifies the real importer. Original localStorage is never modified. Twenty-two migration tests pass. Actual browser import awaits approval to create the named synthetic company, and actual download remains unverified. The text below records the earlier preview-only increment; see [the latest checkpoint](BUILD-7D-CONTINUATION.md).
+
+Migration is explicit and targets the authenticated session's selected company. Nothing uploads browser data on login. The UI reads localStorage only after the user selects local inspection. Selecting a file also remains local until privacy confirmation and preview submission. Existing local stores are never cleared automatically.
+
+The `BusinessOSExport` schema-2 envelope groups the 15 exact legacy keys into assessment, system, strategy, scale and agent. Store payloads retain their original encoded format to avoid losing compact Agent snapshots or changing immutable history. Normalized import must decode compact preparation using the existing reader. No imported actor may be attributed to the importer; future import uses `LegacyLocal` provenance. The real importer is recorded only on the migration lifecycle/audit.
+
+Preview reuses all current store validators, inspects package-wide links, compares profile industry and checks target occupancy. Reference inspection is still being extended: it is **not yet sufficient to authorize execution**. `eligible` means the currently implemented checks passed; `executionEnabled` is always false. Only lifecycle/audit metadata is written. No business row or browser data is changed.
+
+Name conflicts retain target company identity and are visible warnings. Industry conflicts block preview eligibility. A populated target blocks full import; create a new company rather than merging. The eventual execution must repeat validation and occupancy checks under a company lock, import atomically, verify counts and references, then record success. Those execution steps are outstanding.
+
+The browser accepts files up to 8 MiB. The shared export validator permits packages up to 32 MiB for future offline/CLI use; HTTP preview remains limited to 8 MiB. Before preview, download the backup. If a local store is corrupt, the raw schema-1 backup can still be downloaded and no overwrite occurs.
+
+Migration lifecycle statuses are Previewed/Running/Succeeded/Failed/RolledBack. Only Previewed is used by this increment. Preview records contain checksum, counts, safe warnings and actor/org IDs, never credentials or the full package. SHA-256 canonicalizes parsed business JSON and excludes export timestamps; it detects content changes but is not an authentication signature.

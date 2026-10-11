@@ -1,0 +1,33 @@
+{
+  "at": "2026-10-05T22:16:55.227Z",
+  "origin": "http://localhost:3000",
+  "goldenFlows": [
+    "System Improvement backlog verified",
+    "GrowthIdea inbox verified then compensating archive verified",
+    "Experiment draft verified",
+    "Initiative proposed with zero progress verified"
+  ],
+  "history": "3 Succeeded, 1 RolledBack",
+  "stale": "Sample process note changed; approved improvement became NeedsReview/Stale with dry run and execute disabled",
+  "revision": "Editing approved KR removed execution availability; separately reapproved without executing",
+  "keyboard": "Cancel initially focused, Escape closed; launch-button focus restoration needs refinement",
+  "debugWhitelist": 8,
+  "viewports": [
+    {
+      "width": 1280,
+      "height": 900,
+      "horizontalOverflow": false
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "horizontalOverflow": false
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "horizontalOverflow": false
+    }
+  ],
+  "console": []
+}

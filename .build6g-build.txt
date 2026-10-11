@@ -1,0 +1,105 @@
+
+> 3s-business-os@0.1.0 build
+> next build
+
+▲ Next.js 16.3.5 (Turbopack)
+✓ Running next.config took 11ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 10.6s
+  Running TypeScript ...
+  Finished TypeScript in 8.3s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/47) ...
+  Generating static pages using 7 workers (11/47) 
+  Generating static pages using 7 workers (23/47) 
+  Generating static pages using 7 workers (35/47) 
+✓ Generating static pages using 7 workers (47/47) in 4.8s
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├   /[module]
+│ ├ ○ /scale
+│ ├ ● /execution
+│ ├ ● /dashboard
+│ └ ● /settings
+├ ○ /advisor
+├ ○ /advisor/actions
+├ ƒ /advisor/actions/[id]
+├ ○ /advisor/actions/history
+├ ○ /advisor/history
+├ ○ /advisor/insights
+├ ƒ /advisor/insights/[id]
+├ ○ /advisor/workspace
+├ ƒ /api/advisor
+├ ○ /assessment
+├ ○ /dev/agent
+├ ○ /icon.svg
+├ ○ /scale
+├ ƒ /scale/[section]
+├ ○ /scale/capacity
+├ ○ /scale/channels
+├ ƒ /scale/channels/[id]
+├ ○ /scale/constraints
+├ ƒ /scale/constraints/[id]
+├ ○ /scale/dashboard
+├ ○ /scale/diagnosis
+├ ○ /scale/experiments
+├ ƒ /scale/experiments/[id]
+├ ○ /scale/funnel
+├ ○ /scale/funnel/builder
+├ ○ /scale/funnel/history
+├ ○ /scale/ideas
+├ ƒ /scale/ideas/[id]
+├ ○ /scale/loops
+├ ƒ /scale/loops/[id]
+├ ƒ /scale/readiness
+├ ƒ /scale/readiness/[id]
+├ ○ /scale/reports
+├ ƒ /scale/reports/[report]
+├ ○ /scale/reports/executive
+├ ○ /scale/scale-decisions
+├ ○ /strategy
+├ ƒ /strategy/[section]
+├ ƒ /strategy/adapt
+├ ƒ /strategy/adapt/[reviewId]
+├ ○ /strategy/cycles
+├ ƒ /strategy/cycles/[id]
+├ ƒ /strategy/cycles/[id]/adapt
+├ ƒ /strategy/cycles/[id]/learn
+├ ƒ /strategy/cycles/[id]/objectives
+├ ƒ /strategy/cycles/[id]/objectives/[objectiveId]
+├ ƒ /strategy/cycles/[id]/priorities
+├ ƒ /strategy/dashboard
+├ ƒ /strategy/initiatives
+├ ƒ /strategy/initiatives/[id]
+├ ƒ /strategy/key-results
+├ ƒ /strategy/reports
+├ ƒ /strategy/reports/executive
+├ ƒ /strategy/weekly-review
+├ ƒ /strategy/weekly-review/[reviewId]
+├ ○ /system
+├ ○ /system/command-center
+├ ○ /system/independence
+├ ○ /system/organization
+├ ○ /system/people
+├ ○ /system/pipeline
+├ ○ /system/processes
+├ ƒ /system/processes/[id]
+├ ƒ /system/processes/[id]/analysis
+├ ƒ /system/processes/[id]/compare
+├ ƒ /system/processes/[id]/implementation
+├ ƒ /system/processes/[id]/improvements
+├ ƒ /system/processes/[id]/kpis
+├ ƒ /system/processes/[id]/map
+├ ƒ /system/processes/[id]/review
+├ ƒ /system/processes/[id]/standardize
+└ ƒ /system/processes/[id]/to-be
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+

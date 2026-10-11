@@ -1,0 +1,13 @@
+{
+  "rolesLoggedIn": ["Owner", "Admin", "Consultant", "Manager", "Editor", "Viewer"],
+  "organizationSwitch": "Alpha Owner to Beta Viewer: direct members page denied",
+  "agentFlow": "Consultant prepared company proposal; Owner independently approved; server actor names visible",
+  "execution": "Intentionally disabled under scope section 110; Owner API returns Disabled 403",
+  "midSessionDowngrade": "Manager create control enabled, downgraded to Viewer externally, polling refreshed page and disabled create",
+  "suspension": "Open company page closed and returned to company selector; no companies visible",
+  "fixtureRestoration": "QA Manager restored to active Manager",
+  "responsiveMatrix": ["1440x1000", "820x1180", "390x844"],
+  "consoleErrorsOrWarningsObserved": [],
+  "knownUiLimit": "Viewer native disabled fieldset also disables read-only in-page filters",
+  "notClaimed": ["successful server execution", "full 32-step execution QA", "external standalone PostgreSQL"]
+}

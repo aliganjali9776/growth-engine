@@ -1,0 +1,201 @@
+
+> 3s-business-os@0.1.0 test:database
+> node --conditions=react-server --import tsx --test tests/saas.test.ts
+
+TAP version 13
+# Subtest: 7A A/B/P organization bootstrap creates owner roles profile settings and audit atomically
+ok 1 - 7A A/B/P organization bootstrap creates owner roles profile settings and audit atomically
+  ---
+  duration_ms: 5174.4445
+  type: 'test'
+  ...
+# Subtest: 7A C/D user belongs to two organizations and duplicate membership is rejected by PostgreSQL
+ok 2 - 7A C/D user belongs to two organizations and duplicate membership is rejected by PostgreSQL
+  ---
+  duration_ms: 4.2442
+  type: 'test'
+  ...
+# Subtest: 7A E/L two-company golden objective lookup never returns another company
+ok 3 - 7A E/L two-company golden objective lookup never returns another company
+  ---
+  duration_ms: 4.441
+  type: 'test'
+  ...
+# Subtest: 7A E scoped process and experiment ID attacks are isolated
+ok 4 - 7A E scoped process and experiment ID attacks are isolated
+  ---
+  duration_ms: 3.6978
+  type: 'test'
+  ...
+# Subtest: 7A cross-tenant owner, role grant, cycle and experiment constraint fail at real FK boundary
+ok 5 - 7A cross-tenant owner, role grant, cycle and experiment constraint fail at real FK boundary
+  ---
+  duration_ms: 8.815
+  type: 'test'
+  ...
+# Subtest: 7A F/G suspended invited removed memberships never resolve active access
+ok 6 - 7A F/G suspended invited removed memberships never resolve active access
+  ---
+  duration_ms: 7.9317
+  type: 'test'
+  ...
+# Subtest: 7A disabled account and suspended organization deny context regardless of role
+ok 7 - 7A disabled account and suspended organization deny context regardless of role
+  ---
+  duration_ms: 5.7451
+  type: 'test'
+  ...
+# Subtest: 7A H access roles distinct from business roles; Person may lack account
+ok 8 - 7A H access roles distinct from business roles; Person may lack account
+  ---
+  duration_ms: 5.5358
+  type: 'test'
+  ...
+# Subtest: 7A I multi-organization role permissions resolve separately and deterministically
+ok 9 - 7A I multi-organization role permissions resolve separately and deterministically
+  ---
+  duration_ms: 5.5665
+  type: 'test'
+  ...
+# Subtest: 7A Viewer can read but cannot write or acquire authority from forged cached context
+ok 10 - 7A Viewer can read but cannot write or acquire authority from forged cached context
+  ---
+  duration_ms: 24.5432
+  type: 'test'
+  ...
+# Subtest: 7A J organization slug and email normalization/unique constraints are real
+ok 11 - 7A J organization slug and email normalization/unique constraints are real
+  ---
+  duration_ms: 3.8714
+  type: 'test'
+  ...
+# Subtest: 7A K repository requires valid organizationId and no unscoped ID signature
+ok 12 - 7A K repository requires valid organizationId and no unscoped ID signature
+  ---
+  duration_ms: 0.3648
+  type: 'test'
+  ...
+# Subtest: 7A M audit includes scope and actor; tenant export contains no other organization
+ok 13 - 7A M audit includes scope and actor; tenant export contains no other organization
+  ---
+  duration_ms: 99.8849
+  type: 'test'
+  ...
+# Subtest: 7A N Agent session includes organization and real creator membership
+ok 14 - 7A N Agent session includes organization and real creator membership
+  ---
+  duration_ms: 12.0719
+  type: 'test'
+  ...
+# Subtest: 7A O Agent requested approved executed actors and approval binding persist relationally
+ok 15 - 7A O Agent requested approved executed actors and approval binding persist relationally
+  ---
+  duration_ms: 6.1327
+  type: 'test'
+  ...
+# Subtest: 7A Q failure mid-bootstrap rolls back organization membership roles settings audit
+ok 16 - 7A Q failure mid-bootstrap rolls back organization membership roles settings audit
+  ---
+  duration_ms: 5.5565
+  type: 'test'
+  ...
+# Subtest: 7A R transactional idempotency creates one objective and audit; altered payload conflicts
+ok 17 - 7A R transactional idempotency creates one objective and audit; altered payload conflicts
+  ---
+  duration_ms: 23.5152
+  type: 'test'
+  ...
+# Subtest: 7A S optimistic update cannot overwrite another manager; audit commits atomically
+ok 18 - 7A S optimistic update cannot overwrite another manager; audit commits atomically
+  ---
+  duration_ms: 18.1003
+  type: 'test'
+  ...
+# Subtest: 7A existing pure domain validation rejects impossible dates before database create
+ok 19 - 7A existing pure domain validation rejects impossible dates before database create
+  ---
+  duration_ms: 8.5429
+  type: 'test'
+  ...
+# {"organizations":100,"users":100,"memberships":10000,"objectives":2500,"scopedQueryMs":2.29}
+# Subtest: 7A T database missing migration/unavailable/constraint errors are sanitized
+ok 20 - 7A T database missing migration/unavailable/constraint errors are sanitized
+  ---
+  duration_ms: 1214.8388
+  type: 'test'
+  ...
+# Subtest: 7A U/V local fallback and database providers initialize independently without cache bleed
+ok 21 - 7A U/V local fallback and database providers initialize independently without cache bleed
+  ---
+  duration_ms: 12.4399
+  type: 'test'
+  ...
+# Subtest: 7A versioned complete local export is allowlisted and stages only in explicit target tenant
+ok 22 - 7A versioned complete local export is allowlisted and stages only in explicit target tenant
+  ---
+  duration_ms: 29.6736
+  type: 'test'
+  ...
+# Subtest: 7A staged export rejects corrupt stores and drops untrusted metadata
+ok 23 - 7A staged export rejects corrupt stores and drops untrusted metadata
+  ---
+  duration_ms: 0.5434
+  type: 'test'
+  ...
+# Subtest: 7A dev API real database smoke: health organizations create/read objective and cross-tenant deny
+ok 24 - 7A dev API real database smoke: health organizations create/read objective and cross-tenant deny
+  ---
+  duration_ms: 88.2427
+  type: 'test'
+  ...
+# Subtest: 7A production dev API stays disabled even with configuration; body role/user forgery rejected
+ok 25 - 7A production dev API stays disabled even with configuration; body role/user forgery rejected
+  ---
+  duration_ms: 0.9542
+  type: 'test'
+  ...
+# Subtest: 7A every business table owns tenant scope; global identity/reference tables are explicit exceptions
+ok 26 - 7A every business table owns tenant scope; global identity/reference tables are explicit exceptions
+  ---
+  duration_ms: 0.2723
+  type: 'test'
+  ...
+# Subtest: 7A audit is append-only and completed Agent binding cannot change or disappear
+ok 27 - 7A audit is append-only and completed Agent binding cannot change or disappear
+  ---
+  duration_ms: 9.6542
+  type: 'test'
+  ...
+# Subtest: 7A removing membership preserves company data and historical authorship
+ok 28 - 7A removing membership preserves company data and historical authorship
+  ---
+  duration_ms: 3.8448
+  type: 'test'
+  ...
+# Subtest: 7A dev API rejects wrong token origin host and oversized request without leaking secrets
+ok 29 - 7A dev API rejects wrong token origin host and oversized request without leaking secrets
+  ---
+  duration_ms: 1.9324
+  type: 'test'
+  ...
+# Subtest: 7A migration runner is repeatable against real PostgreSQL without resetting data
+ok 30 - 7A migration runner is repeatable against real PostgreSQL without resetting data
+  ---
+  duration_ms: 11.5283
+  type: 'test'
+  ...
+# Subtest: 7A performance foundation: 100 companies, 100 users, 100 memberships/company and tenant queries
+ok 31 - 7A performance foundation: 100 companies, 100 users, 100 memberships/company and tenant queries
+  ---
+  duration_ms: 1051.9766
+  type: 'test'
+  ...
+1..31
+# tests 31
+# suites 0
+# pass 31
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 11375.5094

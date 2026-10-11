@@ -1,0 +1,157 @@
+{
+  "passed": 38,
+  "results": [
+    {
+      "name": "Owner login",
+      "status": 200
+    },
+    {
+      "name": "Owner switch",
+      "status": 200
+    },
+    {
+      "name": "Owner effective permissions",
+      "status": "pass"
+    },
+    {
+      "name": "Owner member read",
+      "status": 200
+    },
+    {
+      "name": "Admin login",
+      "status": 200
+    },
+    {
+      "name": "Admin switch",
+      "status": 200
+    },
+    {
+      "name": "Admin effective permissions",
+      "status": "pass"
+    },
+    {
+      "name": "Admin member read",
+      "status": 200
+    },
+    {
+      "name": "Consultant login",
+      "status": 200
+    },
+    {
+      "name": "Consultant switch",
+      "status": 200
+    },
+    {
+      "name": "Consultant effective permissions",
+      "status": "pass"
+    },
+    {
+      "name": "Consultant member read",
+      "status": 403
+    },
+    {
+      "name": "Manager login",
+      "status": 200
+    },
+    {
+      "name": "Manager switch",
+      "status": 200
+    },
+    {
+      "name": "Manager effective permissions",
+      "status": "pass"
+    },
+    {
+      "name": "Manager member read",
+      "status": 403
+    },
+    {
+      "name": "Editor login",
+      "status": 200
+    },
+    {
+      "name": "Editor switch",
+      "status": 200
+    },
+    {
+      "name": "Editor effective permissions",
+      "status": "pass"
+    },
+    {
+      "name": "Editor member read",
+      "status": 403
+    },
+    {
+      "name": "Viewer login",
+      "status": 200
+    },
+    {
+      "name": "Viewer switch",
+      "status": 200
+    },
+    {
+      "name": "Viewer effective permissions",
+      "status": "pass"
+    },
+    {
+      "name": "Viewer member read",
+      "status": 403
+    },
+    {
+      "name": "Viewer prepareAgentAction",
+      "status": 403
+    },
+    {
+      "name": "Viewer approveAgentAction",
+      "status": 403
+    },
+    {
+      "name": "Viewer executeAgentAction",
+      "status": 403
+    },
+    {
+      "name": "actor spoof rejected",
+      "status": 400
+    },
+    {
+      "name": "org header spoof rejected",
+      "status": 409
+    },
+    {
+      "name": "body organization spoof rejected",
+      "status": 403
+    },
+    {
+      "name": "approval actor spoof rejected",
+      "status": 400
+    },
+    {
+      "name": "Consultant prepare",
+      "status": 201
+    },
+    {
+      "name": "Consultant approval denied",
+      "status": 403
+    },
+    {
+      "name": "Owner approve",
+      "status": 200
+    },
+    {
+      "name": "separate server actors",
+      "status": "pass"
+    },
+    {
+      "name": "Owner execution remains deliberately disabled",
+      "status": 403
+    },
+    {
+      "name": "Viewer audit denied",
+      "status": 403
+    },
+    {
+      "name": "Owner audit read",
+      "status": 200
+    }
+  ]
+}

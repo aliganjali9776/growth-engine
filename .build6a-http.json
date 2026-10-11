@@ -1,0 +1,90 @@
+[
+  {
+    "route": "/dev/agent",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/14xr_z9_xqm44.css",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/3n8tsuxwunmhg.css",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/01nxr5l9buksg.css",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/310vm2bl3xxpt.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/19mx3mg6lkumu.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/33jh5xrl2bz6g.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/0x5kfjuih7hvj.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/turbopack-2kri__g3gc-4n.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/280abr9-vs5lr.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/3vb40wfjqh4mk.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/06pt3_36swbk5.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/3qynydy2_gudf.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/3_erfrk194bq3.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/0tfl1fwse96zj.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/3374-v3wzb1ku.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/0d6uvwenneglw.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/0c9akw5ph0vx2.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+    "status": 200
+  },
+  {
+    "route": "/system/command-center",
+    "status": 200
+  },
+  {
+    "route": "/strategy/dashboard",
+    "status": 200
+  },
+  {
+    "route": "/scale/dashboard",
+    "status": 200
+  }
+]

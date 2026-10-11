@@ -1,0 +1,254 @@
+
+> 3s-business-os@0.1.0 test:rbac
+> node --conditions=react-server --import tsx --test tests/rbac.test.ts
+
+TAP version 13
+# Subtest: matrix Owner resolves exact fresh database grants
+ok 1 - matrix Owner resolves exact fresh database grants
+  ---
+  duration_ms: 2436.2397
+  type: 'test'
+  ...
+# Subtest: matrix Admin resolves exact fresh database grants
+ok 2 - matrix Admin resolves exact fresh database grants
+  ---
+  duration_ms: 4.392
+  type: 'test'
+  ...
+# Subtest: matrix Consultant resolves exact fresh database grants
+ok 3 - matrix Consultant resolves exact fresh database grants
+  ---
+  duration_ms: 5.5761
+  type: 'test'
+  ...
+# Subtest: matrix Manager resolves exact fresh database grants
+ok 4 - matrix Manager resolves exact fresh database grants
+  ---
+  duration_ms: 4.3143
+  type: 'test'
+  ...
+# Subtest: matrix Editor resolves exact fresh database grants
+ok 5 - matrix Editor resolves exact fresh database grants
+  ---
+  duration_ms: 4.0323
+  type: 'test'
+  ...
+# Subtest: matrix Viewer resolves exact fresh database grants
+ok 6 - matrix Viewer resolves exact fresh database grants
+  ---
+  duration_ms: 4.279
+  type: 'test'
+  ...
+# Subtest: Viewer cannot write system
+ok 7 - Viewer cannot write system
+  ---
+  duration_ms: 5.5477
+  type: 'test'
+  ...
+# Subtest: Viewer cannot write strategy
+ok 8 - Viewer cannot write strategy
+  ---
+  duration_ms: 4.8673
+  type: 'test'
+  ...
+# Subtest: Viewer cannot write scale
+ok 9 - Viewer cannot write scale
+  ---
+  duration_ms: 4.1822
+  type: 'test'
+  ...
+# Subtest: Consultant cannot approve or execute Agent
+ok 10 - Consultant cannot approve or execute Agent
+  ---
+  duration_ms: 14.0244
+  type: 'test'
+  ...
+# Subtest: Manager cannot approve or execute Agent
+ok 11 - Manager cannot approve or execute Agent
+  ---
+  duration_ms: 16.8972
+  type: 'test'
+  ...
+# Subtest: Editor cannot approve or execute Agent
+ok 12 - Editor cannot approve or execute Agent
+  ---
+  duration_ms: 11.96
+  type: 'test'
+  ...
+# Subtest: Viewer cannot approve or execute Agent
+ok 13 - Viewer cannot approve or execute Agent
+  ---
+  duration_ms: 12.2804
+  type: 'test'
+  ...
+# Subtest: Manager cannot manage access roles
+ok 14 - Manager cannot manage access roles
+  ---
+  duration_ms: 7.1131
+  type: 'test'
+  ...
+# Subtest: Editor cannot manage access roles
+ok 15 - Editor cannot manage access roles
+  ---
+  duration_ms: 10.3259
+  type: 'test'
+  ...
+# Subtest: Viewer cannot manage access roles
+ok 16 - Viewer cannot manage access roles
+  ---
+  duration_ms: 14.4073
+  type: 'test'
+  ...
+# Subtest: Editor KR target change denied
+ok 17 - Editor KR target change denied
+  ---
+  duration_ms: 4.6909
+  type: 'test'
+  ...
+# Subtest: Editor SOP approval denied
+ok 18 - Editor SOP approval denied
+  ---
+  duration_ms: 3.9083
+  type: 'test'
+  ...
+# Subtest: Editor cycle management denied
+ok 19 - Editor cycle management denied
+  ---
+  duration_ms: 4.1352
+  type: 'test'
+  ...
+# Subtest: Editor Scale decision denied
+ok 20 - Editor Scale decision denied
+  ---
+  duration_ms: 8.2801
+  type: 'test'
+  ...
+# Subtest: unaffiliated tenant rejected
+ok 21 - unaffiliated tenant rejected
+  ---
+  duration_ms: 1.9838
+  type: 'test'
+  ...
+# Subtest: resource scope denies foreign tenant
+ok 22 - resource scope denies foreign tenant
+  ---
+  duration_ms: 7.5302
+  type: 'test'
+  ...
+# Subtest: own-record scope denies another creator
+ok 23 - own-record scope denies another creator
+  ---
+  duration_ms: 7.4418
+  type: 'test'
+  ...
+# Subtest: assigned scope rejects unassigned id
+ok 24 - assigned scope rejects unassigned id
+  ---
+  duration_ms: 3.9798
+  type: 'test'
+  ...
+# Subtest: any permissions fail on empty grants
+ok 25 - any permissions fail on empty grants
+  ---
+  duration_ms: 10.3801
+  type: 'test'
+  ...
+# Subtest: client forged permissions are re-resolved
+ok 26 - client forged permissions are re-resolved
+  ---
+  duration_ms: 9.589
+  type: 'test'
+  ...
+# Subtest: page guards map nested modules and audit
+ok 27 - page guards map nested modules and audit
+  ---
+  duration_ms: 0.4181
+  type: 'test'
+  ...
+# Subtest: Consultant prepares, Owner approves, executor stays disabled
+ok 28 - Consultant prepares, Owner approves, executor stays disabled
+  ---
+  duration_ms: 85.3102
+  type: 'test'
+  ...
+# Subtest: Viewer prepare rejected
+ok 29 - Viewer prepare rejected
+  ---
+  duration_ms: 18.4259
+  type: 'test'
+  ...
+# Subtest: unknown capability rejected
+ok 30 - unknown capability rejected
+  ---
+  duration_ms: 4.8118
+  type: 'test'
+  ...
+# Subtest: cross-tenant action id hidden
+ok 31 - cross-tenant action id hidden
+  ---
+  duration_ms: 33.6912
+  type: 'test'
+  ...
+# Subtest: role change invalidates captured context and audit has old/new roles
+ok 32 - role change invalidates captured context and audit has old/new roles
+  ---
+  duration_ms: 64.0143
+  type: 'test'
+  ...
+# Subtest: Agent preparation requires target-domain permission
+ok 33 - Agent preparation requires target-domain permission
+  ---
+  duration_ms: 11.3272
+  type: 'test'
+  ...
+# Subtest: execution rechecks revoked target permission after approval
+ok 34 - execution rechecks revoked target permission after approval
+  ---
+  duration_ms: 41.0359
+  type: 'test'
+  ...
+# Subtest: last Owner cannot be demoted
+ok 35 - last Owner cannot be demoted
+  ---
+  duration_ms: 15.0652
+  type: 'test'
+  ...
+# Subtest: restricted module documents are masked
+ok 36 - restricted module documents are masked
+  ---
+  duration_ms: 18.1562
+  type: 'test'
+  ...
+# Subtest: Editor can manually create an ordinary Initiative without Agent execute
+ok 37 - Editor can manually create an ordinary Initiative without Agent execute
+  ---
+  duration_ms: 7.3968
+  type: 'test'
+  ...
+# Subtest: approval requires target module approval in addition to Agent approval
+ok 38 - approval requires target module approval in addition to Agent approval
+  ---
+  duration_ms: 28.1183
+  type: 'test'
+  ...
+# Subtest: approval refuses a proposal after shared business state changes
+ok 39 - approval refuses a proposal after shared business state changes
+  ---
+  duration_ms: 28.3247
+  type: 'test'
+  ...
+# Subtest: delegated member role permission cannot assign a more powerful role
+ok 40 - delegated member role permission cannot assign a more powerful role
+  ---
+  duration_ms: 19.8899
+  type: 'test'
+  ...
+1..40
+# tests 40
+# suites 0
+# pass 40
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4176.1151

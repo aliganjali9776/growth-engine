@@ -1,0 +1,15 @@
+{
+  "model": "gpt-6-luna",
+  "evidenceCount": 17,
+  "httpStatus": 200,
+  "responseStatus": "completed",
+  "incompleteReason": null,
+  "usage": {
+    "inputTokens": 4446,
+    "outputTokens": 737
+  },
+  "schemaValidated": true,
+  "evidenceValidated": true,
+  "validatedEvidenceCount": 6,
+  "result": "passed"
+}

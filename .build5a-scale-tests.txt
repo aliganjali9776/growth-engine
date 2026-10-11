@@ -1,0 +1,160 @@
+TAP version 13
+# Subtest: 5A A profile persists without writing other keys
+ok 1 - 5A A profile persists without writing other keys
+  ---
+  duration_ms: 4.0352
+  type: 'test'
+  ...
+# Subtest: 5A B unknown remains null and measured zero survives
+ok 2 - 5A B unknown remains null and measured zero survives
+  ---
+  duration_ms: 0.4724
+  type: 'test'
+  ...
+# Subtest: 5A C diagnosis candidate becomes explicit candidate record
+ok 3 - 5A C diagnosis candidate becomes explicit candidate record
+  ---
+  duration_ms: 0.4401
+  type: 'test'
+  ...
+# Subtest: 5A D primary is single active ID; candidate cannot be primary
+ok 4 - 5A D primary is single active ID; candidate cannot be primary
+  ---
+  duration_ms: 0.4506
+  type: 'test'
+  ...
+# Subtest: 5A E strong requires evidence; active owner required
+ok 5 - 5A E strong requires evidence; active owner required
+  ---
+  duration_ms: 0.3
+  type: 'test'
+  ...
+# Subtest: 5A F high severity never upgrades confidence
+ok 6 - 5A F high severity never upgrades confidence
+  ---
+  duration_ms: 0.245
+  type: 'test'
+  ...
+# Subtest: 5A G lever links validated and suggestions dimension-scoped
+ok 7 - 5A G lever links validated and suggestions dimension-scoped
+  ---
+  duration_ms: 0.3642
+  type: 'test'
+  ...
+# Subtest: 5A H fast inbox only needs title and source
+ok 8 - 5A H fast inbox only needs title and source
+  ---
+  duration_ms: 0.3135
+  type: 'test'
+  ...
+# Subtest: 5A I inbox has no constraint requirement
+ok 9 - 5A I inbox has no constraint requirement
+  ---
+  duration_ms: 0.4988
+  type: 'test'
+  ...
+# Subtest: 5A J readiness and prioritization reject missing structure
+ok 10 - 5A J readiness and prioritization reject missing structure
+  ---
+  duration_ms: 0.6114
+  type: 'test'
+  ...
+# Subtest: 5A K priority matrix has explained categories
+ok 11 - 5A K priority matrix has explained categories
+  ---
+  duration_ms: 0.7476
+  type: 'test'
+  ...
+# Subtest: 5A L less effort improves priority
+ok 12 - 5A L less effort improves priority
+  ---
+  duration_ms: 0.1275
+  type: 'test'
+  ...
+# Subtest: 5A M correct constraint ID and no dangling internal links
+ok 13 - 5A M correct constraint ID and no dangling internal links
+  ---
+  duration_ms: 0.2646
+  type: 'test'
+  ...
+# Subtest: 5A N Strategy references loaded from source, not copied targets
+ok 14 - 5A N Strategy references loaded from source, not copied targets
+  ---
+  duration_ms: 3.3434
+  type: 'test'
+  ...
+# Subtest: 5A O System capacity safely reuses existing evidence
+ok 15 - 5A O System capacity safely reuses existing evidence
+  ---
+  duration_ms: 2.1054
+  type: 'test'
+  ...
+# Subtest: 5A P missing and corrupt sources do not crash
+ok 16 - 5A P missing and corrupt sources do not crash
+  ---
+  duration_ms: 0.1486
+  type: 'test'
+  ...
+# Subtest: 5A Q readiness is preparation not performance; unknown adds no credit
+ok 17 - 5A Q readiness is preparation not performance; unknown adds no credit
+  ---
+  duration_ms: 0.4029
+  type: 'test'
+  ...
+# Subtest: 5A R archived primary clears; existing ready idea becomes review-needed
+ok 18 - 5A R archived primary clears; existing ready idea becomes review-needed
+  ---
+  duration_ms: 0.4757
+  type: 'test'
+  ...
+# Subtest: 5A S roundtrip restores all links and status history
+ok 19 - 5A S roundtrip restores all links and status history
+  ---
+  duration_ms: 0.6611
+  type: 'test'
+  ...
+# Subtest: 5A T Scale mutations leave external stores byte-identical
+ok 20 - 5A T Scale mutations leave external stores byte-identical
+  ---
+  duration_ms: 0.2443
+  type: 'test'
+  ...
+# Subtest: 5A future experiment/validated transitions rejected
+ok 21 - 5A future experiment/validated transitions rejected
+  ---
+  duration_ms: 0.3558
+  type: 'test'
+  ...
+# Subtest: 5A corrupt, duplicate, infinite and negative input rejected
+ok 22 - 5A corrupt, duplicate, infinite and negative input rejected
+  ---
+  duration_ms: 0.3682
+  type: 'test'
+  ...
+# Subtest: 5A compare-and-swap rejects stale writer and preserves current data
+ok 23 - 5A compare-and-swap rejects stale writer and preserves current data
+  ---
+  duration_ms: 0.3983
+  type: 'test'
+  ...
+# Subtest: 5A quota failure never replaces prior value
+ok 24 - 5A quota failure never replaces prior value
+  ---
+  duration_ms: 0.2674
+  type: 'test'
+  ...
+# Subtest: 5A large inbox produces no capacity warning solely due to its size
+ok 25 - 5A large inbox produces no capacity warning solely due to its size
+  ---
+  duration_ms: 0.7364
+  type: 'test'
+  ...
+1..25
+# tests 25
+# suites 0
+# pass 25
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 142.074

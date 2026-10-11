@@ -1,0 +1,142 @@
+TAP version 13
+# Subtest: 7D atomic import round-trips all supplied stores and blocks repeat import
+ok 1 - 7D atomic import round-trips all supplied stores and blocks repeat import
+  ---
+  duration_ms: 2975.6144
+  type: 'test'
+  ...
+# Subtest: 7D injected late import failure rolls back all business rows and retains Failed audit
+ok 2 - 7D injected late import failure rolls back all business rows and retains Failed audit
+  ---
+  duration_ms: 177.9919
+  type: 'test'
+  ...
+# Subtest: 7D export contains exactly the 15 allowlisted stores and keeps legacy IDs
+ok 3 - 7D export contains exactly the 15 allowlisted stores and keeps legacy IDs
+  ---
+  duration_ms: 2.0597
+  type: 'test'
+  ...
+# Subtest: 7D existing local envelope remains unchanged
+ok 4 - 7D existing local envelope remains unchanged
+  ---
+  duration_ms: 0.1293
+  type: 'test'
+  ...
+# Subtest: 7D unsupported export schema is rejected
+ok 5 - 7D unsupported export schema is rejected
+  ---
+  duration_ms: 0.8449
+  type: 'test'
+  ...
+# Subtest: 7D omitted module cannot become an empty valid import
+ok 6 - 7D omitted module cannot become an empty valid import
+  ---
+  duration_ms: 1.0498
+  type: 'test'
+  ...
+# Subtest: 7D unexpected auth store is rejected
+ok 7 - 7D unexpected auth store is rejected
+  ---
+  duration_ms: 0.6945
+  type: 'test'
+  ...
+# Subtest: 7D nested credential fields are rejected
+ok 8 - 7D nested credential fields are rejected
+  ---
+  duration_ms: 1.0414
+  type: 'test'
+  ...
+# Subtest: 7D duplicate primary IDs are rejected by shared local validators
+ok 9 - 7D duplicate primary IDs are rejected by shared local validators
+  ---
+  duration_ms: 1.2875
+  type: 'test'
+  ...
+# Subtest: 7D cross-module missing owner is reported without repairing it
+ok 10 - 7D cross-module missing owner is reported without repairing it
+  ---
+  duration_ms: 4.1201
+  type: 'test'
+  ...
+# Subtest: 7D preview counts match actual System and Strategy data
+ok 11 - 7D preview counts match actual System and Strategy data
+  ---
+  duration_ms: 2.6717
+  type: 'test'
+  ...
+# Subtest: 7D checksum ignores export date and JSON object key order
+ok 12 - 7D checksum ignores export date and JSON object key order
+  ---
+  duration_ms: 3.0487
+  type: 'test'
+  ...
+# Subtest: 7D checksum detects historical value changes
+ok 13 - 7D checksum detects historical value changes
+  ---
+  duration_ms: 2.8575
+  type: 'test'
+  ...
+# Subtest: 7D empty company preview writes only lifecycle/audit metadata
+ok 14 - 7D empty company preview writes only lifecycle/audit metadata
+  ---
+  duration_ms: 55.5248
+  type: 'test'
+  ...
+# Subtest: 7D Viewer cannot preview whole-company import
+ok 15 - 7D Viewer cannot preview whole-company import
+  ---
+  duration_ms: 42.3945
+  type: 'test'
+  ...
+# Subtest: 7D Editor cannot preview whole-company import
+ok 16 - 7D Editor cannot preview whole-company import
+  ---
+  duration_ms: 39.7218
+  type: 'test'
+  ...
+# Subtest: 7D Consultant cannot preview whole-company import
+ok 17 - 7D Consultant cannot preview whole-company import
+  ---
+  duration_ms: 42.1228
+  type: 'test'
+  ...
+# Subtest: 7D foreign organization target is denied
+ok 18 - 7D foreign organization target is denied
+  ---
+  duration_ms: 29.9137
+  type: 'test'
+  ...
+# Subtest: 7D company with just one department blocks full import
+ok 19 - 7D company with just one department blocks full import
+  ---
+  duration_ms: 48.5892
+  type: 'test'
+  ...
+# Subtest: 7D preview history is tenant scoped
+ok 20 - 7D preview history is tenant scoped
+  ---
+  duration_ms: 80.0998
+  type: 'test'
+  ...
+# Subtest: 7D invalid package leaves migration records and business data untouched
+ok 21 - 7D invalid package leaves migration records and business data untouched
+  ---
+  duration_ms: 35.6048
+  type: 'test'
+  ...
+# Subtest: 7D business DB backup excludes invitations, memberships, sessions and raw workspaces
+ok 22 - 7D business DB backup excludes invitations, memberships, sessions and raw workspaces
+  ---
+  duration_ms: 61.904
+  type: 'test'
+  ...
+1..22
+# tests 22
+# suites 0
+# pass 22
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4821.6391

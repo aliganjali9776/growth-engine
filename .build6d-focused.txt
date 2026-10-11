@@ -1,0 +1,209 @@
+TAP version 13
+# 6D performance ms: 258
+# Subtest: 6D recommendations bind diagnosis, valid evidence and specific Prepare capabilities
+ok 1 - 6D recommendations bind diagnosis, valid evidence and specific Prepare capabilities
+  ---
+  duration_ms: 20.5723
+  type: 'test'
+  ...
+# Subtest: 6D primary logic standardizes and delegates before acquisition
+ok 2 - 6D primary logic standardizes and delegates before acquisition
+  ---
+  duration_ms: 5.9947
+  type: 'test'
+  ...
+# Subtest: 6D low-confidence diagnosis prefers collecting data over aggressive growth
+ok 3 - 6D low-confidence diagnosis prefers collecting data over aggressive growth
+  ---
+  duration_ms: 3.9141
+  type: 'test'
+  ...
+# Subtest: 6D opportunity prepares capacity instead of applying scale decision
+ok 4 - 6D opportunity prepares capacity instead of applying scale decision
+  ---
+  duration_ms: 4.5632
+  type: 'test'
+  ...
+# Subtest: 6D golden closing plan sequences SOP owner experiment and linked Initiative
+ok 5 - 6D golden closing plan sequences SOP owner experiment and linked Initiative
+  ---
+  duration_ms: 7.742
+  type: 'test'
+  ...
+# Subtest: 6D dependency cycles and backward ordering are rejected
+ok 6 - 6D dependency cycles and backward ordering are rejected
+  ---
+  duration_ms: 3.4687
+  type: 'test'
+  ...
+# Subtest: 6D 16 templates cover all 14 required families and concept-only high risk
+ok 7 - 6D 16 templates cover all 14 required families and concept-only high risk
+  ---
+  duration_ms: 14.5281
+  type: 'test'
+  ...
+# Subtest: 6D experiment freezes existing constraint and never invents metric owner dates or target
+ok 8 - 6D experiment freezes existing constraint and never invents metric owner dates or target
+  ---
+  duration_ms: 4.4777
+  type: 'test'
+  ...
+# Subtest: 6D missing or vacant owner blocks review even if role id exists
+ok 9 - 6D missing or vacant owner blocks review even if role id exists
+  ---
+  duration_ms: 8.1609
+  type: 'test'
+  ...
+# Subtest: 6D measured baseline uses exact linked experiment metric and dated source, not historical baseline
+ok 10 - 6D measured baseline uses exact linked experiment metric and dated source, not historical baseline
+  ---
+  duration_ms: 7.4903
+  type: 'test'
+  ...
+# Subtest: 6D Improvement passes canonical measurement validator
+ok 11 - 6D Improvement passes canonical measurement validator
+  ---
+  duration_ms: 4.2556
+  type: 'test'
+  ...
+# Subtest: 6D Initiative reuses relationship and quality validators
+ok 12 - 6D Initiative reuses relationship and quality validators
+  ---
+  duration_ms: 7.7638
+  type: 'test'
+  ...
+# Subtest: 6D ScalePreparation reuses readiness store validation and requires owner and due date
+ok 13 - 6D ScalePreparation reuses readiness store validation and requires owner and due date
+  ---
+  duration_ms: 7.3064
+  type: 'test'
+  ...
+# Subtest: 6D proposed KR target is High and validates existing direction
+ok 14 - 6D proposed KR target is High and validates existing direction
+  ---
+  duration_ms: 6.6837
+  type: 'test'
+  ...
+# Subtest: 6D critical objective cancellation remains conceptual and has no executed status
+ok 15 - 6D critical objective cancellation remains conceptual and has no executed status
+  ---
+  duration_ms: 8.671
+  type: 'test'
+  ...
+# Subtest: 6D editing creates revisions, invalidates approval and persists source flags
+ok 16 - 6D editing creates revisions, invalidates approval and persists source flags
+  ---
+  duration_ms: 11.8535
+  type: 'test'
+  ...
+# Subtest: 6D exact target change marks KR proposal stale and expires pending approval
+ok 17 - 6D exact target change marks KR proposal stale and expires pending approval
+  ---
+  duration_ms: 10.2207
+  type: 'test'
+  ...
+# Subtest: 6D resolved diagnosis makes recommendation and action stale
+ok 18 - 6D resolved diagnosis makes recommendation and action stale
+  ---
+  duration_ms: 7.232
+  type: 'test'
+  ...
+# Subtest: 6D source missing or corrupted blocks approval without replacing business data
+ok 19 - 6D source missing or corrupted blocks approval without replacing business data
+  ---
+  duration_ms: 5.339
+  type: 'test'
+  ...
+# Subtest: 6D direct draft rebuild preserves user-edited payload and revision history
+ok 20 - 6D direct draft rebuild preserves user-edited payload and revision history
+  ---
+  duration_ms: 6.8026
+  type: 'test'
+  ...
+# Subtest: 6D duplicate action returns existing draft and explicit variant creates a second
+ok 21 - 6D duplicate action returns existing draft and explicit variant creates a second
+  ---
+  duration_ms: 4.3328
+  type: 'test'
+  ...
+# Subtest: 6D deterministic fallback is useful without a model connection
+ok 22 - 6D deterministic fallback is useful without a model connection
+  ---
+  duration_ms: 4.3111
+  type: 'test'
+  ...
+# Subtest: 6D model wording cannot introduce numbers owner metric IDs or embedded tool commands
+ok 23 - 6D model wording cannot introduce numbers owner metric IDs or embedded tool commands
+  ---
+  duration_ms: 4.774
+  type: 'test'
+  ...
+# Subtest: 6D direct intents require explicit preparation and refuse execution / prompt injection
+ok 24 - 6D direct intents require explicit preparation and refuse execution / prompt injection
+  ---
+  duration_ms: 0.4832
+  type: 'test'
+  ...
+# Subtest: 6D capability revoked before approval blocks approval even with a previously valid preview
+ok 25 - 6D capability revoked before approval blocks approval even with a previously valid preview
+  ---
+  duration_ms: 6.0715
+  type: 'test'
+  ...
+# Subtest: 6D stale binding detects tampered payload even if validation would pass
+ok 26 - 6D stale binding detects tampered payload even if validation would pass
+  ---
+  duration_ms: 3.7586
+  type: 'test'
+  ...
+# Subtest: 6D rejected/archived drafts remain terminal after source changes
+ok 27 - 6D rejected/archived drafts remain terminal after source changes
+  ---
+  duration_ms: 4.4268
+  type: 'test'
+  ...
+# Subtest: 6D malformed persistence, unsafe fields and execution statuses are rejected
+ok 28 - 6D malformed persistence, unsafe fields and execution statuses are rejected
+  ---
+  duration_ms: 3.8644
+  type: 'test'
+  ...
+# Subtest: 6D corruption preserved and concurrent saves rejected
+ok 29 - 6D corruption preserved and concurrent saves rejected
+  ---
+  duration_ms: 5.1611
+  type: 'test'
+  ...
+# Subtest: 6D old Agent/Advisor/Diagnosis persistence keys remain byte-for-byte intact
+ok 30 - 6D old Agent/Advisor/Diagnosis persistence keys remain byte-for-byte intact
+  ---
+  duration_ms: 3.7887
+  type: 'test'
+  ...
+# Subtest: 6D 100 create/edit/approve/reject cycles never write System Strategy or Scale
+ok 31 - 6D 100 create/edit/approve/reject cycles never write System Strategy or Scale
+  ---
+  duration_ms: 170.8054
+  type: 'test'
+  ...
+# Subtest: 6D 100 diagnoses 300 recommendations and 500 drafts validate within five seconds
+ok 32 - 6D 100 diagnoses 300 recommendations and 500 drafts validate within five seconds
+  ---
+  duration_ms: 267.0005
+  type: 'test'
+  ...
+# Subtest: 6D long canonical SOP signatures do not overflow draft snapshots
+ok 33 - 6D long canonical SOP signatures do not overflow draft snapshots
+  ---
+  duration_ms: 12.012
+  type: 'test'
+  ...
+1..33
+# tests 33
+# suites 0
+# pass 33
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 839.3043

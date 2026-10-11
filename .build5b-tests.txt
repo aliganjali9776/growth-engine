@@ -1,0 +1,2425 @@
+
+> 3s-business-os@0.1.0 test
+> tsc -p tests/tsconfig.json && tsc -p tests/system.tsconfig.json && tsc -p tests/strategy.tsconfig.json && tsc -p tests/scale.tsconfig.json && node --test tests/assessment.cjs tests/system.cjs tests/process-maps.cjs tests/process-analysis.cjs tests/standards.cjs tests/measurement.cjs tests/command-center.cjs tests/hardening.cjs tests/strategy.cjs tests/key-results.cjs tests/initiatives.cjs tests/weekly.cjs tests/adapt.cjs tests/dashboard.cjs tests/scale.cjs tests/experiments.cjs
+
+TAP version 13
+# Subtest: 4E A repeated blockers require same entity and three consecutive observations
+ok 1 - 4E A repeated blockers require same entity and three consecutive observations
+  ---
+  duration_ms: 65.4584
+  type: 'test'
+  ...
+# Subtest: 4E B stalled KRs use real stable weeks and exclude completed KRs
+ok 2 - 4E B stalled KRs use real stable weeks and exclude completed KRs
+  ---
+  duration_ms: 21.8906
+  type: 'test'
+  ...
+# Subtest: 4E C confidence trend requires valid consecutive declines
+ok 3 - 4E C confidence trend requires valid consecutive declines
+  ---
+  duration_ms: 46.0335
+  type: 'test'
+  ...
+# Subtest: 4E D risk signals use completed history only
+ok 4 - 4E D risk signals use completed history only
+  ---
+  duration_ms: 30.7831
+  type: 'test'
+  ...
+# Subtest: 4E E recording initiative decision does not mutate initiative
+ok 5 - 4E E recording initiative decision does not mutate initiative
+  ---
+  duration_ms: 9.0762
+  type: 'test'
+  ...
+# Subtest: 4E F explicit initiative application creates old/new audit and cannot repeat
+ok 6 - 4E F explicit initiative application creates old/new audit and cannot repeat
+  ---
+  duration_ms: 2.6464
+  type: 'test'
+  ...
+# Subtest: 4E G KR target change requires reason and confirmation
+ok 7 - 4E G KR target change requires reason and confirmation
+  ---
+  duration_ms: 2.9684
+  type: 'test'
+  ...
+# Subtest: 4E H baseline change preserves all prior weekly snapshots
+ok 8 - 4E H baseline change preserves all prior weekly snapshots
+  ---
+  duration_ms: 24.5726
+  type: 'test'
+  ...
+# Subtest: 4E I Objective deadline and J priority rank have source and reason
+ok 9 - 4E I Objective deadline and J priority rank have source and reason
+  ---
+  duration_ms: 3.3044
+  type: 'test'
+  ...
+# Subtest: 4E K quality requires risk review initiative rationale decisions resources and next focus
+ok 10 - 4E K quality requires risk review initiative rationale decisions resources and next focus
+  ---
+  duration_ms: 23.1555
+  type: 'test'
+  ...
+# Subtest: 4E L monthly snapshot is immutable and detached from later measurements
+ok 11 - 4E L monthly snapshot is immutable and detached from later measurements
+  ---
+  duration_ms: 42.1493
+  type: 'test'
+  ...
+# Subtest: 4E M final outcome classification is mandatory even with override
+ok 12 - 4E M final outcome classification is mandatory even with override
+  ---
+  duration_ms: 6.5661
+  type: 'test'
+  ...
+# Subtest: 4E N learning records and O assumption statuses persist independently
+ok 13 - 4E N learning records and O assumption statuses persist independently
+  ---
+  duration_ms: 2.0137
+  type: 'test'
+  ...
+# Subtest: 4E P carry-forward makes new IDs, fresh baseline, no historical records
+ok 14 - 4E P carry-forward makes new IDs, fresh baseline, no historical records
+  ---
+  duration_ms: 33.3818
+  type: 'test'
+  ...
+# Subtest: 4E Q new cycle requires explicit selection dependencies target and confirmation
+ok 15 - 4E Q new cycle requires explicit selection dependencies target and confirmation
+  ---
+  duration_ms: 7.0638
+  type: 'test'
+  ...
+# Subtest: 4E R closed cycles reject edits additions and reopen
+ok 16 - 4E R closed cycles reject edits additions and reopen
+  ---
+  duration_ms: 6.6262
+  type: 'test'
+  ...
+# Subtest: 4E S change summary counts auditable change types
+ok 17 - 4E S change summary counts auditable change types
+  ---
+  duration_ms: 1.4109
+  type: 'test'
+  ...
+# Subtest: 4E T older stores are unchanged and new collections remain absent
+ok 18 - 4E T older stores are unchanged and new collections remain absent
+  ---
+  duration_ms: 1.274
+  type: 'test'
+  ...
+# Subtest: 4E U completed monthly and end-cycle records survive refresh
+ok 19 - 4E U completed monthly and end-cycle records survive refresh
+  ---
+  duration_ms: 56.9659
+  type: 'test'
+  ...
+# Subtest: 4E legacy editing cannot bypass audited target or rank changes
+ok 20 - 4E legacy editing cannot bypass audited target or rank changes
+  ---
+  duration_ms: 1.0769
+  type: 'test'
+  ...
+# Subtest: 4E audit records are append-only and review periods cannot overlap
+ok 21 - 4E audit records are append-only and review periods cannot overlap
+  ---
+  duration_ms: 1.5589
+  type: 'test'
+  ...
+# Subtest: 4E changed definition starts a new comparable segment after audited change
+ok 22 - 4E changed definition starts a new comparable segment after audited change
+  ---
+  duration_ms: 25.6104
+  type: 'test'
+  ...
+# Subtest: 4E draft cycle permits initial setup without a future Adapt review
+ok 23 - 4E draft cycle permits initial setup without a future Adapt review
+  ---
+  duration_ms: 0.7076
+  type: 'test'
+  ...
+# Subtest: 4E active cycle cannot downgrade to draft to evade change control
+ok 24 - 4E active cycle cannot downgrade to draft to evade change control
+  ---
+  duration_ms: 0.9065
+  type: 'test'
+  ...
+# Subtest: 4E priority rank swap audits both affected priorities
+ok 25 - 4E priority rank swap audits both affected priorities
+  ---
+  duration_ms: 1.5347
+  type: 'test'
+  ...
+# Subtest: 4E cycle final learning is frozen and invalid classifications fail validation
+ok 26 - 4E cycle final learning is frozen and invalid classifications fail validation
+  ---
+  duration_ms: 5.5892
+  type: 'test'
+  ...
+# Subtest: 4E carry-forward reads frozen final evidence instead of later live values
+ok 27 - 4E carry-forward reads frozen final evidence instead of later live values
+  ---
+  duration_ms: 7.5839
+  type: 'test'
+  ...
+# Subtest: 4E Tehran date is consistent at midnight across review screens
+ok 28 - 4E Tehran date is consistent at midnight across review screens
+  ---
+  duration_ms: 2.0586
+  type: 'test'
+  ...
+# Subtest: 4E invalid calendar date and malformed snapshots are rejected
+ok 29 - 4E invalid calendar date and malformed snapshots are rejected
+  ---
+  duration_ms: 8.733
+  type: 'test'
+  ...
+# Subtest: 4E cancelled action is not carried into the next cycle
+ok 30 - 4E cancelled action is not carried into the next cycle
+  ---
+  duration_ms: 4.4506
+  type: 'test'
+  ...
+# Subtest: 2.5 A: high System score retains a critical individual finding
+ok 31 - 2.5 A: high System score retains a critical individual finding
+  ---
+  duration_ms: 72.4458
+  type: 'test'
+  ...
+# Subtest: 2.5 B: Strategy near 75 with moderate critical Review requires action
+ok 32 - 2.5 B: Strategy near 75 with moderate critical Review requires action
+  ---
+  duration_ms: 1.1271
+  type: 'test'
+  ...
+# Subtest: 2.5 C: Scale above 80 still exposes weak acquisition
+ok 33 - 2.5 C: Scale above 80 still exposes weak acquisition
+  ---
+  duration_ms: 0.8204
+  type: 'test'
+  ...
+# Subtest: 2.5 D: very high scores give strengths with preservation actions and no invented risks
+ok 34 - 2.5 D: very high scores give strengths with preservation actions and no invented risks
+  ---
+  duration_ms: 7.2768
+  type: 'test'
+  ...
+# Subtest: 2.5 E: critical findings span all affected dimensions
+ok 35 - 2.5 E: critical findings span all affected dimensions
+  ---
+  duration_ms: 6.8737
+  type: 'test'
+  ...
+# Subtest: 2.5 severity matrix uses exact response and critical weight combinations
+ok 36 - 2.5 severity matrix uses exact response and critical weight combinations
+  ---
+  duration_ms: 2.4719
+  type: 'test'
+  ...
+# Subtest: 2.5 all 30 findings are represented once and every dimension is analyzed
+ok 37 - 2.5 all 30 findings are represented once and every dimension is analyzed
+  ---
+  duration_ms: 5.7538
+  type: 'test'
+  ...
+# Subtest: 2.5 hidden risks include actual supporting answers and threshold negatives
+ok 38 - 2.5 hidden risks include actual supporting answers and threshold negatives
+  ---
+  duration_ms: 0.7125
+  type: 'test'
+  ...
+# Subtest: 2.5 labels include the 90 boundary without changing numeric scoring
+ok 39 - 2.5 labels include the 90 boundary without changing numeric scoring
+  ---
+  duration_ms: 0.7832
+  type: 'test'
+  ...
+# Subtest: exactly 30 questions; critical weights match all three specifications
+ok 40 - exactly 30 questions; critical weights match all three specifications
+  ---
+  duration_ms: 1.1238
+  type: 'test'
+  ...
+# Subtest: A: weak System caps an otherwise healthy overall score
+ok 41 - A: weak System caps an otherwise healthy overall score
+  ---
+  duration_ms: 0.6342
+  type: 'test'
+  ...
+# Subtest: B: weak Strategy is the constraint and prompts direction before speed
+ok 42 - B: weak Strategy is the constraint and prompts direction before speed
+  ---
+  duration_ms: 0.4159
+  type: 'test'
+  ...
+# Subtest: C: strong System/Strategy and weak Scale identifies growth engine constraint
+ok 43 - C: strong System/Strategy and weak Scale identifies growth engine constraint
+  ---
+  duration_ms: 0.4066
+  type: 'test'
+  ...
+# Subtest: D: all high scores are strong; issue language reflects opportunities
+ok 44 - D: all high scores are strong; issue language reflects opportunities
+  ---
+  duration_ms: 0.3712
+  type: 'test'
+  ...
+# Subtest: E: all medium answers produce exactly 60 and Healthy
+ok 45 - E: all medium answers produce exactly 60 and Healthy
+  ---
+  duration_ms: 0.2963
+  type: 'test'
+  ...
+# Subtest: minimum valid answers produce 20, not zero; do not raise Critical to Developing
+ok 46 - minimum valid answers produce 20, not zero; do not raise Critical to Developing
+  ---
+  duration_ms: 0.2813
+  type: 'test'
+  ...
+# Subtest: manual weighted calculation and no premature rounding
+ok 47 - manual weighted calculation and no premature rounding
+  ---
+  duration_ms: 0.2062
+  type: 'test'
+  ...
+# Subtest: all health boundaries are exact
+ok 48 - all health boundaries are exact
+  ---
+  duration_ms: 0.1884
+  type: 'test'
+  ...
+# Subtest: equal weakness prioritizes critical questions with deterministic ties
+ok 49 - equal weakness prioritizes critical questions with deterministic ties
+  ---
+  duration_ms: 0.4447
+  type: 'test'
+  ...
+# Subtest: weaker noncritical answer takes priority over stronger critical answer
+ok 50 - weaker noncritical answer takes priority over stronger critical answer
+  ---
+  duration_ms: 0.3291
+  type: 'test'
+  ...
+# Subtest: missing, fractional, and out-of-range answers cannot complete
+ok 51 - missing, fractional, and out-of-range answers cannot complete
+  ---
+  duration_ms: 0.7391
+  type: 'test'
+  ...
+# Subtest: draft survives persistence with profile, answer, and position intact
+ok 52 - draft survives persistence with profile, answer, and position intact
+  ---
+  duration_ms: 0.7015
+  type: 'test'
+  ...
+# Subtest: invalid saved data cannot bypass profile or incomplete result guard
+ok 53 - invalid saved data cannot bypass profile or incomplete result guard
+  ---
+  duration_ms: 2.4672
+  type: 'test'
+  ...
+# Subtest: profile validation rejects blank values and invalid options; restart is empty
+ok 54 - profile validation rejects blank values and invalid options; restart is empty
+  ---
+  duration_ms: 0.6047
+  type: 'test'
+  ...
+# Subtest: 3G: process-health rollup is diagnostic and not counted twice
+ok 55 - 3G: process-health rollup is diagnostic and not counted twice
+  ---
+  duration_ms: 79.9286
+  type: 'test'
+  ...
+# Subtest: 3F B: process priority changes weighted contribution
+ok 56 - 3F B: process priority changes weighted contribution
+  ---
+  duration_ms: 1.4533
+  type: 'test'
+  ...
+# Subtest: 3F C: missing KPI evidence is unknown, lowers completeness
+ok 57 - 3F C: missing KPI evidence is unknown, lowers completeness
+  ---
+  duration_ms: 35.8182
+  type: 'test'
+  ...
+# Subtest: 3F D: low adoption generates a source-linked risk
+ok 58 - 3F D: low adoption generates a source-linked risk
+  ---
+  duration_ms: 18.1301
+  type: 'test'
+  ...
+# Subtest: 3F E: critical founder ownership raises a critical risk
+ok 59 - 3F E: critical founder ownership raises a critical risk
+  ---
+  duration_ms: 33.2264
+  type: 'test'
+  ...
+# Subtest: 3F F: absent approved SOP on critical process is explicit
+ok 60 - 3F F: absent approved SOP on critical process is explicit
+  ---
+  duration_ms: 10.5901
+  type: 'test'
+  ...
+# Subtest: 3F G: poor measured KPI produces critical gap
+ok 61 - 3F G: poor measured KPI produces critical gap
+  ---
+  duration_ms: 19.1786
+  type: 'test'
+  ...
+# Subtest: 3F H: overdue critical improvement is ranked critical
+ok 62 - 3F H: overdue critical improvement is ranked critical
+  ---
+  duration_ms: 17.1323
+  type: 'test'
+  ...
+# Subtest: 3F I: department uses the same priority-weighted health formula
+ok 63 - 3F I: department uses the same priority-weighted health formula
+  ---
+  duration_ms: 22.244
+  type: 'test'
+  ...
+# Subtest: 3F J: concentrated founder ownership is flagged
+ok 64 - 3F J: concentrated founder ownership is flagged
+  ---
+  duration_ms: 10.6565
+  type: 'test'
+  ...
+# Subtest: 3F K: funnel counts derive directly from existing stages
+ok 65 - 3F K: funnel counts derive directly from existing stages
+  ---
+  duration_ms: 19.5493
+  type: 'test'
+  ...
+# Subtest: 3F L: 30-day result reuses existing independence calculation
+ok 66 - 3F L: 30-day result reuses existing independence calculation
+  ---
+  duration_ms: 21.8728
+  type: 'test'
+  ...
+# Subtest: 3F M: management focus selects greatest actionable weighted gap
+ok 67 - 3F M: management focus selects greatest actionable weighted gap
+  ---
+  duration_ms: 0.295
+  type: 'test'
+  ...
+# Subtest: 3F N: management actions are deterministic and link to risks
+ok 68 - 3F N: management actions are deterministic and link to risks
+  ---
+  duration_ms: 20.5882
+  type: 'test'
+  ...
+# Subtest: 3F O: snapshot captures all actual component values by value
+ok 69 - 3F O: snapshot captures all actual component values by value
+  ---
+  duration_ms: 16.2246
+  type: 'test'
+  ...
+# Subtest: 3F P: trend requires two manual records and reports changes
+ok 70 - 3F P: trend requires two manual records and reports changes
+  ---
+  duration_ms: 29.0796
+  type: 'test'
+  ...
+# Subtest: 3F Q: history round-trips and rejects corrupt or duplicate records
+ok 71 - 3F Q: history round-trips and rejects corrupt or duplicate records
+  ---
+  duration_ms: 31.4251
+  type: 'test'
+  ...
+# Subtest: 3F R: live measurement edits alter KPI component and total
+ok 72 - 3F R: live measurement edits alter KPI component and total
+  ---
+  duration_ms: 48.2263
+  type: 'test'
+  ...
+# Subtest: 3F periods use Tehran dates, inclusive 30-day and Gregorian quarter boundaries
+ok 73 - 3F periods use Tehran dates, inclusive 30-day and Gregorian quarter boundaries
+  ---
+  duration_ms: 26.0688
+  type: 'test'
+  ...
+# Subtest: 3F empty system has no synthetic score or snapshot
+ok 74 - 3F empty system has no synthetic score or snapshot
+  ---
+  duration_ms: 11.249
+  type: 'test'
+  ...
+# 4F benchmark 10/40/60/13 ms: 29.3, 15.9, 21.3, 20.9, 18.2
+# 4F benchmark 25/100/150/26 ms: 108.7, 117.4, 96.6, 61.8, 44.8
+# 4G 50/250/400/52 aggregation ms 176.6, 127.4, 122.1 filter ms 122.5
+# Subtest: 4F A progress uses canonical weighted objective results
+ok 75 - 4F A progress uses canonical weighted objective results
+  ---
+  duration_ms: 33.0836
+  type: 'test'
+  ...
+# Subtest: 4F B health explains weights, availability, contributions and risk caps
+ok 76 - 4F B health explains weights, availability, contributions and risk caps
+  ---
+  duration_ms: 3.74
+  type: 'test'
+  ...
+# Subtest: 4F C missing confidence stays null and is not a zero score
+ok 77 - 4F C missing confidence stays null and is not a zero score
+  ---
+  duration_ms: 4.6684
+  type: 'test'
+  ...
+# Subtest: 4F D no history has no synthetic trend
+ok 78 - 4F D no history has no synthetic trend
+  ---
+  duration_ms: 3.3206
+  type: 'test'
+  ...
+# Subtest: 4F E high weight off-track KR vetoes positive health
+ok 79 - 4F E high weight off-track KR vetoes positive health
+  ---
+  duration_ms: 2.7497
+  type: 'test'
+  ...
+# Subtest: 4F F confidence decline comes from completed consecutive reviews
+ok 80 - 4F F confidence decline comes from completed consecutive reviews
+  ---
+  duration_ms: 49.3989
+  type: 'test'
+  ...
+# Subtest: 4F G recurring blocker ranks above comparable single blocker and resolved is removed
+ok 81 - 4F G recurring blocker ranks above comparable single blocker and resolved is removed
+  ---
+  duration_ms: 33.4047
+  type: 'test'
+  ...
+# Subtest: 4F H high execution with low result is surfaced without causality
+ok 82 - 4F H high execution with low result is surfaced without causality
+  ---
+  duration_ms: 3.6845
+  type: 'test'
+  ...
+# Subtest: 4F I ineffective and unevaluated initiatives are distinct
+ok 83 - 4F I ineffective and unevaluated initiatives are distinct
+  ---
+  duration_ms: 4.3759
+  type: 'test'
+  ...
+# Subtest: 4F J alignment exposes missing relationships and owners
+ok 84 - 4F J alignment exposes missing relationships and owners
+  ---
+  duration_ms: 4.9843
+  type: 'test'
+  ...
+# Subtest: 4F K completeness changes with missing data independently of progress
+ok 85 - 4F K completeness changes with missing data independently of progress
+  ---
+  duration_ms: 3.713
+  type: 'test'
+  ...
+# Subtest: 4F L freshness distinguishes never updated, stale and this week
+ok 86 - 4F L freshness distinguishes never updated, stale and this week
+  ---
+  duration_ms: 4.8074
+  type: 'test'
+  ...
+# Subtest: 4F M historical core uses final frozen evidence and recorded date
+ok 87 - 4F M historical core uses final frozen evidence and recorded date
+  ---
+  duration_ms: 50.248
+  type: 'test'
+  ...
+# Subtest: 4F N trends use snapshots and never rewrite with live KR values
+ok 88 - 4F N trends use snapshots and never rewrite with live KR values
+  ---
+  duration_ms: 24.7272
+  type: 'test'
+  ...
+# Subtest: 4F trend ranges preserve missing weeks and events use dated audit records
+ok 89 - 4F trend ranges preserve missing weeks and events use dated audit records
+  ---
+  duration_ms: 22.7953
+  type: 'test'
+  ...
+# Subtest: 4F O changes and audit reasons are retained
+ok 90 - 4F O changes and audit reasons are retained
+  ---
+  duration_ms: 2.1594
+  type: 'test'
+  ...
+# Subtest: 4F P summary reflects actual data and unknown states
+ok 91 - 4F P summary reflects actual data and unknown states
+  ---
+  duration_ms: 2.0415
+  type: 'test'
+  ...
+# Subtest: 4F Q primary focus deterministically selects the highest ranked evidence
+ok 92 - 4F Q primary focus deterministically selects the highest ranked evidence
+  ---
+  duration_ms: 64.4523
+  type: 'test'
+  ...
+# Subtest: 4F R no hidden aggregate persistence or synthetic performance
+ok 93 - 4F R no hidden aggregate persistence or synthetic performance
+  ---
+  duration_ms: 2.441
+  type: 'test'
+  ...
+# Subtest: 4F filters and cycles remain isolated
+ok 94 - 4F filters and cycles remain isolated
+  ---
+  duration_ms: 2.5887
+  type: 'test'
+  ...
+# Subtest: 4F unknown confidence and unevaluated effectiveness never earn strong health
+ok 95 - 4F unknown confidence and unevaluated effectiveness never earn strong health
+  ---
+  duration_ms: 1.8559
+  type: 'test'
+  ...
+# Subtest: 4F S aggregation benchmark 10/40/60/13
+ok 96 - 4F S aggregation benchmark 10/40/60/13
+  ---
+  duration_ms: 148.7225
+  type: 'test'
+  ...
+# Subtest: 4F S aggregation benchmark 25/100/150/26
+ok 97 - 4F S aggregation benchmark 25/100/150/26
+  ---
+  duration_ms: 533.1232
+  type: 'test'
+  ...
+# Subtest: 4G A completed weekly artifacts survive live measurements and central guard rejects rewrites
+ok 98 - 4G A completed weekly artifacts survive live measurements and central guard rejects rewrites
+  ---
+  duration_ms: 15.5305
+  type: 'test'
+  ...
+# Subtest: 4G B dashboard and unfiltered report count the same eligible off-track KRs
+ok 99 - 4G B dashboard and unfiltered report count the same eligible off-track KRs
+  ---
+  duration_ms: 1.6717
+  type: 'test'
+  ...
+# Subtest: 4G C changing report filters never changes cycle-wide executive headlines
+ok 100 - 4G C changing report filters never changes cycle-wide executive headlines
+  ---
+  duration_ms: 2.5621
+  type: 'test'
+  ...
+# Subtest: 4G D final cycle snapshot survives carry-forward without inheriting weekly history
+ok 101 - 4G D final cycle snapshot survives carry-forward without inheriting weekly history
+  ---
+  duration_ms: 23.2824
+  type: 'test'
+  ...
+# Subtest: 4G E completed to archived preserves historical reporting and rejects other edits
+ok 102 - 4G E completed to archived preserves historical reporting and rejects other edits
+  ---
+  duration_ms: 25.8207
+  type: 'test'
+  ...
+# Subtest: 4G F missing confidence remains unknown after serialization and dashboard filtering
+ok 103 - 4G F missing confidence remains unknown after serialization and dashboard filtering
+  ---
+  duration_ms: 2.4664
+  type: 'test'
+  ...
+# Subtest: 4G G unevaluated completion is not an ineffective outcome
+ok 104 - 4G G unevaluated completion is not an ineffective outcome
+  ---
+  duration_ms: 1.6931
+  type: 'test'
+  ...
+# Subtest: 4G H stale observation affects freshness but not measured result
+ok 105 - 4G H stale observation affects freshness but not measured result
+  ---
+  duration_ms: 2.778
+  type: 'test'
+  ...
+# Subtest: 4G I Tehran midnight and cycle boundary weeks are exact
+ok 106 - 4G I Tehran midnight and cycle boundary weeks are exact
+  ---
+  duration_ms: 0.3368
+  type: 'test'
+  ...
+# Subtest: 4G J malformed storage is rejected and dangling ownership has safe reporting
+ok 107 - 4G J malformed storage is rejected and dangling ownership has safe reporting
+  ---
+  duration_ms: 5.8525
+  type: 'test'
+  ...
+# Subtest: 4G K critical weighted KR outranks informational audit changes
+ok 108 - 4G K critical weighted KR outranks informational audit changes
+  ---
+  duration_ms: 2.2763
+  type: 'test'
+  ...
+# Subtest: 4G L changing initiative execution never changes KR result
+ok 109 - 4G L changing initiative execution never changes KR result
+  ---
+  duration_ms: 3.5532
+  type: 'test'
+  ...
+# Subtest: 4G M empty extension collections do not invent trend or trend events
+ok 110 - 4G M empty extension collections do not invent trend or trend events
+  ---
+  duration_ms: 2.4082
+  type: 'test'
+  ...
+# Subtest: 4G N health and contributions stay finite with zero/missing data
+ok 111 - 4G N health and contributions stay finite with zero/missing data
+  ---
+  duration_ms: 2.2813
+  type: 'test'
+  ...
+# Subtest: 4G O large 50/250/400/52 reports and filters are deterministic
+ok 112 - 4G O large 50/250/400/52 reports and filters are deterministic
+  ---
+  duration_ms: 584.8784
+  type: 'test'
+  ...
+# Subtest: 4G P cancelled Objective and KR do not leak into active KR reporting
+ok 113 - 4G P cancelled Objective and KR do not leak into active KR reporting
+  ---
+  duration_ms: 0.7588
+  type: 'test'
+  ...
+# Subtest: 4G Q old saved data round trips without reseeding or duplicate IDs
+ok 114 - 4G Q old saved data round trips without reseeding or duplicate IDs
+  ---
+  duration_ms: 0.4756
+  type: 'test'
+  ...
+# Subtest: 4G R audit old/new payload cannot be rewritten at commit
+ok 115 - 4G R audit old/new payload cannot be rewritten at commit
+  ---
+  duration_ms: 9.4814
+  type: 'test'
+  ...
+# Subtest: 4G S entity drill-down includes the actual Objective and KR IDs
+ok 116 - 4G S entity drill-down includes the actual Objective and KR IDs
+  ---
+  duration_ms: 0.7476
+  type: 'test'
+  ...
+# Subtest: 4G T controlled reopen only unlocks the latest review and preserves snapshots
+ok 117 - 4G T controlled reopen only unlocks the latest review and preserves snapshots
+  ---
+  duration_ms: 9.2244
+  type: 'test'
+  ...
+# Subtest: 4G partial last week becomes due only after the cycle ends
+ok 118 - 4G partial last week becomes due only after the cycle ends
+  ---
+  duration_ms: 0.2101
+  type: 'test'
+  ...
+# Subtest: 5B A ready idea converts to linked draft
+ok 119 - 5B A ready idea converts to linked draft
+  ---
+  duration_ms: 16.733
+  type: 'test'
+  ...
+# Subtest: 5B B conversion leaves idea intact
+ok 120 - 5B B conversion leaves idea intact
+  ---
+  duration_ms: 4.3785
+  type: 'test'
+  ...
+# Subtest: 5B C incomplete definition cannot become ready
+ok 121 - 5B C incomplete definition cannot become ready
+  ---
+  duration_ms: 57.4367
+  type: 'test'
+  ...
+# Subtest: 5B D incomplete definition cannot become ready
+ok 122 - 5B D incomplete definition cannot become ready
+  ---
+  duration_ms: 2.1631
+  type: 'test'
+  ...
+# Subtest: 5B E incomplete definition cannot become ready
+ok 123 - 5B E incomplete definition cannot become ready
+  ---
+  duration_ms: 1.3565
+  type: 'test'
+  ...
+# Subtest: 5B F incomplete definition cannot become ready
+ok 124 - 5B F incomplete definition cannot become ready
+  ---
+  duration_ms: 2.0199
+  type: 'test'
+  ...
+# Subtest: 5B G explicit start records timestamp and snapshot
+ok 125 - 5B G explicit start records timestamp and snapshot
+  ---
+  duration_ms: 2.02
+  type: 'test'
+  ...
+# Subtest: 5B H measurements survive validated roundtrip
+ok 126 - 5B H measurements survive validated roundtrip
+  ---
+  duration_ms: 5.0372
+  type: 'test'
+  ...
+# Subtest: 5B I increase direction
+ok 127 - 5B I increase direction
+  ---
+  duration_ms: 5.1004
+  type: 'test'
+  ...
+# Subtest: 5B J decrease direction
+ok 128 - 5B J decrease direction
+  ---
+  duration_ms: 3.6828
+  type: 'test'
+  ...
+# Subtest: 5B K binary interpretation and value guard
+ok 129 - 5B K binary interpretation and value guard
+  ---
+  duration_ms: 3.412
+  type: 'test'
+  ...
+# Subtest: 5B L above-target suggests win
+ok 130 - 5B L above-target suggests win
+  ---
+  duration_ms: 2.04
+  type: 'test'
+  ...
+# Subtest: 5B M between minimum/target suggests partial
+ok 131 - 5B M between minimum/target suggests partial
+  ---
+  duration_ms: 2.1396
+  type: 'test'
+  ...
+# Subtest: 5B N configured absolute tolerance prevents fake effect
+ok 132 - 5B N configured absolute tolerance prevents fake effect
+  ---
+  duration_ms: 2.5212
+  type: 'test'
+  ...
+# Subtest: 5B O movement against direction is negative
+ok 133 - 5B O movement against direction is negative
+  ---
+  duration_ms: 2.548
+  type: 'test'
+  ...
+# Subtest: 5B P insufficient measurement inconclusive
+ok 134 - 5B P insufficient measurement inconclusive
+  ---
+  duration_ms: 1.6997
+  type: 'test'
+  ...
+# Subtest: 5B Q suggestion cannot auto-confirm final outcome
+ok 135 - 5B Q suggestion cannot auto-confirm final outcome
+  ---
+  duration_ms: 2.9664
+  type: 'test'
+  ...
+# Subtest: 5B R completed is not necessarily win
+ok 136 - 5B R completed is not necessarily win
+  ---
+  duration_ms: 2.5857
+  type: 'test'
+  ...
+# Subtest: 5B S learning persisted with source IDs
+ok 137 - 5B S learning persisted with source IDs
+  ---
+  duration_ms: 3.2911
+  type: 'test'
+  ...
+# Subtest: 5B T decision persisted
+ok 138 - 5B T decision persisted
+  ---
+  duration_ms: 3.0671
+  type: 'test'
+  ...
+# Subtest: 5B U iterate copies structure not result/history
+ok 139 - 5B U iterate copies structure not result/history
+  ---
+  duration_ms: 3.6547
+  type: 'test'
+  ...
+# Subtest: 5B V win never auto-validates idea
+ok 140 - 5B V win never auto-validates idea
+  ---
+  duration_ms: 3.4576
+  type: 'test'
+  ...
+# Subtest: 5B W scale decision needs explicit capacity and alignment review
+ok 141 - 5B W scale decision needs explicit capacity and alignment review
+  ---
+  duration_ms: 3.5438
+  type: 'test'
+  ...
+# Subtest: 5B X completed payload, measurements, learning and decision immutable
+ok 142 - 5B X completed payload, measurements, learning and decision immutable
+  ---
+  duration_ms: 6.5292
+  type: 'test'
+  ...
+# Subtest: 5B Y legacy 5A survives without fabricated experiments
+ok 143 - 5B Y legacy 5A survives without fabricated experiments
+  ---
+  duration_ms: 2.5654
+  type: 'test'
+  ...
+# Subtest: 5B maintain interprets tolerance about target
+ok 144 - 5B maintain interprets tolerance about target
+  ---
+  duration_ms: 2.4501
+  type: 'test'
+  ...
+# Subtest: 5B historical metric direction stable despite library changes
+ok 145 - 5B historical metric direction stable despite library changes
+  ---
+  duration_ms: 3.3624
+  type: 'test'
+  ...
+# Subtest: 5B invalid reversed thresholds rejected
+ok 146 - 5B invalid reversed thresholds rejected
+  ---
+  duration_ms: 1.0868
+  type: 'test'
+  ...
+# Subtest: 5B stopped/completed experiment rejects new measurement
+ok 147 - 5B stopped/completed experiment rejects new measurement
+  ---
+  duration_ms: 2.5313
+  type: 'test'
+  ...
+# Subtest: 5B completed missing learning or decision rejected
+ok 148 - 5B completed missing learning or decision rejected
+  ---
+  duration_ms: 5.118
+  type: 'test'
+  ...
+# Subtest: 5B explicit execution guards draft to running and final design
+ok 149 - 5B explicit execution guards draft to running and final design
+  ---
+  duration_ms: 8.7877
+  type: 'test'
+  ...
+# Subtest: 5B staleness is configurable and does not stop execution
+ok 150 - 5B staleness is configurable and does not stop execution
+  ---
+  duration_ms: 1.9001
+  type: 'test'
+  ...
+# Subtest: 5B plain persistence cannot bypass closed history guard
+ok 151 - 5B plain persistence cannot bypass closed history guard
+  ---
+  duration_ms: 3.831
+  type: 'test'
+  ...
+# {"processes":50,"aggregateMs":14.1,"filter100Ms":12.83,"layoutAndValidationMs":3.73}
+# {"processes":100,"aggregateMs":18.9,"filter100Ms":26.49,"layoutAndValidationMs":1.47}
+# Subtest: 3G A/E: role-first reassignment and missing-role fallback
+ok 152 - 3G A/E: role-first reassignment and missing-role fallback
+  ---
+  duration_ms: 61.3392
+  type: 'test'
+  ...
+# Subtest: 3G B: archived processes leave executive metrics
+ok 153 - 3G B: archived processes leave executive metrics
+  ---
+  duration_ms: 36.7191
+  type: 'test'
+  ...
+# Subtest: 3G C: redesign edit retains historical approval but invalidates SOP
+ok 154 - 3G C: redesign edit retains historical approval but invalidates SOP
+  ---
+  duration_ms: 15.111
+  type: 'test'
+  ...
+# Subtest: 3G D: every store rejects corrupt JSON and missing schema without mutation
+ok 155 - 3G D: every store rejects corrupt JSON and missing schema without mutation
+  ---
+  duration_ms: 4.9785
+  type: 'test'
+  ...
+# Subtest: 3G F: absent KPI/adoption remains unknown
+ok 156 - 3G F: absent KPI/adoption remains unknown
+  ---
+  duration_ms: 26.8082
+  type: 'test'
+  ...
+# Subtest: 3G G: early stages cannot bypass readiness at central guard
+ok 157 - 3G G: early stages cannot bypass readiness at central guard
+  ---
+  duration_ms: 22.6216
+  type: 'test'
+  ...
+# Subtest: 3G H: step deletion removes incident edges without touching source
+ok 158 - 3G H: step deletion removes incident edges without touching source
+  ---
+  duration_ms: 10.1469
+  type: 'test'
+  ...
+# Subtest: 3G I: orphaned improvement KPI reference is rejected
+ok 159 - 3G I: orphaned improvement KPI reference is rejected
+  ---
+  duration_ms: 14.3543
+  type: 'test'
+  ...
+# Subtest: 3G J/L: totals derive from sources and are bounded, no duplicate rollup weight
+ok 160 - 3G J/L: totals derive from sources and are bounded, no duplicate rollup weight
+  ---
+  duration_ms: 20.8297
+  type: 'test'
+  ...
+# Subtest: 3G M: explicit low dependency and founder role both reduce independence
+ok 161 - 3G M: explicit low dependency and founder role both reduce independence
+  ---
+  duration_ms: 11.4527
+  type: 'test'
+  ...
+# Subtest: 3G N/O: empty persisted system roundtrips without reseeding
+ok 162 - 3G N/O: empty persisted system roundtrips without reseeding
+  ---
+  duration_ms: 1.7784
+  type: 'test'
+  ...
+# Subtest: 3G: incompatible snapshot formula versions never imply performance trend
+ok 163 - 3G: incompatible snapshot formula versions never imply performance trend
+  ---
+  duration_ms: 24.7147
+  type: 'test'
+  ...
+# Subtest: 3G K: 50 processes / 20 departments / 100 roles / 200 people / 105 nodes / 210 actions / 510 KPI entries
+ok 164 - 3G K: 50 processes / 20 departments / 100 roles / 200 people / 105 nodes / 210 actions / 510 KPI entries
+  ---
+  duration_ms: 59.234
+  type: 'test'
+  ...
+# Subtest: 3G K: 100 processes / 20 departments / 100 roles / 200 people / 105 nodes / 210 actions / 510 KPI entries
+ok 165 - 3G K: 100 processes / 20 departments / 100 roles / 200 people / 105 nodes / 210 actions / 510 KPI entries
+  ---
+  duration_ms: 86.8452
+  type: 'test'
+  ...
+# Subtest: A derive objective from primary KR and preserve cycle alignment
+ok 166 - A derive objective from primary KR and preserve cycle alignment
+  ---
+  duration_ms: 12.4904
+  type: 'test'
+  ...
+# Subtest: B inconsistent objective cannot execute
+ok 167 - B inconsistent objective cannot execute
+  ---
+  duration_ms: 0.8543
+  type: 'test'
+  ...
+# Subtest: C unlinked proposal allowed but planned or execution prohibited
+ok 168 - C unlinked proposal allowed but planned or execution prohibited
+  ---
+  duration_ms: 2.3041
+  type: 'test'
+  ...
+# Subtest: D missing hypothesis blocks start and produces quality finding
+ok 169 - D missing hypothesis blocks start and produces quality finding
+  ---
+  duration_ms: 1.2812
+  type: 'test'
+  ...
+# Subtest: E blocked needs nonblank reason; unblocking preserves last blocker
+ok 170 - E blocked needs nonblank reason; unblocking preserves last blocker
+  ---
+  duration_ms: 2.0167
+  type: 'test'
+  ...
+# Subtest: F overdue excludes proposals and terminal records; due soon inclusive
+ok 171 - F overdue excludes proposals and terminal records; due soon inclusive
+  ---
+  duration_ms: 0.8617
+  type: 'test'
+  ...
+# Subtest: G high priority and low execution triggers attention
+ok 172 - G high priority and low execution triggers attention
+  ---
+  duration_ms: 8.8215
+  type: 'test'
+  ...
+# Subtest: H completion forces 100 but permits unevaluated actual impact
+ok 173 - H completion forces 100 but permits unevaluated actual impact
+  ---
+  duration_ms: 1.8478
+  type: 'test'
+  ...
+# Subtest: I initiative execution never changes KR or objective records
+ok 174 - I initiative execution never changes KR or objective records
+  ---
+  duration_ms: 1.236
+  type: 'test'
+  ...
+# Subtest: J changed KR does not alter initiative execution
+ok 175 - J changed KR does not alter initiative execution
+  ---
+  duration_ms: 4.3538
+  type: 'test'
+  ...
+# Subtest: K execution result gap is descriptive and null with absent measures
+ok 176 - K execution result gap is descriptive and null with absent measures
+  ---
+  duration_ms: 1.146
+  type: 'test'
+  ...
+# Subtest: L role overload only above three concurrent initiatives
+ok 177 - L role overload only above three concurrent initiatives
+  ---
+  duration_ms: 0.433
+  type: 'test'
+  ...
+# Subtest: M capacity warns at cycle/objective/owner and never blocks saving
+ok 178 - M capacity warns at cycle/objective/owner and never blocks saving
+  ---
+  duration_ms: 3.1767
+  type: 'test'
+  ...
+# Subtest: N objective execution mean excludes proposals planned cancelled
+ok 179 - N objective execution mean excludes proposals planned cancelled
+  ---
+  duration_ms: 1.2004
+  type: 'test'
+  ...
+# Subtest: O cancelled excluded from WIP, effectiveness and execution
+ok 180 - O cancelled excluded from WIP, effectiveness and execution
+  ---
+  duration_ms: 0.2661
+  type: 'test'
+  ...
+# Subtest: P persistence round trip preserves execution impact blocker and hypothesis
+ok 181 - P persistence round trip preserves execution impact blocker and hypothesis
+  ---
+  duration_ms: 1.9432
+  type: 'test'
+  ...
+# Subtest: Q old 4A/4B records stay unchanged and no sample injected on parse
+ok 182 - Q old 4A/4B records stay unchanged and no sample injected on parse
+  ---
+  duration_ms: 2.2225
+  type: 'test'
+  ...
+# Subtest: R inconsistent stored links rejected including cross-cycle and absent KR
+ok 183 - R inconsistent stored links rejected including cross-cycle and absent KR
+  ---
+  duration_ms: 1.3713
+  type: 'test'
+  ...
+# Subtest: baseline captured once, unchanged KR completion flagged, relinking prohibited
+ok 184 - baseline captured once, unchanged KR completion flagged, relinking prohibited
+  ---
+  duration_ms: 1.588
+  type: 'test'
+  ...
+# Subtest: no invented KR history when baseline unavailable
+ok 185 - no invented KR history when baseline unavailable
+  ---
+  duration_ms: 0.4385
+  type: 'test'
+  ...
+# Subtest: achieved KR with ongoing initiative suggests management review
+ok 186 - achieved KR with ongoing initiative suggests management review
+  ---
+  duration_ms: 0.4491
+  type: 'test'
+  ...
+# Subtest: invalid progress, dates, duplicate code, nonfinite values rejected
+ok 187 - invalid progress, dates, duplicate code, nonfinite values rejected
+  ---
+  duration_ms: 3.7548
+  type: 'test'
+  ...
+# Subtest: closed cycles reject initiative writes
+ok 188 - closed cycles reject initiative writes
+  ---
+  duration_ms: 0.347
+  type: 'test'
+  ...
+# Subtest: removed role remains readable but requires reassignment to continue
+ok 189 - removed role remains readable but requires reassignment to continue
+  ---
+  duration_ms: 1.3975
+  type: 'test'
+  ...
+# Subtest: manual effectiveness remains independent of completion and no person duplication
+ok 190 - manual effectiveness remains independent of completion and no person duplication
+  ---
+  duration_ms: 0.5176
+  type: 'test'
+  ...
+# Subtest: sample initiatives valid and isolated from foundation input
+ok 191 - sample initiatives valid and isolated from foundation input
+  ---
+  duration_ms: 0.6758
+  type: 'test'
+  ...
+# Subtest: 4B A increase includes decimals and negative baselines
+ok 192 - 4B A increase includes decimals and negative baselines
+  ---
+  duration_ms: 2.4955
+  type: 'test'
+  ...
+# Subtest: 4B B decrease rewards improvement
+ok 193 - 4B B decrease rewards improvement
+  ---
+  duration_ms: 0.3458
+  type: 'test'
+  ...
+# Subtest: 4B C binary never invents intermediate achievement
+ok 194 - 4B C binary never invents intermediate achievement
+  ---
+  duration_ms: 0.2392
+  type: 'test'
+  ...
+# Subtest: 4B D milestone sum and invalid weights
+ok 195 - 4B D milestone sum and invalid weights
+  ---
+  duration_ms: 0.6287
+  type: 'test'
+  ...
+# Subtest: 4B E increase caps and regression floors
+ok 196 - 4B E increase caps and regression floors
+  ---
+  duration_ms: 0.242
+  type: 'test'
+  ...
+# Subtest: 4B F decrease caps and regression floors
+ok 197 - 4B F decrease caps and regression floors
+  ---
+  duration_ms: 0.194
+  type: 'test'
+  ...
+# Subtest: 4B G equal targets, missing, invalid direction and extreme numbers are safe
+ok 198 - 4B G equal targets, missing, invalid direction and extreme numbers are safe
+  ---
+  duration_ms: 0.5458
+  type: 'test'
+  ...
+# Subtest: 4B H custom weights total exactly 100
+ok 199 - 4B H custom weights total exactly 100
+  ---
+  duration_ms: 0.5988
+  type: 'test'
+  ...
+# Subtest: 4B I underallocated weights do not normalize
+ok 200 - 4B I underallocated weights do not normalize
+  ---
+  duration_ms: 0.9321
+  type: 'test'
+  ...
+# Subtest: 4B J overallocated weights do not normalize
+ok 201 - 4B J overallocated weights do not normalize
+  ---
+  duration_ms: 0.9558
+  type: 'test'
+  ...
+# Subtest: 4B K weighted contributions and equal weighting
+ok 202 - 4B K weighted contributions and equal weighting
+  ---
+  duration_ms: 0.5863
+  type: 'test'
+  ...
+# Subtest: 4B L no KR means unknown progress and health
+ok 203 - 4B L no KR means unknown progress and health
+  ---
+  duration_ms: 0.3904
+  type: 'test'
+  ...
+# Subtest: 4B M confidence independently affects risk
+ok 204 - 4B M confidence independently affects risk
+  ---
+  duration_ms: 9.2716
+  type: 'test'
+  ...
+# Subtest: 4B N fifteen point pacing gap means risk
+ok 205 - 4B N fifteen point pacing gap means risk
+  ---
+  duration_ms: 0.3364
+  type: 'test'
+  ...
+# Subtest: 4B O severe gap and overdue are off track
+ok 206 - 4B O severe gap and overdue are off track
+  ---
+  duration_ms: 0.2861
+  type: 'test'
+  ...
+# Subtest: 4B P achieved takes precedence without closing objective lifecycle
+ok 207 - 4B P achieved takes precedence without closing objective lifecycle
+  ---
+  duration_ms: 4.8501
+  type: 'test'
+  ...
+# Subtest: 4B Q tiny 5 percent red KR does not make objective red
+ok 208 - 4B Q tiny 5 percent red KR does not make objective red
+  ---
+  duration_ms: 0.863
+  type: 'test'
+  ...
+# Subtest: 4B R missing measurement and owner affect completeness not invented failure
+ok 209 - 4B R missing measurement and owner affect completeness not invented failure
+  ---
+  duration_ms: 0.7721
+  type: 'test'
+  ...
+# Subtest: 4B S only observed value changes update lastUpdateAt
+ok 210 - 4B S only observed value changes update lastUpdateAt
+  ---
+  duration_ms: 6.9668
+  type: 'test'
+  ...
+# Subtest: 4B T refresh preserves values confidence weights and milestone timestamps
+ok 211 - 4B T refresh preserves values confidence weights and milestone timestamps
+  ---
+  duration_ms: 4.6712
+  type: 'test'
+  ...
+# Subtest: 4B U legacy 4A schema is read losslessly and never gets automatic KRs
+ok 212 - 4B U legacy 4A schema is read losslessly and never gets automatic KRs
+  ---
+  duration_ms: 0.8122
+  type: 'test'
+  ...
+# Subtest: 4B future start and same-day period are finite
+ok 213 - 4B future start and same-day period are finite
+  ---
+  duration_ms: 0.3116
+  type: 'test'
+  ...
+# Subtest: 4B weighted confidence falls back to equal with invalid weights
+ok 214 - 4B weighted confidence falls back to equal with invalid weights
+  ---
+  duration_ms: 0.3811
+  type: 'test'
+  ...
+# Subtest: 4B zero-weight unknown does not contaminate otherwise achieved objective
+ok 215 - 4B zero-weight unknown does not contaminate otherwise achieved objective
+  ---
+  duration_ms: 0.231
+  type: 'test'
+  ...
+# Subtest: 4B custom missing and all-zero weights remain invalid
+ok 216 - 4B custom missing and all-zero weights remain invalid
+  ---
+  duration_ms: 0.1572
+  type: 'test'
+  ...
+# Subtest: 4B quality identifies activities and invalid target
+ok 217 - 4B quality identifies activities and invalid target
+  ---
+  duration_ms: 0.349
+  type: 'test'
+  ...
+# Subtest: 4B missing confidence prevents healthy classification
+ok 218 - 4B missing confidence prevents healthy classification
+  ---
+  duration_ms: 0.3717
+  type: 'test'
+  ...
+# Subtest: 4B cancelled KR excluded, archived cycle prevents mutation
+ok 219 - 4B cancelled KR excluded, archived cycle prevents mutation
+  ---
+  duration_ms: 0.6143
+  type: 'test'
+  ...
+# Subtest: 4B stale values and attention ordered by severity
+ok 220 - 4B stale values and attention ordered by severity
+  ---
+  duration_ms: 0.8692
+  type: 'test'
+  ...
+# Subtest: 4B aggregate excludes unknown active objective instead of making it zero
+ok 221 - 4B aggregate excludes unknown active objective instead of making it zero
+  ---
+  duration_ms: 0.9632
+  type: 'test'
+  ...
+# Subtest: 4B milestone completion updates measurement and reverses completedAt
+ok 222 - 4B milestone completion updates measurement and reverses completedAt
+  ---
+  duration_ms: 1.967
+  type: 'test'
+  ...
+# Subtest: 4B schema rejects corrupt KR IDs, references, numbers, dates, and duplicate codes
+ok 223 - 4B schema rejects corrupt KR IDs, references, numbers, dates, and duplicate codes
+  ---
+  duration_ms: 1.8588
+  type: 'test'
+  ...
+# Subtest: 4B fresh sample KRs align with existing sample, old sample stays untouched
+ok 224 - 4B fresh sample KRs align with existing sample, old sample stays untouched
+  ---
+  duration_ms: 1.2944
+  type: 'test'
+  ...
+# Subtest: 4B units do not alter calculations
+ok 225 - 4B units do not alter calculations
+  ---
+  duration_ms: 0.2059
+  type: 'test'
+  ...
+# Subtest: 4B notes support context without overwriting derived status
+ok 226 - 4B notes support context without overwriting derived status
+  ---
+  duration_ms: 0.6462
+  type: 'test'
+  ...
+# Subtest: 4B stale boundary uses Tehran calendar days
+ok 227 - 4B stale boundary uses Tehran calendar days
+  ---
+  duration_ms: 0.336
+  type: 'test'
+  ...
+# Subtest: 4B editing uncompleted milestone structure does not pretend a value update
+ok 228 - 4B editing uncompleted milestone structure does not pretend a value update
+  ---
+  duration_ms: 0.4363
+  type: 'test'
+  ...
+# Subtest: Unknown process maps do not get full decision delegation credit
+ok 229 - Unknown process maps do not get full decision delegation credit
+  ---
+  duration_ms: 75.2052
+  type: 'test'
+  ...
+# Subtest: An empty review cannot qualify for the improvement cycle
+ok 230 - An empty review cannot qualify for the improvement cycle
+  ---
+  duration_ms: 16.6427
+  type: 'test'
+  ...
+# Subtest: 3E A: Increase score and clamps
+ok 231 - 3E A: Increase score and clamps
+  ---
+  duration_ms: 10.6996
+  type: 'test'
+  ...
+# Subtest: 3E B: Decrease score
+ok 232 - 3E B: Decrease score
+  ---
+  duration_ms: 20.0499
+  type: 'test'
+  ...
+# Subtest: 3E C: Binary allows only zero or one
+ok 233 - 3E C: Binary allows only zero or one
+  ---
+  duration_ms: 10.1519
+  type: 'test'
+  ...
+# Subtest: Maintain tolerance and exact target
+ok 234 - Maintain tolerance and exact target
+  ---
+  duration_ms: 9.6388
+  type: 'test'
+  ...
+# Subtest: 3E D: Equal/custom weights; mixed or invalid total fails clearly
+ok 235 - 3E D: Equal/custom weights; mixed or invalid total fails clearly
+  ---
+  duration_ms: 10.5778
+  type: 'test'
+  ...
+# Subtest: 3E E: KPI gap has KPI reference, target and suggested priority
+ok 236 - 3E E: KPI gap has KPI reference, target and suggested priority
+  ---
+  duration_ms: 27.9869
+  type: 'test'
+  ...
+# Subtest: Trend and current use period date, not insertion order; archived entries remain history
+ok 237 - Trend and current use period date, not insertion order; archived entries remain history
+  ---
+  duration_ms: 16.2175
+  type: 'test'
+  ...
+# Subtest: 3E F: Health combines exactly 20/20/30/15/15 and missing KPI is null
+ok 238 - 3E F: Health combines exactly 20/20/30/15/15 and missing KPI is null
+  ---
+  duration_ms: 23.9839
+  type: 'test'
+  ...
+# Subtest: 3E G: Founder-heavy map and owner yield low independence
+ok 239 - 3E G: Founder-heavy map and owner yield low independence
+  ---
+  duration_ms: 8.7215
+  type: 'test'
+  ...
+# Subtest: 3E H: Independent map and nonfounder owner yield 100; missing map stays unknown
+ok 240 - 3E H: Independent map and nonfounder owner yield 100; missing map stays unknown
+  ---
+  duration_ms: 23.1767
+  type: 'test'
+  ...
+# Subtest: 3E I: No active KPI cannot become Measured
+ok 241 - 3E I: No active KPI cannot become Measured
+  ---
+  duration_ms: 13.9343
+  type: 'test'
+  ...
+# Subtest: 3E J: Valid measurement allows explicit confirmation; manual bypass blocked
+ok 242 - 3E J: Valid measurement allows explicit confirmation; manual bypass blocked
+  ---
+  duration_ms: 12.5515
+  type: 'test'
+  ...
+# Subtest: 3E K: Measured without review/action cannot become Improving
+ok 243 - 3E K: Measured without review/action cannot become Improving
+  ---
+  duration_ms: 11.7452
+  type: 'test'
+  ...
+# Subtest: 3E L: Review and owned active action allow Improving without target achievement
+ok 244 - 3E L: Review and owned active action allow Improving without target achievement
+  ---
+  duration_ms: 18.6
+  type: 'test'
+  ...
+# Subtest: 3E M: Overdue excludes today, completed and cancelled; discipline falls with overdue
+ok 245 - 3E M: Overdue excludes today, completed and cancelled; discipline falls with overdue
+  ---
+  duration_ms: 12.908
+  type: 'test'
+  ...
+# Subtest: 3E N: Critical founder ownership lowers 30-day readiness
+ok 246 - 3E N: Critical founder ownership lowers 30-day readiness
+  ---
+  duration_ms: 22.5451
+  type: 'test'
+  ...
+# Subtest: 3E O: Missing approved SOP reduces readiness
+ok 247 - 3E O: Missing approved SOP reduces readiness
+  ---
+  duration_ms: 14.469
+  type: 'test'
+  ...
+# Subtest: 3E P: Missing measurements lowers KPI coverage and 30-day score
+ok 248 - 3E P: Missing measurements lowers KPI coverage and 30-day score
+  ---
+  duration_ms: 23.8631
+  type: 'test'
+  ...
+# Subtest: 3E Q/R: Roundtrip restores review, KPI/history, actions and process isolation
+ok 249 - 3E Q/R: Roundtrip restores review, KPI/history, actions and process isolation
+  ---
+  duration_ms: 15.8668
+  type: 'test'
+  ...
+# Subtest: Persistence rejects duplicate periods, impossible dates, NaN and dangling KPI references
+ok 250 - Persistence rejects duplicate periods, impossible dates, NaN and dangling KPI references
+  ---
+  duration_ms: 14.7281
+  type: 'test'
+  ...
+# Subtest: Changing implementation evidence revokes measurement readiness
+ok 251 - Changing implementation evidence revokes measurement readiness
+  ---
+  duration_ms: 29.7567
+  type: 'test'
+  ...
+# Subtest: Invalid directional targets and no measurements do not invent score
+ok 252 - Invalid directional targets and no measurements do not invent score
+  ---
+  duration_ms: 11.8522
+  type: 'test'
+  ...
+# Subtest: Moving future nodes keeps approval; changing content preserves a stale historical stamp
+ok 253 - Moving future nodes keeps approval; changing content preserves a stale historical stamp
+  ---
+  duration_ms: 46.4468
+  type: 'test'
+  ...
+# Subtest: Analysis A: highest waiting step ranks as bottleneck with explainable contributions
+ok 254 - Analysis A: highest waiting step ranks as bottleneck with explainable contributions
+  ---
+  duration_ms: 7.6951
+  type: 'test'
+  ...
+# Subtest: Analysis B/F: founder operational step with wait is ranked and delegated
+ok 255 - Analysis B/F: founder operational step with wait is ranked and delegated
+  ---
+  duration_ms: 2.7467
+  type: 'test'
+  ...
+# Subtest: Analysis C: real owners yield handoffs and department transitions
+ok 256 - Analysis C: real owners yield handoffs and department transitions
+  ---
+  duration_ms: 1.8246
+  type: 'test'
+  ...
+# Subtest: Analysis D: rework >=50 produces findings, cycle traversal terminates
+ok 257 - Analysis D: rework >=50 produces findings, cycle traversal terminates
+  ---
+  duration_ms: 12.8316
+  type: 'test'
+  ...
+# Subtest: Analysis E: one outgoing decision branch is a conservative simplify candidate
+ok 258 - Analysis E: one outgoing decision branch is a conservative simplify candidate
+  ---
+  duration_ms: 8.9018
+  type: 'test'
+  ...
+# Subtest: Analysis G/H: cloning preserves identities and editing future does not mutate current
+ok 259 - Analysis G/H: cloning preserves identities and editing future does not mutate current
+  ---
+  duration_ms: 3.6582
+  type: 'test'
+  ...
+# Subtest: Analysis I: removed step and incident connections appear only in future diff
+ok 260 - Analysis I: removed step and incident connections appear only in future diff
+  ---
+  duration_ms: 2.7246
+  type: 'test'
+  ...
+# Subtest: Analysis J/K: owner reassignment removes detected founder dependency and waiting reductions compare correctly
+ok 261 - Analysis J/K: owner reassignment removes detected founder dependency and waiting reductions compare correctly
+  ---
+  duration_ms: 2.2269
+  type: 'test'
+  ...
+# Subtest: Analysis L/M: valid design ready; missing time, owner, end or branch blocks readiness
+ok 262 - Analysis L/M: valid design ready; missing time, owner, end or branch blocks readiness
+  ---
+  duration_ms: 24.7111
+  type: 'test'
+  ...
+# Subtest: Analysis N/O/P: explicit review and approval advance stages and restore timestamps
+ok 263 - Analysis N/O/P: explicit review and approval advance stages and restore timestamps
+  ---
+  duration_ms: 5.5551
+  type: 'test'
+  ...
+# Subtest: Review and approval require correct stages and cannot skip confirmation
+ok 264 - Review and approval require correct stages and cannot skip confirmation
+  ---
+  duration_ms: 1.3981
+  type: 'test'
+  ...
+# Subtest: Editing content or organization invalidates prior confirmation, moving canvas does not
+ok 265 - Editing content or organization invalidates prior confirmation, moving canvas does not
+  ---
+  duration_ms: 2.3623
+  type: 'test'
+  ...
+# Subtest: Zero baselines and incomplete data never fabricate percent savings
+ok 266 - Zero baselines and incomplete data never fabricate percent savings
+  ---
+  duration_ms: 1.8429
+  type: 'test'
+  ...
+# Subtest: Friction components bounded, sum weights 100 and severity boundaries exact
+ok 267 - Friction components bounded, sum weights 100 and severity boundaries exact
+  ---
+  duration_ms: 1.3353
+  type: 'test'
+  ...
+# Subtest: Automation requires recorded input/output and low rework; duplicate elimination is evidence based
+ok 268 - Automation requires recorded input/output and low rework; duplicate elimination is evidence based
+  ---
+  duration_ms: 9.4129
+  type: 'test'
+  ...
+# Subtest: Analysis persistence rejects wrong variants, cross-process maps and malformed stamps; old AS-IS loads
+ok 269 - Analysis persistence rejects wrong variants, cross-process maps and malformed stamps; old AS-IS loads
+  ---
+  duration_ms: 2.6886
+  type: 'test'
+  ...
+# Subtest: Independent process records are preserved when one future map is updated
+ok 270 - Independent process records are preserved when one future map is updated
+  ---
+  duration_ms: 2.2843
+  type: 'test'
+  ...
+# Subtest: Companion stage storage rolls back first write when second fails and rejects stale snapshots
+ok 271 - Companion stage storage rolls back first write when second fails and rejects stale snapshots
+  ---
+  duration_ms: 0.6126
+  type: 'test'
+  ...
+# Subtest: Map A: creating steps and real connections, invalid and duplicate edges rejected
+ok 272 - Map A: creating steps and real connections, invalid and duplicate edges rejected
+  ---
+  duration_ms: 5.6117
+  type: 'test'
+  ...
+# Subtest: Map B/C: role and person resolve from current organization, never cached
+ok 273 - Map B/C: role and person resolve from current organization, never cached
+  ---
+  duration_ms: 1.1585
+  type: 'test'
+  ...
+# Subtest: Map D: work, wait, cycle and waiting ratio update and zero remains finite
+ok 274 - Map D: work, wait, cycle and waiting ratio update and zero remains finite
+  ---
+  duration_ms: 2.7111
+  type: 'test'
+  ...
+# Subtest: Map E: owner changes are handoffs; explicit handoffs are not double counted
+ok 275 - Map E: owner changes are handoffs; explicit handoffs are not double counted
+  ---
+  duration_ms: 0.7628
+  type: 'test'
+  ...
+# Subtest: Map F: founder role is detected without mutating explicit dependency
+ok 276 - Map F: founder role is detected without mutating explicit dependency
+  ---
+  duration_ms: 0.827
+  type: 'test'
+  ...
+# Subtest: Map G: decision with one branch warns and prevents mapped readiness
+ok 277 - Map G: decision with one branch warns and prevents mapped readiness
+  ---
+  duration_ms: 20.3134
+  type: 'test'
+  ...
+# Subtest: Map H: isolated node and incoming/outgoing paths are identified
+ok 278 - Map H: isolated node and incoming/outgoing paths are identified
+  ---
+  duration_ms: 41.7992
+  type: 'test'
+  ...
+# Subtest: Map I/J: refresh keeps positions, labels, metadata and separates processes
+ok 279 - Map I/J: refresh keeps positions, labels, metadata and separates processes
+  ---
+  duration_ms: 2.603
+  type: 'test'
+  ...
+# Subtest: Map K: meaningful directed map with at least 80% role coverage is ready, no stage mutation
+ok 280 - Map K: meaningful directed map with at least 80% role coverage is ready, no stage mutation
+  ---
+  duration_ms: 1.4534
+  type: 'test'
+  ...
+# Subtest: Map L: deleting a step removes all incident connections and preserves other nodes
+ok 281 - Map L: deleting a step removes all incident connections and preserves other nodes
+  ---
+  duration_ms: 1.2463
+  type: 'test'
+  ...
+# Subtest: Map persistence rejects malformed values and cross-process/dangling connections
+ok 282 - Map persistence rejects malformed values and cross-process/dangling connections
+  ---
+  duration_ms: 1.7429
+  type: 'test'
+  ...
+# Subtest: Map completeness distinguishes absent timing from explicit zero
+ok 283 - Map completeness distinguishes absent timing from explicit zero
+  ---
+  duration_ms: 0.6932
+  type: 'test'
+  ...
+# Subtest: Directed readiness rejects a reversed path despite weak connectivity
+ok 284 - Directed readiness rejects a reversed path despite weak connectivity
+  ---
+  duration_ms: 0.5211
+  type: 'test'
+  ...
+# Subtest: Layout is deterministic, non-overlapping, preserves content and handles rework cycles
+ok 285 - Layout is deterministic, non-overlapping, preserves content and handles rework cycles
+  ---
+  duration_ms: 3.8866
+  type: 'test'
+  ...
+# Subtest: Realistic proposal seed has branches, waiting, founder insight, rework and handoffs
+ok 286 - Realistic proposal seed has branches, waiting, founder insight, rework and handoffs
+  ---
+  duration_ms: 3.2889
+  type: 'test'
+  ...
+# Subtest: Missing organization reference is surfaced instead of assigning another owner
+ok 287 - Missing organization reference is surfaced instead of assigning another owner
+  ---
+  duration_ms: 0.7074
+  type: 'test'
+  ...
+# Subtest: 5A A profile persists without writing other keys
+ok 288 - 5A A profile persists without writing other keys
+  ---
+  duration_ms: 12.8816
+  type: 'test'
+  ...
+# Subtest: 5A B unknown remains null and measured zero survives
+ok 289 - 5A B unknown remains null and measured zero survives
+  ---
+  duration_ms: 1.2157
+  type: 'test'
+  ...
+# Subtest: 5A C diagnosis candidate becomes explicit candidate record
+ok 290 - 5A C diagnosis candidate becomes explicit candidate record
+  ---
+  duration_ms: 1.203
+  type: 'test'
+  ...
+# Subtest: 5A D primary is single active ID; candidate cannot be primary
+ok 291 - 5A D primary is single active ID; candidate cannot be primary
+  ---
+  duration_ms: 1.1467
+  type: 'test'
+  ...
+# Subtest: 5A E strong requires evidence; active owner required
+ok 292 - 5A E strong requires evidence; active owner required
+  ---
+  duration_ms: 0.7545
+  type: 'test'
+  ...
+# Subtest: 5A F high severity never upgrades confidence
+ok 293 - 5A F high severity never upgrades confidence
+  ---
+  duration_ms: 0.7219
+  type: 'test'
+  ...
+# Subtest: 5A G lever links validated and suggestions dimension-scoped
+ok 294 - 5A G lever links validated and suggestions dimension-scoped
+  ---
+  duration_ms: 0.9739
+  type: 'test'
+  ...
+# Subtest: 5A H fast inbox only needs title and source
+ok 295 - 5A H fast inbox only needs title and source
+  ---
+  duration_ms: 0.8437
+  type: 'test'
+  ...
+# Subtest: 5A I inbox has no constraint requirement
+ok 296 - 5A I inbox has no constraint requirement
+  ---
+  duration_ms: 1.4175
+  type: 'test'
+  ...
+# Subtest: 5A J readiness and prioritization reject missing structure
+ok 297 - 5A J readiness and prioritization reject missing structure
+  ---
+  duration_ms: 2.0287
+  type: 'test'
+  ...
+# Subtest: 5A K priority matrix has explained categories
+ok 298 - 5A K priority matrix has explained categories
+  ---
+  duration_ms: 1.9402
+  type: 'test'
+  ...
+# Subtest: 5A L less effort improves priority
+ok 299 - 5A L less effort improves priority
+  ---
+  duration_ms: 0.3496
+  type: 'test'
+  ...
+# Subtest: 5A M correct constraint ID and no dangling internal links
+ok 300 - 5A M correct constraint ID and no dangling internal links
+  ---
+  duration_ms: 0.6662
+  type: 'test'
+  ...
+# Subtest: 5A N Strategy references loaded from source, not copied targets
+ok 301 - 5A N Strategy references loaded from source, not copied targets
+  ---
+  duration_ms: 8.9318
+  type: 'test'
+  ...
+# Subtest: 5A O System capacity safely reuses existing evidence
+ok 302 - 5A O System capacity safely reuses existing evidence
+  ---
+  duration_ms: 14.4835
+  type: 'test'
+  ...
+# Subtest: 5A P missing and corrupt sources do not crash
+ok 303 - 5A P missing and corrupt sources do not crash
+  ---
+  duration_ms: 0.3725
+  type: 'test'
+  ...
+# Subtest: 5A Q readiness is preparation not performance; unknown adds no credit
+ok 304 - 5A Q readiness is preparation not performance; unknown adds no credit
+  ---
+  duration_ms: 0.9009
+  type: 'test'
+  ...
+# Subtest: 5A R archived primary clears; existing ready idea becomes review-needed
+ok 305 - 5A R archived primary clears; existing ready idea becomes review-needed
+  ---
+  duration_ms: 1.2282
+  type: 'test'
+  ...
+# Subtest: 5A S roundtrip restores all links and status history
+ok 306 - 5A S roundtrip restores all links and status history
+  ---
+  duration_ms: 2.0816
+  type: 'test'
+  ...
+# Subtest: 5A T Scale mutations leave external stores byte-identical
+ok 307 - 5A T Scale mutations leave external stores byte-identical
+  ---
+  duration_ms: 0.9634
+  type: 'test'
+  ...
+# Subtest: 5A future experiment/validated transitions rejected
+ok 308 - 5A future experiment/validated transitions rejected
+  ---
+  duration_ms: 0.7129
+  type: 'test'
+  ...
+# Subtest: 5A corrupt, duplicate, infinite and negative input rejected
+ok 309 - 5A corrupt, duplicate, infinite and negative input rejected
+  ---
+  duration_ms: 1.1842
+  type: 'test'
+  ...
+# Subtest: 5A compare-and-swap rejects stale writer and preserves current data
+ok 310 - 5A compare-and-swap rejects stale writer and preserves current data
+  ---
+  duration_ms: 3.1621
+  type: 'test'
+  ...
+# Subtest: 5A quota failure never replaces prior value
+ok 311 - 5A quota failure never replaces prior value
+  ---
+  duration_ms: 4.5763
+  type: 'test'
+  ...
+# Subtest: 5A large inbox produces no capacity warning solely due to its size
+ok 312 - 5A large inbox produces no capacity warning solely due to its size
+  ---
+  duration_ms: 2.6298
+  type: 'test'
+  ...
+# Subtest: Standards A: approved source creates structured draft without fabricated instructions
+ok 313 - Standards A: approved source creates structured draft without fabricated instructions
+  ---
+  duration_ms: 47.3832
+  type: 'test'
+  ...
+# Subtest: Standards B: missing purpose blocks approval
+ok 314 - Standards B: missing purpose blocks approval
+  ---
+  duration_ms: 13.9261
+  type: 'test'
+  ...
+# Subtest: Standards C: missing procedure instruction lowers completeness
+ok 315 - Standards C: missing procedure instruction lowers completeness
+  ---
+  duration_ms: 3.7653
+  type: 'test'
+  ...
+# Subtest: Standards D: checklist reorder and required flags survive persistence
+ok 316 - Standards D: checklist reorder and required flags survive persistence
+  ---
+  duration_ms: 6.4024
+  type: 'test'
+  ...
+# Subtest: Standards E: decision without ready rule blocks readiness
+ok 317 - Standards E: decision without ready rule blocks readiness
+  ---
+  duration_ms: 6.6153
+  type: 'test'
+  ...
+# Subtest: Standards F: Definition of Done is mandatory
+ok 318 - Standards F: Definition of Done is mandatory
+  ---
+  duration_ms: 3.7834
+  type: 'test'
+  ...
+# Subtest: Standards G: complete draft still requires explicit approval
+ok 319 - Standards G: complete draft still requires explicit approval
+  ---
+  duration_ms: 7.7028
+  type: 'test'
+  ...
+# Subtest: Standards H: explicit standardization advances stage and records valid signature
+ok 320 - Standards H: explicit standardization advances stage and records valid signature
+  ---
+  duration_ms: 11.9527
+  type: 'test'
+  ...
+# Subtest: Standards I: required incomplete training blocks live
+ok 321 - Standards I: required incomplete training blocks live
+  ---
+  duration_ms: 14.4707
+  type: 'test'
+  ...
+# Subtest: Standards J: required pilot needs valid dates, outcome and feedback
+ok 322 - Standards J: required pilot needs valid dates, outcome and feedback
+  ---
+  duration_ms: 12.8299
+  type: 'test'
+  ...
+# Subtest: Standards K: owner, training, pilot, live, acknowledgement, operational weights sum to 100
+ok 323 - Standards K: owner, training, pilot, live, acknowledgement, operational weights sum to 100
+  ---
+  duration_ms: 23.9955
+  type: 'test'
+  ...
+# Subtest: Standards L: implementation requires live, advances stage and cannot be manually bypassed
+ok 324 - Standards L: implementation requires live, advances stage and cannot be manually bypassed
+  ---
+  duration_ms: 13.4897
+  type: 'test'
+  ...
+# Subtest: Standards M: TOBE content change invalidates approval; rebase preserves instructions
+ok 325 - Standards M: TOBE content change invalidates approval; rebase preserves instructions
+  ---
+  duration_ms: 6.1525
+  type: 'test'
+  ...
+# Subtest: Standards N: full local roundtrip preserves confirmed implementation
+ok 326 - Standards N: full local roundtrip preserves confirmed implementation
+  ---
+  duration_ms: 12.4514
+  type: 'test'
+  ...
+# Subtest: Standards O: separate processes remain isolated
+ok 327 - Standards O: separate processes remain isolated
+  ---
+  duration_ms: 3.9268
+  type: 'test'
+  ...
+# Subtest: Standards persistence rejects malformed dates and duplicate checklist order
+ok 328 - Standards persistence rejects malformed dates and duplicate checklist order
+  ---
+  duration_ms: 6.0162
+  type: 'test'
+  ...
+# Subtest: Standards mutations invalidate SOP and stage signatures
+ok 329 - Standards mutations invalidate SOP and stage signatures
+  ---
+  duration_ms: 4.7349
+  type: 'test'
+  ...
+# Subtest: Returning approved SOP to draft revokes effective approval
+ok 330 - Returning approved SOP to draft revokes effective approval
+  ---
+  duration_ms: 5.5015
+  type: 'test'
+  ...
+# Subtest: 4A persistence writes only Strategy and rejects stale/quota failures
+ok 331 - 4A persistence writes only Strategy and rejects stale/quota failures
+  ---
+  duration_ms: 24.3779
+  type: 'test'
+  ...
+# Subtest: 4A A: create valid cycle and reject inverted dates
+ok 332 - 4A A: create valid cycle and reject inverted dates
+  ---
+  duration_ms: 1.7167
+  type: 'test'
+  ...
+# Subtest: 4A B: second activation requires confirmation and preserves prior history
+ok 333 - 4A B: second activation requires confirmation and preserves prior history
+  ---
+  duration_ms: 1.3085
+  type: 'test'
+  ...
+# Subtest: 4A C: all context fields survive persistence
+ok 334 - 4A C: all context fields survive persistence
+  ---
+  duration_ms: 0.558
+  type: 'test'
+  ...
+# Subtest: 4A D: three selected priorities have no focus-count warning
+ok 335 - 4A D: three selected priorities have no focus-count warning
+  ---
+  duration_ms: 1.8562
+  type: 'test'
+  ...
+# Subtest: 4A E: six selected priorities warn without blocking
+ok 336 - 4A E: six selected priorities warn without blocking
+  ---
+  duration_ms: 1.2542
+  type: 'test'
+  ...
+# Subtest: 4A F: ranking reorders deterministically and persists
+ok 337 - 4A F: ranking reorders deterministically and persists
+  ---
+  duration_ms: 1.0215
+  type: 'test'
+  ...
+# Subtest: 4A G: focus and not-now are independent persisted choices
+ok 338 - 4A G: focus and not-now are independent persisted choices
+  ---
+  duration_ms: 1.8393
+  type: 'test'
+  ...
+# Subtest: 4A H: objective canonical priority link and active guard
+ok 339 - 4A H: objective canonical priority link and active guard
+  ---
+  duration_ms: 6.9148
+  type: 'test'
+  ...
+# Subtest: 4A I: missing owner warning for stale active records and activation guard
+ok 340 - 4A I: missing owner warning for stale active records and activation guard
+  ---
+  duration_ms: 1.5979
+  type: 'test'
+  ...
+# Subtest: 4A J: missing priority warns; draft remains editable
+ok 341 - 4A J: missing priority warns; draft remains editable
+  ---
+  duration_ms: 1.2999
+  type: 'test'
+  ...
+# Subtest: 4A K: objective beyond cycle dates warns but does not destroy data
+ok 342 - 4A K: objective beyond cycle dates warns but does not destroy data
+  ---
+  duration_ms: 1.1324
+  type: 'test'
+  ...
+# Subtest: 4A L: readiness is explicit eight-component 100 point setup measure
+ok 343 - 4A L: readiness is explicit eight-component 100 point setup measure
+  ---
+  duration_ms: 2.4451
+  type: 'test'
+  ...
+# Subtest: 4A M: missing data creates no performance or fake progress
+ok 344 - 4A M: missing data creates no performance or fake progress
+  ---
+  duration_ms: 0.6565
+  type: 'test'
+  ...
+# Subtest: 4A N: System role IDs resolve live without duplicated roles
+ok 345 - 4A N: System role IDs resolve live without duplicated roles
+  ---
+  duration_ms: 0.4382
+  type: 'test'
+  ...
+# Subtest: 4A O: reload preserves all records and valid empty stores stay empty
+ok 346 - 4A O: reload preserves all records and valid empty stores stay empty
+  ---
+  duration_ms: 1.9042
+  type: 'test'
+  ...
+# Subtest: 4A P: archive retains context, priorities, objectives and closed timestamp
+ok 347 - 4A P: archive retains context, priorities, objectives and closed timestamp
+  ---
+  duration_ms: 7.8019
+  type: 'test'
+  ...
+# Subtest: 4A corrupt/version/duplicate/reference/date validation fails safely
+ok 348 - 4A corrupt/version/duplicate/reference/date validation fails safely
+  ---
+  duration_ms: 1.4749
+  type: 'test'
+  ...
+# Subtest: 4A cross-cycle priority links are rejected
+ok 349 - 4A cross-cycle priority links are rejected
+  ---
+  duration_ms: 0.4756
+  type: 'test'
+  ...
+# Subtest: 4A custom direction requires descriptive label
+ok 350 - 4A custom direction requires descriptive label
+  ---
+  duration_ms: 0.8259
+  type: 'test'
+  ...
+# Subtest: 4A quality checks distinguish activity, number and meaningful outcome
+ok 351 - 4A quality checks distinguish activity, number and meaningful outcome
+  ---
+  duration_ms: 0.7564
+  type: 'test'
+  ...
+# Subtest: 4A deleted role reduces readiness and selected priority changes alignment live
+ok 352 - 4A deleted role reduces readiness and selected priority changes alignment live
+  ---
+  duration_ms: 0.7922
+  type: 'test'
+  ...
+# Subtest: 4A more than five objectives warns and cancellation preserves history
+ok 353 - 4A more than five objectives warns and cancellation preserves history
+  ---
+  duration_ms: 1.1062
+  type: 'test'
+  ...
+# Subtest: 4A duplicate ranking and absent not-now are visible findings
+ok 354 - 4A duplicate ranking and absent not-now are visible findings
+  ---
+  duration_ms: 2.0164
+  type: 'test'
+  ...
+# Subtest: 4A days remaining uses injected date and never negative
+ok 355 - 4A days remaining uses injected date and never negative
+  ---
+  duration_ms: 0.2332
+  type: 'test'
+  ...
+# Subtest: System priority: all 81 combinations, boundaries, and invalid inputs
+ok 356 - System priority: all 81 combinations, boundaries, and invalid inputs
+  ---
+  duration_ms: 3.1391
+  type: 'test'
+  ...
+# Subtest: System seed: relationships valid and 15 processes span all eight stages
+ok 357 - System seed: relationships valid and 15 processes span all eight stages
+  ---
+  duration_ms: 4.3648
+  type: 'test'
+  ...
+# Subtest: A/B/C: create department, role, person, process; resolve owner; restore
+ok 358 - A/B/C: create department, role, person, process; resolve owner; restore
+  ---
+  duration_ms: 12.9924
+  type: 'test'
+  ...
+# Subtest: D: save recalculates priority instead of accepting cached values
+ok 359 - D: save recalculates priority instead of accepting cached values
+  ---
+  duration_ms: 1.0899
+  type: 'test'
+  ...
+# Subtest: E: founder role makes dependency critical, including multiple processes
+ok 360 - E: founder role makes dependency critical, including multiple processes
+  ---
+  duration_ms: 1.1645
+  type: 'test'
+  ...
+# Subtest: F: ownership concentration and department counts derive from active processes
+ok 361 - F: ownership concentration and department counts derive from active processes
+  ---
+  duration_ms: 1.2498
+  type: 'test'
+  ...
+# Subtest: G: owner-less process appears in missing-owner filter and insight
+ok 362 - G: owner-less process appears in missing-owner filter and insight
+  ---
+  duration_ms: 1.5949
+  type: 'test'
+  ...
+# Subtest: Owner coverage excludes vacancies and inactive people
+ok 363 - Owner coverage excludes vacancies and inactive people
+  ---
+  duration_ms: 26.4853
+  type: 'test'
+  ...
+# Subtest: Persistence rejects malformed data, dangling links, enum names and duplicates
+ok 364 - Persistence rejects malformed data, dangling links, enum names and duplicates
+  ---
+  duration_ms: 10.8884
+  type: 'test'
+  ...
+# Subtest: Cycles in role reporting and department parents are rejected
+ok 365 - Cycles in role reporting and department parents are rejected
+  ---
+  duration_ms: 2.0019
+  type: 'test'
+  ...
+# Subtest: Stage actions persist and affect pipeline counts without changing score
+ok 366 - Stage actions persist and affect pipeline counts without changing score
+  ---
+  duration_ms: 2.2921
+  type: 'test'
+  ...
+# Subtest: Search, sorting, combined filters and founder insight filter
+ok 367 - Search, sorting, combined filters and founder insight filter
+  ---
+  duration_ms: 1.1057
+  type: 'test'
+  ...
+# Subtest: Referenced records cannot be deleted; independent process can be deleted
+ok 368 - Referenced records cannot be deleted; independent process can be deleted
+  ---
+  duration_ms: 4.9914
+  type: 'test'
+  ...
+# Subtest: Archiving a department preserves relationships; empty data remains valid
+ok 369 - Archiving a department preserves relationships; empty data remains valid
+  ---
+  duration_ms: 1.6393
+  type: 'test'
+  ...
+# Subtest: three-week stagnant signal requires consecutive observed weeks
+ok 370 - three-week stagnant signal requires consecutive observed weeks
+  ---
+  duration_ms: 33.1046
+  type: 'test'
+  ...
+# Subtest: check-in identifier collision cannot overwrite a different KR
+ok 371 - check-in identifier collision cannot overwrite a different KR
+  ---
+  duration_ms: 1.366
+  type: 'test'
+  ...
+# Subtest: A first check-in takes live previous value and snapshots current
+ok 372 - A first check-in takes live previous value and snapshots current
+  ---
+  duration_ms: 0.9472
+  type: 'test'
+  ...
+# Subtest: B second week uses most recent earlier check-in, not ad-hoc current
+ok 373 - B second week uses most recent earlier check-in, not ad-hoc current
+  ---
+  duration_ms: 6.8842
+  type: 'test'
+  ...
+# Subtest: C numeric increase direction includes regression
+ok 374 - C numeric increase direction includes regression
+  ---
+  duration_ms: 1.3323
+  type: 'test'
+  ...
+# Subtest: D negative delta is improvement for decrease
+ok 375 - D negative delta is improvement for decrease
+  ---
+  duration_ms: 0.3334
+  type: 'test'
+  ...
+# Subtest: E confidence delta handles drops and absent baseline
+ok 376 - E confidence delta handles drops and absent baseline
+  ---
+  duration_ms: 0.2101
+  type: 'test'
+  ...
+# Subtest: F later live KR update leaves history byte-stable
+ok 377 - F later live KR update leaves history byte-stable
+  ---
+  duration_ms: 1.6169
+  type: 'test'
+  ...
+# Subtest: G same-week edits reuse ID and original baseline
+ok 378 - G same-week edits reuse ID and original baseline
+  ---
+  duration_ms: 2.138
+  type: 'test'
+  ...
+# Subtest: H check-in atomically updates live value confidence and timestamp even unchanged
+ok 379 - H check-in atomically updates live value confidence and timestamp even unchanged
+  ---
+  duration_ms: 1.4534
+  type: 'test'
+  ...
+# Subtest: I completion counts only this week active KRs
+ok 380 - I completion counts only this week active KRs
+  ---
+  duration_ms: 1.4902
+  type: 'test'
+  ...
+# Subtest: J stale list identifies unreviewed values despite recent ad-hoc update
+ok 381 - J stale list identifies unreviewed values despite recent ad-hoc update
+  ---
+  duration_ms: 0.9368
+  type: 'test'
+  ...
+# Subtest: K risk and off track counts derive from review evidence
+ok 382 - K risk and off track counts derive from review evidence
+  ---
+  duration_ms: 3.9108
+  type: 'test'
+  ...
+# Subtest: L blocked initiative and text join review blockers
+ok 383 - L blocked initiative and text join review blockers
+  ---
+  duration_ms: 0.6436
+  type: 'test'
+  ...
+# Subtest: M completed snapshots immutable after live changes and locked writes
+ok 384 - M completed snapshots immutable after live changes and locked writes
+  ---
+  duration_ms: 5.9833
+  type: 'test'
+  ...
+# Subtest: N comparison selects explicit historical fields without fake prior
+ok 385 - N comparison selects explicit historical fields without fake prior
+  ---
+  duration_ms: 8.865
+  type: 'test'
+  ...
+# Subtest: O objective snapshots reflect weighted KR evidence and coverage
+ok 386 - O objective snapshots reflect weighted KR evidence and coverage
+  ---
+  duration_ms: 6.9879
+  type: 'test'
+  ...
+# Subtest: P strategy snapshot persists complete context
+ok 387 - P strategy snapshot persists complete context
+  ---
+  duration_ms: 4.4173
+  type: 'test'
+  ...
+# Subtest: Q review quality follows 40/20/15/10/15 formula
+ok 388 - Q review quality follows 40/20/15/10/15 formula
+  ---
+  duration_ms: 0.4464
+  type: 'test'
+  ...
+# Subtest: R reopen retains snapshot until explicit recompletion and advances revision
+ok 389 - R reopen retains snapshot until explicit recompletion and advances revision
+  ---
+  duration_ms: 5.787
+  type: 'test'
+  ...
+# Subtest: S inclusive week boundaries partial last week before and after
+ok 390 - S inclusive week boundaries partial last week before and after
+  ---
+  duration_ms: 0.299
+  type: 'test'
+  ...
+# Subtest: T old builds round trip unchanged without fabricated history
+ok 391 - T old builds round trip unchanged without fabricated history
+  ---
+  duration_ms: 2.6672
+  type: 'test'
+  ...
+# Subtest: U all weekly collections survive reload
+ok 392 - U all weekly collections survive reload
+  ---
+  duration_ms: 7.6244
+  type: 'test'
+  ...
+# Subtest: binary and milestone check-ins snapshot progress movement
+ok 393 - binary and milestone check-ins snapshot progress movement
+  ---
+  duration_ms: 3.304
+  type: 'test'
+  ...
+# Subtest: risk or blocker requires next action without partial KR update
+ok 394 - risk or blocker requires next action without partial KR update
+  ---
+  duration_ms: 1.7522
+  type: 'test'
+  ...
+# Subtest: incomplete review requires explicit acknowledgement
+ok 395 - incomplete review requires explicit acknowledgement
+  ---
+  duration_ms: 6.2884
+  type: 'test'
+  ...
+# Subtest: future weeks, older reopening and multiple drafts blocked
+ok 396 - future weeks, older reopening and multiple drafts blocked
+  ---
+  duration_ms: 2.5451
+  type: 'test'
+  ...
+# Subtest: snapshot uses this weeks evidence after an ad-hoc live edit
+ok 397 - snapshot uses this weeks evidence after an ad-hoc live edit
+  ---
+  duration_ms: 3.5512
+  type: 'test'
+  ...
+# Subtest: corrupt duplicates, confidence and snapshot shape are rejected
+ok 398 - corrupt duplicates, confidence and snapshot shape are rejected
+  ---
+  duration_ms: 5.4075
+  type: 'test'
+  ...
+# Subtest: momentum does not fabricate trend or hide inadequate coverage
+ok 399 - momentum does not fabricate trend or hide inadequate coverage
+  ---
+  duration_ms: 4.9268
+  type: 'test'
+  ...
+# Subtest: duplicate blocker for same entity is collapsed; independent entities retained
+ok 400 - duplicate blocker for same entity is collapsed; independent entities retained
+  ---
+  duration_ms: 1.0575
+  type: 'test'
+  ...
+# Subtest: decisions reject cross-objective links and do not execute changes
+ok 401 - decisions reject cross-objective links and do not execute changes
+  ---
+  duration_ms: 0.6712
+  type: 'test'
+  ...
+1..401
+# tests 401
+# suites 0
+# pass 401
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2021.8352

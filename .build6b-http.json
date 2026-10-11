@@ -1,0 +1,119 @@
+[
+  {
+    "path": "/advisor",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/0tsetlmiv3z9e.css",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/2j691mby530iy.css",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/310vm2bl3xxpt.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/19mx3mg6lkumu.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/33jh5xrl2bz6g.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/1sqh1vegm128d.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/turbopack-1-z4afjmio6k0.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/280abr9-vs5lr.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/3rczdpdxbkee-.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/3vp0te00n-2pn.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/3_erfrk194bq3.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/0ii4_utzdd_92.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/0tfl1fwse96zj.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/348xk9rmahi0-.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/1sljh35aiym0p.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/3374-v3wzb1ku.js",
+    "status": 200
+  },
+  {
+    "asset": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+    "status": 200
+  },
+  {
+    "path": "/dev/agent",
+    "status": 200
+  },
+  {
+    "path": "/api/advisor",
+    "status": 200
+  },
+  {
+    "case": "explicit demo",
+    "status": 200,
+    "validated": true
+  },
+  {
+    "case": "no provider",
+    "status": 503,
+    "code": "NoProvider"
+  },
+  {
+    "case": "arbitrary prompt rejected",
+    "status": 400
+  },
+  {
+    "case": "origin rejected",
+    "status": 403
+  },
+  {
+    "case": "mutation refused",
+    "status": 200,
+    "modelCalled": false
+  },
+  {
+    "case": "missing CAC",
+    "status": 200
+  },
+  {
+    "case": "bounded body",
+    "status": 413
+  },
+  {
+    "case": "process rate protection",
+    "status": 429,
+    "attempts": 13,
+    "modelCalled": false
+  }
+]

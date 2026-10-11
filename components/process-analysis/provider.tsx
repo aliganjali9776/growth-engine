@@ -1,4 +1,5 @@
 "use client";
+import { businessStorage } from "@/lib/saas/workspace-storage";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { useSystem } from "@/components/system/provider";
 import type { ProcessMap } from "@/lib/system/maps/model";
@@ -17,7 +18,7 @@ import {
 } from "@/lib/system/analysis/persistence";
 import { writeTogether } from "@/lib/system/storage-transaction";
 import { useMaps } from "@/components/process-map/provider";
-import { StorageRecovery } from '../system/recovery';
+import { StorageRecovery } from "../system/recovery";
 type Value = {
   store: AnalysisStore | null;
   error: string;
@@ -43,7 +44,7 @@ export function AnalysisProvider({ children }: { children: React.ReactNode }) {
     blocked = useRef(false);
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(ANALYSIS_KEY),
+      const raw = businessStorage.getItem(ANALYSIS_KEY),
         next = raw ? parseAnalysis(raw) : { version: 1 as const, records: [] };
       last.current = raw;
       current.current = next;
@@ -72,12 +73,16 @@ export function AnalysisProvider({ children }: { children: React.ReactNode }) {
         raw = JSON.stringify(next),
         write = { key: ANALYSIS_KEY, expected: last.current, value: raw };
       if (nextSystem) commit(nextSystem, write);
-      else writeTogether(localStorage, [write]);
+      else writeTogether(businessStorage, [write]);
       last.current = raw;
       current.current = next;
       setStore(next);
       setError("");
-      setStatus("همه تغییرات در این مرورگر ذخیره شد");
+      setStatus(
+        businessStorage.serverExecutionDisabled
+          ? "وضعیت ذخیره در بالای صفحه نمایش داده می‌شود"
+          : "همه تغییرات در این مرورگر ذخیره شد",
+      );
     } catch (e) {
       setError(e instanceof Error ? e.message : "ذخیره انجام نشد.");
       throw e;
@@ -112,7 +117,13 @@ export function AnalysisProvider({ children }: { children: React.ReactNode }) {
     <Context.Provider
       value={{ store, error, status, saveMap, create, confirm }}
     >
-      {!store && error && <StorageRecovery storageKey={ANALYSIS_KEY} label="تحلیل و طراحی" validate={parseAnalysis} />}
+      {!store && error && (
+        <StorageRecovery
+          storageKey={ANALYSIS_KEY}
+          label="تحلیل و طراحی"
+          validate={parseAnalysis}
+        />
+      )}
       {children}
     </Context.Provider>
   );

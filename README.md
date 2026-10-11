@@ -1,4 +1,52 @@
-# Growth Engine — Build 3G
+# Growth Engine — Build 4E
+
+## Build 4E: Monthly Adapt, Learn and Cycle Reset
+
+Monthly review, controlled strategy changes, final-cycle learning and explicit carry-forward are now available. Start at `/strategy/adapt`; each cycle has `/adapt` and `/learn` pages. The new domain lives in `lib/strategy/adapt` and extends the existing browser-local Strategy store without rewriting Builds 4A–4D data. No dependency was added.
+
+See [the 22-point Build 4E completion report](docs/BUILD-4E.md) for models, exact signal/quality rules, audit protections, reset semantics, browser acceptance checks and limitations. The full suite has 299 passing tests (30 new), and TypeScript passes. Initial unstarted draft setup remains editable; changes after starting use an open Adapt review, reason and confirmation. Completed Adapt/Learn snapshots are fixed; new cycles use explicit selections and fresh IDs without copying weekly performance history.
+
+The Build 4D notes below document that version. Its old statement that Adapt/Learn are future work is superseded by Build 4E. Audited measurement-definition changes can now start a new comparable weekly segment; changing a definition during an open weekly review remains blocked.
+
+## Build 4D: weekly check-in, history and review
+
+Routes: `/strategy/weekly-review` selects a cycle-relative week and shows the review archive or filtered weekly history; `/strategy/weekly-review/[reviewId]` runs the batch workflow and opens historical reviews. KR cards include their check-in history, Objective detail includes the latest four completed weekly snapshots and recorded blockers, and Strategy landing includes current-week coverage, last completed review, current confidence and confidence change between the last two completed reviews.
+
+Pure rules live in `lib/strategy/weekly/{calculations,report,mutations,validation}.ts`; models are in `types.ts`. Storage adds optional `krCheckIns`, `weeklyReviews`, `strategyDecisions`, `objectiveWeeklySnapshots` and `strategyWeeklySnapshots` to the existing Strategy v1 envelope. Old records need no rewrite or automatic migration; missing collections mean no history. No fake history is seeded. The existing guarded single-store transaction atomically saves check-ins and updates live KRs. System/Assessment stores are not written.
+
+Each check-in snapshots its KR definition/measurement, previous/current value, previous/current progress and confidence, deltas, direction-aware movement, calculated status, owner role, win, blocker, next action and timestamps. Previous comes from the most recent earlier weekly check-in, or the live KR before the first check-in. Editing the same week reuses the record ID and original baseline. Identifier collisions cannot replace another KR. Saving updates current value, confidence and lastUpdateAt even if the reported value has not changed: confirmation of unchanged evidence is a real check-in. Milestone check-ins use explicit completed steps and progress-point delta; binary movement uses progress; decrease KRs interpret negative value delta as improvement. Numeric movement uses a 1e-6 tolerance, not an invented business significance threshold. A changed KR type/unit must be represented by a separate KR before further comparable history is recorded.
+
+Weeks are seven-day inclusive periods starting at cycle start, with the final week clipped to cycle end. Calendar calculations use ISO date-only UTC arithmetic and the existing Tehran local-day convention for today. Before/after-cycle states are explicit; future check-ins are blocked. Past-week entry is allowed in chronological order and clearly labelled as a report recorded now about that period, never reconstructed history. Only one draft per cycle and only the latest review can be edited/reopened; older weeks become read-only once a later review exists. Cycle date edits that invalidate saved periods fail validation.
+
+Completed reviews freeze Objective progress/confidence/health and cycle progress, coverage, risk/health counts, confidence, initiative context, blockers and attention signals. Snapshots include actual recording date and distinguish unreviewed KRs. Reviewed KRs use the values in that week's check-in, so an ad-hoc live edit does not masquerade as reviewed evidence; unreviewed KRs retain their last known values with explicit stale flags. Objective weights/mode and active scope at completion determine aggregates; checked-in and total counts preserve coverage. Reopening the latest completed review requires explicit confirmation. Its previous snapshot remains stored until explicit recompletion replaces it and increments the review revision; this is controlled correction, not an append-only audit system.
+
+Review quality is process quality: check-in coverage 40%, acknowledged risk review coverage 20%, blockers reviewed 15%, a decision or next action 10%, next-week focus 15%. No risk/blocker gives full credit to that applicable section. Missing coverage, unacknowledged risks/blockers, no focus, no active KRs or more than five focus items produces warnings; explicit acknowledgement permits completion without rigid 100% coverage. Check-in requires a next action for at-risk/off-track or blocked results. New/edited check-ins invalidate their risk acknowledgement and blocker acknowledgement; changing management blockers also invalidates blocker acknowledgement.
+
+Review signals combine stale KRs, risk, confidence drops, regression, current initiative context and execution/result gaps. More than 70% initiative execution with three consecutive actually recorded stable KR weeks is flagged without claiming causality. Blockers are deduplicated for the same entity/text while retaining distinct owners/entities. Structured decisions have optional role/Objective/KR/initiative links and never execute those decisions automatically. Focus items are kept as concise text with guidance of one to five.
+
+Comparison uses the previous completed review, explicitly names its week, and leaves deltas unknown when absent. Momentum compares directions of progress, confidence and risk count: positive, negative, stable/mixed or insufficient data. It requires valid measures and at least 50% check-in coverage in both reviews; there is no black-box score. Historical tables support future charts without adding a chart package or fabricating earlier values.
+
+Validation: 269 automated tests pass, including 32 weekly tests covering scenarios A–U, all KR types, atomic failure, same-week baseline retention, immutable completed snapshots, controlled reopening, date boundaries, identifier collisions, incomplete-review acknowledgement, migration and persistence. TypeScript and production build pass. Browser QA in isolated localhost checked all four KR types, win/blocker/action, confidence drop, same-week correction without duplicates, completion and reopening. The four-KR Objective reached 84.4% after correction with 100% check-in coverage; process quality was independently 100%. In the sample cycle, two explicitly entered historical weeks retained 40 then 55, with confidence 8 then 6 and deltas +15/-2; reopening the older week was disabled. No dependency was added. Final browser QA also verified the Objective/KR history widgets, landing coverage, history status filter, missing-review route and desktop (1440×1000), tablet (820×1180), mobile (390×844) layouts without page overflow. The milestone previous-progress label and completion/reopen confirmation drawers were corrected. Captured console warnings/errors and hydration errors were empty; four routes and 17 referenced Next assets returned HTTP 200. An initial EADDRINUSE was resolved by identifying and restarting this project’s existing local server, with no system-policy changes. All test writes stayed on localhost; the original 127.0.0.1 tab now shows Weekly Review without data mutations.
+
+Known limits / Build 4E: browser-local storage remains; no backend, auth, notifications, AI, forecasting, monthly Adapt, quarterly Learn/Reset or final executive dashboard. There is no historical-chart library, automatic review scheduling, immutable revision audit trail, or fabricated pre-check-in history. The next build can build Adapt/learning on these stored observations and snapshots according to its brief.
+
+## Build 4C: strategic initiatives and execution alignment
+
+`/strategy/initiatives` is the searchable/filterable/sortable portfolio; `/strategy/initiatives/[id]` provides the alignment, hypothesis, execution, impact, manual evaluation, blocker and notes. Cycle, Objective, KR cards and Strategy landing include initiative summaries and attention findings. Existing 4A/4B routes and measurements remain intact.
+
+Pure domain modules live in `lib/strategy/initiatives`: types, validation/quality, mutations, reporting and fresh-sample data. An initiative has one primary KR; its Objective derives from that KR and all cycle/Objective/KR relationships are validated. An unlinked proposal is allowed with zero progress. Planned initiatives require a KR; execution also requires a valid owner role, hypothesis and dates. Blocked requires a reason. Completed forces execution to 100%, but never changes a KR or marks effectiveness successful. Closed cycles are read-only. A started initiative cannot move to another KR; cancel it and create a separate initiative if the execution hypothesis changes its target.
+
+Execution is 0–100 independently of manually selected effectiveness (not evaluated, promising, effective, weak, ineffective). Actual impact is management's recorded evidence. Expected impact supports numeric value/unit, qualitative text or unknown; optional impact size and effort provide a simple comparison on each portfolio card. Effectiveness is the single structured assessment, avoiding a redundant resultAssessment field. Optional linkedSystemProcessId is prepared in the type; process selection is deferred. Current role/person ownership is read from System, never duplicated into initiative records or written back to System.
+
+Objective execution is the equal mean of in-progress, blocked and completed initiatives, excluding proposed/planned/cancelled. It is displayed beside, never mixed into, existing KR-weighted Objective result progress. Gap is execution minus result in percentage points; unavailable inputs produce unknown. A gap of at least 20 points invites review without claiming causation. On first execution, a single KR value/progress baseline is captured and retained; this is not weekly history. Completed initiatives with no positive movement above one point since that baseline get an explained review signal. Missing baseline means no claim about historical movement. Other signals cover execution above 70% with KR below 30%, blocked initiatives with at-risk/off-track KRs, and achieved KRs with continuing work.
+
+Capacity means simultaneous in-progress or blocked work. Soft thresholds, configurable in `types.ts`, are more than 3 per Objective, more than 3 per role, and more than 5 per selected cycle. Due soon is within 7 days; overdue excludes proposals and terminal records. Attention also flags high/critical priority below 25% execution, blockers, missing quality inputs, cancelled alignment, and completed work lacking actual evidence or manual evaluation. Warnings never automatically choose management's next action or prohibit overload.
+
+Persistence extends `growth-engine.strategy.v1` with an optional initiatives collection. Existing 4A/4B records parse unchanged, without automatic rewriting or sample insertion. Three samples appear only when Strategy storage is absent. Existing guarded writes, conflict handling, quota errors and recovery/export remain in use. System and Assessment stores are read-only inputs. The prototype remains browser-local with no backend, authentication, multi-user guarantees or server backup.
+
+Validation: 237 tests pass (26 new initiative tests including scenarios A–R, baseline retention, no invented history, cancelled state, invalid storage, removed owners, closed cycles and sample isolation). TypeScript and production build pass. Browser QA on isolated localhost exercised proposal creation, progressive Objective/KR selection, hypothesis/owner, numeric expected impact, start at 40%, blocked reason validation, unblock at 80%, completion at 100%, actual impact and weak effectiveness. KR stayed at 75%; Objective result stayed 69%; the execution gap displayed 31 points. Refresh, direct and missing routes, Objective/KR/cycle/landing integrations, filters and desktop/tablet/mobile layouts were checked. No console or hydration errors were captured. A transient connection refusal occurred while the production server was stopped for rebuilding and cleared after restart. User data on 127.0.0.1 and all System stores were not mutated by QA. No dependencies were added.
+
+Build 4D can use stable initiative IDs, current execution, blocker, actual impact and manual effectiveness for weekly reviews. Weekly check-in history, review workflows, monthly/quarterly learning, final executive dashboard, AI, automation, backend and auth remain outside Build 4C.
 
 Persian, RTL-first executive workspace prototype for 1 Minute Manager.
 
@@ -16,15 +64,15 @@ Snapshots keep their independent v1 storage schema, with an optional formulaVers
 
 Persistence keys actually used:
 
-| Key | Contents |
-| --- | --- |
-| `growth-engine.assessment.v2` | Assessment draft and result |
-| `growth-engine.system.v1` | Departments, roles, people and processes |
-| `growth-engine.process-maps.v1` | AS-IS maps |
-| `growth-engine.process-analysis.v1` | Analysis stamps and TO-BE |
-| `growth-engine.process-standards.v1` | SOP, checklists, rules, assets and implementation plans |
-| `growth-engine.process-measurement.v1` | KPI, measurements, reviews and improvements |
-| `growth-engine.system-health-history.v1` | Manual health snapshots |
+| Key                                      | Contents                                                |
+| ---------------------------------------- | ------------------------------------------------------- |
+| `growth-engine.assessment.v2`            | Assessment draft and result                             |
+| `growth-engine.system.v1`                | Departments, roles, people and processes                |
+| `growth-engine.process-maps.v1`          | AS-IS maps                                              |
+| `growth-engine.process-analysis.v1`      | Analysis stamps and TO-BE                               |
+| `growth-engine.process-standards.v1`     | SOP, checklists, rules, assets and implementation plans |
+| `growth-engine.process-measurement.v1`   | KPI, measurements, reviews and improvements             |
+| `growth-engine.system-health-history.v1` | Manual health snapshots                                 |
 
 Independence and command-center reports are derived, not separate persisted copies. Valid empty arrays remain empty; missing keys initialize only the documented seed/empty stores. Restoring corrupt assessment JSON no longer overwrites it during mount. Failed System-store parsing blocks dependent work and exposes a raw-data backup plus schema-validated, single-section restore; stale writes and quota failures retain the original data. Recovery is not an automatic semantic repair or a full cross-store backup service. Keep related stores together when restoring older exports. There is no global destructive reset. Seed process records have a sample-origin notice in their detail page, including legacy seed IDs/timestamps; changing sample data does not turn it into independently verified business evidence.
 
@@ -67,7 +115,7 @@ Open http://127.0.0.1:3000. Production validation: `npm.cmd run build`.
 
 ## Scope
 
-The 3S assessment and System module are functional browser-local experiences. Assessment includes 30 questions, profile validation, weighted scoring and diagnostics. System includes organization and process management, a chart, inventory, lifecycle pipeline and derived insights. Home/dashboard, strategy, scale and execution remain sample previews. There is no authentication, database, API integration or notification backend. The company selector contains one sample organization. Shell dates are fixed scenario data; completed assessments record their actual completion date.
+The 3S assessment and System module are functional browser-local experiences. Assessment includes 30 questions, profile validation, weighted scoring and diagnostics. System includes organization and process management, a chart, inventory, lifecycle pipeline and derived insights. Strategy Foundation is functional (see Build 4A below). Home/dashboard, scale and execution remain sample previews. There is no authentication, database, API integration or notification backend. The company selector contains one sample organization. Shell dates are fixed scenario data; completed assessments record their actual completion date.
 
 ## Assessment architecture and rules
 
@@ -155,6 +203,7 @@ Navy `#132b40`, gold `#b59a62`, neutral canvas, restrained green/amber states. V
 ## Subsequent builds
 
 Builds 3D and 3E below extend the confirmed redesign. Assessment scoring and diagnostic rules remain unchanged.
+
 # BUILD 3D — Standardize, Implement, Adopt
 
 Build 3D adds `/system/processes/[id]/standardize` and `/implementation` to the existing local application. Process details show SOP, reusable checklist, decision rule, asset, training, pilot, live and adoption summaries. System Overview derives compact coverage and readiness metrics from valid current confirmations, independently of legacy seed stage labels.
@@ -215,3 +264,148 @@ Automated validation: 115 passing tests total, including 24 Build 3E tests cover
 No dependency installation was needed. Build 3F scope is not specified yet; final Command Center, Strategy/OKR, AI, backend/authentication, cloud sync, real CRM/ERP integrations, automation execution and notification services remain intentionally unimplemented.
 
 Final Build 3G browser checks: the restored golden process retained its improving stage and approved SOP. Keyboard node movement (200 to 205 px) and mouse dragging persisted after reload. The 105-node map fit at approximately 0.0149 zoom. Desktop and mobile screenshots were checked; mobile 390px and tablet 820px had no document horizontal overflow. The tablet screenshot was clipped by the browser capture surface, so full tablet visual sign-off remains limited. Back/forward navigation returned to the expected routes. No application console warning/error was captured. All 19 checked page routes and 15 referenced Next assets returned HTTP 200. A browser-tool permission-review timeout succeeded on retry; separate Codex telemetry timeouts were not application console errors. Temporary large/corrupt/empty fixtures were restored and public/qa-hardening.html was removed. The fixture generator remains a manual development test utility, not a shipped product page.
+
+## Build 4A — Strategy Foundation
+
+The functional `/strategy` module replaces the old Strategy preview. New routes include `/strategy/cycles`, `/strategy/cycles/[id]`, `/priorities` and `/objectives` beneath a cycle, plus `/objectives/[objectiveId]` for a deep-linkable objective. `/strategy/key-results`, `/initiatives`, `/weekly-review`, and `/report` intentionally show future-build states with no fabricated execution data.
+
+### Architecture and ownership
+
+`lib/strategy/model.ts` defines StrategyCycle, StrategyContext, StrategicPriority, StrategicChoice and StrategyObjective, validates storage, and implements activation/reordering guards. `report.ts` contains pure setup-readiness, attention and explainable objective-quality selectors. `seed.ts` supplies the explicitly labelled methodology example. `components/strategy/provider.tsx` owns browser persistence and read-only System/Assessment integration; focused editors are separate from the workspace/report UI. Existing System providers are not mounted under Strategy and no System store is written.
+
+Cycles support quarterly, four-month, half-year, annual and custom periods with draft/active/review/completed/archived states. Activating a second cycle requires explicit confirmation and moves the previous active cycle to review, retaining its related records. Completion/archive records a closedAt timestamp; reopening does not erase that historical timestamp. Archive/cancel operations retain history, with no hard-delete action. Dates are stored as ISO calendar dates, entered in native Gregorian date fields and displayed in Persian; remaining days use Tehran's calendar date.
+
+Contexts contain six concise diagnostic fields plus notes. Completed 3S scores appear only as evidence, never automatic priorities. Priorities include a reusable direction (including custom text), owner role, rank, rationale and qualitative success definition. Ranking uses accessible up/down actions and an explicit rank field. More than five selected priorities or objectives triggers guidance rather than a hard limit. Duplicate selected ranks and a missing selected rank 1 are warnings.
+
+Focus and NotNow choices are explicit strategic boundaries, not a backlog. Objectives carry stable IDs, cycle-local unique codes, title/description, role ID, priority ID, status, dates and timestamps; optional progress/health fields reserve future compatibility but Build 4A neither calculates nor displays fake performance. Active saves require an existing System role and a selected priority in the same cycle. Incomplete drafts remain editable. Previously valid records whose role or priority later changes remain readable and produce attention findings. Objective-to-priority links may not cross cycles. The direction → priority → objective relationship view derives from the same records.
+
+Objective quality uses transparent heuristics: recognizable outcome phrasing, minimum title length, numeric content, common activity verbs, owner, priority and dates. It returns Strong/Needs Review equivalents in Persian. This is writing guidance, not AI or a guarantee of strategic quality. Out-of-cycle objective dates remain visible management warnings. Cancelled objectives stay visible in history but are excluded from readiness and alignment counts.
+
+### Setup readiness (not performance)
+
+Active cycle 15; context 15 (six equally weighted non-notes fields); selected priorities 20 (count / 3, capped); ranking 10 (selected rank 1 and unique selected ranks); choices 10 (Focus 5 + NotNow 5); objectives 15 (non-cancelled count / 3, capped); ownership 10 (valid roles / non-cancelled objectives); alignment 5 (selected-priority links / non-cancelled objectives). Missing denominators contribute zero. Total is rounded to an integer, without missing-data renormalization. Bands: 0–39 incomplete, 40–69 forming, 70–89 ready for objective-setting, 90–100 setup ready. A 100 setup score does not certify execution or language quality. The report presents at most five attention findings initially and can reveal the rest.
+
+### Persistence and sample behavior
+
+Only `growth-engine.strategy.v1` is written. Versioned validation rejects malformed structures, duplicate IDs/codes, invalid dates, multiple active cycles and cross-cycle references. The shared optimistic write helper prevents stale overwrites and reports quota failures. Corrupt content remains untouched and uses the existing export-first validated recovery UI. Storage events block stale Strategy edits; System-role and Assessment changes are re-read. This remains browser-local storage, without transactional guarantees across simultaneous tabs, a server backup, or an audit ledger.
+
+When the key is absent, the deterministic editable sample contains the active شهریور تا آبان ۱۴۰۵ cycle (2026-08-23 through 2026-11-21), three priorities, three draft objectives and Focus/NotNow choices. It is saved on the first explicit edit. A valid empty store remains empty. The sample resolves owners from System role IDs; when System has not been saved yet, Strategy reads the same createSystemSeed() initial roles as System without persisting or duplicating them. An explicitly saved empty System role list remains empty. If none exist, drafts can be saved without an owner and the UI points users to System roles before activation. No KRs are seeded. No external Excel file was supplied; compatibility follows the field concepts in the Build 4A brief, with import/export and the KR engine reserved for later builds.
+
+### Validation and next build
+
+Build 4A adds 25 domain/integration tests covering scenarios A–P plus corruption, stale/quota writes, cross-cycle links, custom directions, quality heuristics, cancellation and date calculations (174 total with the existing suite). TypeScript and the production build pass. Browser QA on isolated localhost created and activated a four-month cycle, checked the second-active confirmation, saved all context fields, created/ranked three selected priorities, saved Focus/NotNow choices, blocked an unowned/unaligned active objective, and created three active owned/aligned objectives. A deliberately incomplete draft showed date and quality warnings and was subsequently cancelled with history retained. Refresh restored edits/ranking; readiness reached 100 with three active objectives and no unaligned objectives. Desktop 1440×1000, tablet 820×1180, mobile 390×844 and the mobile editor were visually checked without document horizontal overflow. Tab/Shift-Tab/Escape worked; no application console warning or hydration error was observed. The original 127.0.0.1 data and all System stores were not mutated by QA. The initial automation permission rejection was resolved by explicit user approval for localhost test data.
+
+No dependencies were added. Build 4B can add the KR engine with start/target/current/unit/type, KR ownership, weights/progress, confidence/status and updates linked through stable objective IDs. Initiatives, reviews, performance dashboards, trends, AI, backend and authentication remain outside 4A.
+Final route checks: all ten Strategy URLs and System Command Center returned HTTP 200, as did 14 referenced Strategy assets. Invalid cycle IDs displayed a clear recovery link instead of a crash. The browser golden-path data remains isolated on localhost for inspection.
+
+Final post-build verification: the original 127.0.0.1 Strategy page loaded with no captured console errors. Unsaved initial System roles resolved correctly in the sample objectives (مدیرعامل و بنیان‌گذار), without writing System data. The temporary browser-tool usage interruption cleared on continuation; final role verification completed.
+
+## Build 4B — Key Result Engine
+
+The Strategy measurement layer is now functional at `/strategy/key-results` and the existing objective detail route. Objective list cards show derived progress, confidence and health. The landing page keeps setup readiness distinct from a current-state measurement summary and measurement attention feed. It is not the final executive dashboard.
+
+### Models and compatibility
+
+`lib/strategy/kr/` separates types, structural/quality validation, calculations, report selectors, mutations and fresh-install examples. KeyResult stores stable id/cycleId/objectiveId/code, title/description, role ID, one of four types, nullable start/target/current, unit metadata, nullable custom weight/confidence, dates, lastUpdateAt, notes, timestamps, lifecycle and explicit milestones. KRMilestone stores id/keyResultId/title/weight/completed/completedAt. Progress, weighted contribution, expected progress, status and Objective health/confidence are derived; they are never persisted as duplicate KR state. Legacy optional Objective progress/health fields are not used by the measurement engine. Milestones and changes can later be referenced by stable KR IDs in a check-in history; no check-in rows are fabricated now.
+
+Storage remains `growth-engine.strategy.v1` with backward-compatible optional `keyResults` and Objective `krWeightMode`. Missing extensions mean no KRs and equal weighting; existing 4A objects round-trip losslessly. No automatic write or sample injection occurs when opening saved 4A data. New saves preserve all foundation collections. Fresh installations, and only those with no Strategy key, show six labelled sample KRs matching sample revenue and brand objectives with 40/35/25 custom weights. Their measurements are demonstrative, not verified business results. No System storage is written, and no dependency was added.
+
+Validation rejects malformed IDs/references, cross-cycle links, duplicate cycle-local KR codes, non-finite numbers, out-of-range confidence/weights, invalid dates, and malformed milestones. Structurally valid but incomplete measurements are retained for correction, including absent numbers/confidence/dates and equal/reversed numeric targets; those have unknown progress/quality warnings. Binary values are strictly 0, 1 or unknown. Incomplete custom group weights are never silently normalized. Corrupt data uses the existing export-first recovery UI and optimistic storage writes. KR cancellation is the reversible removal operation; it excludes the KR from calculations while preserving its record/milestones. Closed/archived cycles and cancelled Objectives make KR editing read-only. A KR cannot be transferred to another Objective in place.
+
+### Exact formulas and rules
+
+- Increase: `(current - start) / (target - start) * 100`, requiring target > start. Decrease: `(start - current) / (start - target) * 100`, requiring start > target. Finite negative/decimal values are supported. Progress is clamped to 0–100; equal/reversed denominators, missing values and non-finite intermediate results return unknown, not NaN/Infinity or zero.
+- Binary: 0 or 100 percent; an unreported value remains unknown. Milestone: sum completed milestone weights, only when titles exist and all nonnegative weights total 100 (tolerance 0.000001). Otherwise progress is unknown. Unit formatting never changes math.
+- Equal Objective weighting averages active KR progress. Custom weighting sums progress × weight / 100 only if every weight is present and the total is 100 within tolerance. Missing positive-weight KR progress makes Objective progress unknown; a zero-weight result contributes nothing. Under/over allocation and missing weights are explicit states. Switching modes does not rewrite custom weights. An Objective with no active KR has unknown progress, not 0 percent.
+- KR confidence is manually entered as an integer 1–10 or remains unknown. Labels: 1–3 low, 4–6 medium, 7–8 good, 9–10 high. Objective confidence is a display-only weighted average of known values with valid weights; invalid weights use the equal mean of known values. Confidence coverage is displayed separately, and individual judgments are not overwritten.
+- Expected progress is elapsed KR calendar days / total KR days, clamped 0–100. A same-day KR is expected 0 before that day and 100 on/after it. This is a linear pacing benchmark, explicitly not a forecast.
+- KR status rules, in order: unknown calculation/dates → insufficient data; progress 100 → achieved; missing confidence → insufficient status data; past deadline with incomplete progress OR confidence <= 2 OR pacing deficit >= 35 percentage points → off track; confidence <= 3 OR deficit >= 15 → at risk; zero progress with expected <= 10 → not started; otherwise on track. Reasons show actual/expected progress, confidence and the triggered rule. Achieved takes precedence over confidence, but low-confidence attention remains available. No manual lifecycle completion is triggered by achievement.
+- Objective health first requires valid weights, known positive-weight progress and complete data for every positive-weight KR. Otherwise it is insufficient data. Weighted progress 100 is achieved. Off-track weight >= 20 percent or weighted confidence <= 2 makes health off track. Any smaller off-track weight, at-risk weight >= 20 percent, or weighted confidence <= 3 makes it at risk. Otherwise it is healthy. Thus a 5-percent off-track KR alone does not turn the whole Objective red. Individual smaller risks remain visible.
+- KR completeness equally counts nine fields/checks: owner, type, start, valid target, current/milestones, relevant unit, weight, dates and confidence. Equal-mode weight is supplied by the mode. Completeness measures supplied valid fields; group weight total validity is reported separately, so filled fields can be 100 percent complete while the custom group total is invalid. Language/activity and out-of-Objective/cycle-date warnings are additional explainable quality guidance.
+- Stale means an active, unachieved KR in a currently active Objective/cycle has no reported value update, or its last update is more than seven Tehran calendar days old after its start date. It is an attention flag, not an automated notification. Saving a changed numeric/binary value or changed set of completed milestones updates lastUpdateAt. Changing notes, confidence, weights, or uncompleted milestone structure does not pretend that a new observation occurred. CompletedAt is set on completion and cleared if the milestone is unchecked. No history is generated.
+- Current-cycle progress averages only active Objectives with calculable progress. Unknown Objectives are omitted rather than counted as zero, and progress coverage is shown. KR totals and completeness cover non-cancelled cycle Objectives, while status counters cover active Objectives; these scopes are labelled.
+
+### UI and validation
+
+The KR editor has three focused sections: definition, values/weight, and dates/confidence. Numeric, binary and explicit milestone controls adapt to type. Objective detail shows weights, weighted contribution, status reasons, completeness and live aggregates. The list supports cycle, Objective, owner, type, status and confidence filters; title/code search; and progress/confidence/deadline/effective-weight/status sorting. Attention ranks off-track/overdue, invalid weights, incomplete records, multiple weak KRs, risk, low confidence, stale values and missing KRs, showing five findings initially.
+
+211 tests pass: all 174 previous tests plus 37 KR tests covering requested scenarios A–U, calendar boundaries, zero/missing weights, partial confidence, persistence/cancellation, fresh-sample isolation, and milestone observation timestamps. TypeScript and production build pass. Browser QA on the existing isolated localhost cycle created Increase (0→100, current 50), Decrease (12→3, current 7.5), Binary (achieved) and Milestone (40% complete) KRs. Equal Objective progress was 60%; custom weights 40/30/20/10 produced 59% and confidence 6.6. Updating the Increase value to 75 produced 69% after refresh with a changed observation timestamp. A 95% group weight produced unknown Objective progress and a clear warning, then was restored. Low confidence independently produced at-risk status with a readable explanation. Search, filters, sorting, cancellation and restoration were exercised through the UI; foundation data stayed intact.
+
+Remaining local-prototype limits: browser-only storage, no real-time multi-user guarantee, no server backup, no external Excel import/export, simple explained pacing/health heuristics, and no historical audit/check-in stream. Build 4C can introduce Initiative execution linked to stable Objective/KR IDs. Weekly check-ins/history, later reviews, the final executive dashboard, forecasting, AI and backend/auth remain unimplemented by design.
+Final Build 4B browser QA: desktop 1440×1000, tablet 820×1180 and mobile 390×844 screenshots were visually checked, with matching document/viewport widths and no horizontal overflow. The mobile value editor and Tab/Shift-Tab/Escape were checked. A direct Objective URL restored 69% weighted progress and 6.6 confidence. No captured application console warnings/errors or hydration errors remained. Four main page routes and 14 referenced Next assets returned HTTP 200. The browser-tool usage interruption cleared after continuation; the viewport override was reset and the user's original tab now opens /strategy/key-results. Test mutations remained on localhost.
+
+## Build 4F — Strategy Executive Dashboard
+
+Executive dashboard, ten focused reports, presentation view and explained Strategy Health now derive from the existing 4A–4E stores. No new dependency or aggregate persistence was added. See [Build 4F completion report](docs/BUILD-4F.md) for the formula, scope, tests, performance, browser QA and remaining v1 acceptance work.
+
+## Build 4G — Strategy v1 hardening
+
+Strategy v1 is ready to close within the local, single-browser prototype scope. Completed history, audited archive transitions, Tehran dates, report eligibility, cycle-aware navigation, native date entry and drawer keyboard focus were hardened. The complete two-week review → Adapt → Learn → carry-forward workflow passed through localhost UI. Final verification: **343 tests passed**, TypeScript clean, production build/start successful, no captured browser warnings/errors, and 10 routes plus 23 referenced assets loaded successfully.
+
+See the [22-point Build 4G release report](docs/BUILD-4G.md) for architecture, lifecycle, storage/recovery, formulas, health, historical evidence, performance measurements, browser coverage and limitations. Earlier build sections are historical: initiatives, weekly history, Adapt/Learn and the executive dashboard are now implemented. Dashboard KR detail rows now match active-Objective counters, superseding Build 4F's broader row scope. No backend/authentication, server backup or multi-user release claim is included. SCALE prototype work can begin when separately requested.
+
+## Build 5A — Scale foundation
+
+`/scale` now provides growth diagnosis, a single primary constraint, evidence and source relationships, a 25-lever library with custom capture, and a structured idea backlog. Quick capture accepts incomplete inbox ideas; prioritization/readiness requires an open constraint, intervention logic, rationale, impact, confidence, effort and a success-metric concept. Experiment/validated transitions remain guarded for a later build. System, Strategy and Assessment integrations are read-only; validated Scale data uses its own `growth-engine.scale.v1` key.
+
+Final verification: **368 passing tests**, TypeScript clean, production build/start successful. The complete UI workflow, refresh, direct routes and mobile/tablet/desktop checks passed with no captured browser errors. No dependencies were added. See the [21-point Build 5A completion report](docs/BUILD-5A.md) for models, formulas, readiness versus performance, persistence, browser evidence, limitations and the Build 5B boundary.
+
+## Build 5B — Growth Experiment Engine
+
+Growth Lab now carries a ready idea through structured experiment design, explicit start, measurement history, manager-confirmed result, learning and decision. Iteration/retest preserve lineage and completed history; Scale decisions require capacity and Strategy reviews. Idea validation remains explicit. These capabilities supersede the deferred experiment transitions described in Build 5A above.
+
+Final verification: **401 passing tests**, TypeScript clean, production build/start successful, complete localhost workflow, mobile/tablet/desktop checks, keyboard focus and refresh/deep-route verification. No captured console/hydration errors; seven routes and 20 referenced assets returned HTTP 200. No dependencies added. See the [27-point Build 5B report](docs/BUILD-5B.md) for architecture, rules, browser evidence and local-prototype limitations.
+
+## Build 5C — Growth Funnel and Revenue Engine
+
+Editable business-model funnels now support stage ownership/targets, completed period snapshots, conversion/drop-off/gap analysis, internal constraint and health signals, revenue estimates, recursive volume backsolve and temporary scenarios. Constraint evidence, ideas and experiments connect to funnel stages; Strategy target and System capacity references stay read-only.
+
+Final validation: **433 tests passed**, production build and TypeScript passed, complete two-period localhost workflow, responsive desktop/tablet/mobile checks, no captured console/hydration errors, and seven routes plus 22 referenced assets returned HTTP 200. No dependencies added. See the [27-point Build 5C completion report](docs/BUILD-5C.md) for calculations, data integrity, QA and remaining boundaries. The app still uses local browser storage; scenarios are conditional models, not forecasts or accounting revenue.
+
+## Build 5D — Channels, Portfolio and Growth Loops
+
+Channel periods, qualified-demand concentration, explained quality/readiness, documented lifecycle/maturity decisions and a loop designer now extend Scale. Loops support evidence, immutable measurement history, node leakage and linked ideas/experiments/learning. Funnel, System and Strategy connections preserve their existing records. Overlapping periods do not inflate repeatability evidence; changed loop definitions suppress misleading trend comparisons.
+
+Validation: **468 tests passed**, TypeScript and production build passed. Localhost UI covered three channels, concentration/trend, decisions, a six-node loop, activation guards, two loop periods, leakage-to-idea, learning/experiment links and refresh. Responsive checks passed; no captured console/hydration errors. Nine routes and 17 referenced assets returned HTTP 200. No dependencies added. See the [29-point Build 5D completion report](docs/BUILD-5D.md) for rules, architecture, browser evidence and local-prototype limitations.
+
+## Build 5E — Readiness and Capacity
+
+Candidate readiness, scenario capacity, explicit scale decisions, preparation and immutable assessment history are documented in [Build 5E](docs/BUILD-5E.md).
+
+## Build 5F — Executive Scale Dashboard
+
+Open `/scale/dashboard` for management focus, explained Scale Health, growth evidence, funnel/revenue context, channels, loops, candidate gates and capacity risks. `/scale/reports` provides twelve focused reports; `/scale/reports/executive` provides the meeting view. All views read existing local records and preserve the separation between actual data, estimates, scenarios and management decisions.
+
+Validation: **520 tests passed**, TypeScript and production build passed, all fifteen reporting/dashboard routes and eighteen assets returned HTTP 200. Browser QA covered reports, filters, scenario context, drill-down, early-stage state and responsive layouts. No dependencies added. See the [34-point Build 5F report](docs/BUILD-5F.md) for the formula audit, performance measurements, evidence and remaining limitations.
+
+## Build 5G — Scale and 3S Core release readiness
+
+Scale hardening preserves existing workflows while fixing evidence/history integrity, filtered-report consistency, Tehran date boundaries, archived source handling, safe readiness transitions and keyboard focus. Dashboard and reporting share canonical calculations; preparation, health, candidate gates and management decisions remain distinct.
+
+**550 tests passed**, TypeScript and production build/start passed. Browser acceptance covered the Scale journey, monetary Strategy target → funnel backsolve → candidate capacity → System risk, all twelve reports/executive, responsive layouts and navigation. No captured console/hydration errors; 29 pages and 58 static assets returned 200. See the [31-point Build 5G release report](docs/BUILD-5G.md) for final architecture/formulas, precise acceptance coverage, performance and local-v1 limits. SCALE and 3S Core are ready to close within that local single-browser scope; no AI/backend/authentication was added.
+
+### Build 6A — Agent architecture
+
+Developer laboratory: `/dev/agent`. Provider-independent registry, canonical evidence/context, deterministic recommendations, central permissions, exact explicit approvals and a dry-run executor. No LLM/chat/external API or business-domain mutation adapter is enabled. Agent artifacts use the separate `growth-engine.agent.v1` key. See `docs/BUILD-6A.md` and `docs/AGENT-ARCHITECTURE.md` for contracts, validation and future boundaries.
+
+### Build 6B — Executive Advisor
+
+Open `/advisor` for read-only, evidence-grounded management Q&A. Context is selected from the existing local 3S records; every response keeps its source snapshot. Includes bounded follow-ups, manual executive brief, comparisons, no-provider state and an explicit offline mock.
+
+The real OpenAI adapter runs only on the server. See `.env.example` for configuration; never expose the API key in a `NEXT_PUBLIC_*` variable. A live call requires a locally configured key and has not been verified in this environment. No new dependency was added. `npm.cmd test` includes Advisor tests; `node tests/advisor-http.cjs` checks a freshly started local QA server with provider=none and mock demo explicitly allowed; it refuses a live-provider configuration.
+
+See [Build 6B report](docs/BUILD-6B.md) and [architecture](docs/ADVISOR-ARCHITECTURE.md) for validation results and limits.
+
+Build 6C adds manual read-only diagnosis at `/advisor/insights`, diagnosis details, a fifteen-rule registry, frozen evidence/history, at most three executive priorities, and optional provider wording with deterministic fallback. See `docs/BUILD-6C.md` for the full implementation and verification report.
+
+### Build 7B — Authentication and company experience
+
+Real email/password accounts, persistent server sessions, company onboarding/switching, members, secure copy-link invitations, profile/password change and last-Owner protection now extend Build 7A. Normal `APP_MODE=saas` requires configured server auth/database; `APP_MODE=local` explicitly preserves the earlier browser workspace. Company drafts and private Agent context are tenant-bound; full module RBAC, normalized UI persistence and trusted server Agent execution remain later work.
+
+See [the 39-point Build 7B report and local setup](docs/BUILD-7B.md) and [current data architecture](docs/SAAS-DATA-ARCHITECTURE.md). `npm.cmd run test:all` covers 907 tests (847 prior + 31 foundation + 29 authentication). Standalone PostgreSQL smoke testing remains pending because this workstation has no PostgreSQL/Docker; actual PostgreSQL-engine integration and local app QA use explicit PGlite development mode.
+
+### Build 7A — SaaS persistence foundation
+
+PostgreSQL/Drizzle schema, multi-company memberships and access roles, scoped repositories/services, transactional bootstrap, audit, idempotency/version checks and staged local export/import are available as a server foundation. Existing product screens remain in local mode. See [data architecture and setup](docs/SAAS-DATA-ARCHITECTURE.md), [storage inventory](docs/DATA-INVENTORY.md) and [38-point completion report](docs/BUILD-7A.md). Run `npm.cmd run test:database` for actual PostgreSQL integration tests in addition to the existing `npm.cmd test` suite.
+
+BUILD 7C adds granular server authorization, a read-only access matrix at `/settings/access`, and shared server-attributed review proposals at `/advisor/authorized-actions`. See [BUILD-7C](docs/BUILD-7C.md) and [RBAC matrix](docs/RBAC-MATRIX.md). SaaS Agent execution remains disabled under the build scope. Run `npm run test:rbac` for dedicated authorization integration tests; `test:all` includes them.

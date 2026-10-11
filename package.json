@@ -3,26 +3,56 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@better-auth/drizzle-adapter": "^1.7.7",
     "@fontsource/vazirmatn": "^5.3.0",
     "@radix-ui/react-dialog": "^1.1.23",
     "@xyflow/react": "^12.11.6",
+    "better-auth": "^1.7.7",
+    "drizzle-orm": "^0.45.3",
     "lucide-react": "^1.45.0",
-    "next": "latest",
+    "next": "^16.3.8",
+    "pg": "^8.23.1",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "server-only": "^0.0.1"
   },
   "scripts": {
-    "test": "tsc -p tests/tsconfig.json && tsc -p tests/system.tsconfig.json && node --test tests/assessment.cjs tests/system.cjs tests/process-maps.cjs tests/process-analysis.cjs tests/standards.cjs tests/measurement.cjs tests/command-center.cjs tests/hardening.cjs",
+    "test": "tsc -p tests/tsconfig.json && tsc -p tests/system.tsconfig.json && tsc -p tests/strategy.tsconfig.json && tsc -p tests/scale.tsconfig.json && tsc -p tests/agent.tsconfig.json && node --test tests/assessment.cjs tests/system.cjs tests/process-maps.cjs tests/process-analysis.cjs tests/standards.cjs tests/measurement.cjs tests/command-center.cjs tests/hardening.cjs tests/strategy.cjs tests/key-results.cjs tests/initiatives.cjs tests/weekly.cjs tests/adapt.cjs tests/dashboard.cjs tests/scale.cjs tests/experiments.cjs tests/funnel.cjs tests/network.cjs tests/readiness.cjs tests/scale-dashboard.cjs tests/scale-hardening.cjs tests/agent.cjs tests/advisor.cjs tests/diagnosis.cjs tests/preparation.cjs tests/execution.cjs tests/workspace.cjs tests/agent-hardening.cjs",
     "dev": "next dev --hostname 127.0.0.1",
     "build": "next build",
-    "start": "next start --hostname 127.0.0.1"
+    "start": "next start",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "node --conditions=react-server --import tsx scripts/database.ts migrate",
+    "db:seed": "node --conditions=react-server --import tsx scripts/database.ts seed",
+    "db:health": "node --conditions=react-server --import tsx scripts/database.ts health",
+    "db:reset:dev": "node --conditions=react-server --import tsx scripts/database.ts reset",
+    "test:database": "node --conditions=react-server --import tsx --test tests/saas.test.ts",
+    "test:auth": "node --conditions=react-server --import tsx --test tests/auth.test.ts",
+    "db:seed:saas": "node --conditions=react-server --import tsx scripts/database.ts seed-saas",
+    "test:all": "npm run test && npm run test:database && npm run test:auth && npm run test:rbac && npm run test:migration && npm run test:domain-records && npm run test:production",
+    "test:rbac": "node --conditions=react-server --import tsx --test tests/rbac.test.ts",
+    "test:migration": "node --conditions=react-server --import tsx --test tests/data-migration.test.ts",
+    "test:domain-records": "node --conditions=react-server --import tsx --test tests/domain-records.test.ts",
+    "db:status": "node --conditions=react-server --import tsx scripts/database.ts status",
+    "typecheck": "tsc --noEmit",
+    "test:production": "node --conditions=react-server --import tsx --test tests/production.test.ts",
+    "prestart": "node --import tsx scripts/validate-production.ts"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.5.8",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^22.20.2",
+    "@types/pg": "^8.23.1",
     "@types/react": "^19.3.0",
+    "drizzle-kit": "^0.31.11",
     "prettier": "^3.9.6",
     "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.15",
     "typescript": "^7.0.2"
+  },
+  "overrides": {
+    "@esbuild-kit/core-utils": {
+      "esbuild": "^0.25.0"
+    }
   }
 }

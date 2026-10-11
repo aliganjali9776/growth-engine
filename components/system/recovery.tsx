@@ -1,4 +1,5 @@
 "use client";
+import { businessStorage } from "@/lib/saas/workspace-storage";
 import { useState, useRef } from "react";
 import { writeTogether } from "@/lib/system/storage-transaction";
 import { Button } from "./ui";
@@ -27,7 +28,7 @@ export function StorageRecovery({
         secondary
         onClick={() => {
           try {
-            const value = localStorage.getItem(storageKey);
+            const value = businessStorage.getItem(storageKey);
             if (value === null) throw Error();
             original.current = value;
             const url = URL.createObjectURL(
@@ -64,7 +65,7 @@ export function StorageRecovery({
         onClick={() => {
           try {
             validate(raw);
-            writeTogether(localStorage, [
+            writeTogether(businessStorage, [
               { key: storageKey, expected: original.current, value: raw },
             ]);
             window.location.reload();
