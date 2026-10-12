@@ -10,7 +10,7 @@ import {
   permissionKeys,
   permissionForPage,
 } from "../lib/server/permissions";
-import { createOrganizationWithOwner } from "../lib/server/services/organization";
+import { createOrganizationWithOwner } from "./full-access-fixture";
 import {
   resolveOrganizationContext,
   requireAllPermissions,

@@ -1,0 +1,176 @@
+
+> 3s-business-os@0.1.0 test:platform-admin
+> node --conditions=react-server --import tsx --test tests/platform-admin.test.ts
+
+TAP version 13
+# Subtest: existing organizations are preserved, while migration changes future default
+ok 1 - existing organizations are preserved, while migration changes future default
+  ---
+  duration_ms: 9845.0438
+  type: 'test'
+  ...
+# Subtest: new normal organization defaults assessment-only independent of Owner role
+ok 2 - new normal organization defaults assessment-only independent of Owner role
+  ---
+  duration_ms: 13.919
+  type: 'test'
+  ...
+# Subtest: organization Owner is not Platform Admin
+ok 3 - organization Owner is not Platform Admin
+  ---
+  duration_ms: 1.9821
+  type: 'test'
+  ...
+# Subtest: server allowlist normalization authorizes platform operator
+ok 4 - server allowlist normalization authorizes platform operator
+  ---
+  duration_ms: 1.3303
+  type: 'test'
+  ...
+# Subtest: unknown identity cannot acquire platform permissions
+ok 5 - unknown identity cannot acquire platform permissions
+  ---
+  duration_ms: 85.2087
+  type: 'test'
+  ...
+# Subtest: assessment-only denies system.view
+ok 6 - assessment-only denies system.view
+  ---
+  duration_ms: 67.7413
+  type: 'test'
+  ...
+# Subtest: assessment-only denies strategy.view
+ok 7 - assessment-only denies strategy.view
+  ---
+  duration_ms: 57.1239
+  type: 'test'
+  ...
+# Subtest: assessment-only denies scale.view
+ok 8 - assessment-only denies scale.view
+  ---
+  duration_ms: 55.4726
+  type: 'test'
+  ...
+# Subtest: assessment-only denies agent.view
+ok 9 - assessment-only denies agent.view
+  ---
+  duration_ms: 28.6433
+  type: 'test'
+  ...
+# Subtest: assessment-only denies agent.ask
+ok 10 - assessment-only denies agent.ask
+  ---
+  duration_ms: 863.2517
+  type: 'test'
+  ...
+# Subtest: assessment is available but premium workspace data is masked
+ok 11 - assessment is available but premium workspace data is masked
+  ---
+  duration_ms: 3796.6059
+  type: 'test'
+  ...
+# Subtest: assessment-only user cannot read premium domain directly
+ok 12 - assessment-only user cannot read premium domain directly
+  ---
+  duration_ms: 31.6767
+  type: 'test'
+  ...
+# Subtest: forged tier and permissions cannot bypass fresh server reauthorization
+ok 13 - forged tier and permissions cannot bypass fresh server reauthorization
+  ---
+  duration_ms: 27.7777
+  type: 'test'
+  ...
+# Subtest: new customer can complete assessment and lead scores use existing formulas
+ok 14 - new customer can complete assessment and lead scores use existing formulas
+  ---
+  duration_ms: 374.5517
+  type: 'test'
+  ...
+# Subtest: incomplete data never invents scores or completion
+ok 15 - incomplete data never invents scores or completion
+  ---
+  duration_ms: 0.6768
+  type: 'test'
+  ...
+# Subtest: access request repeats return one active organization request
+ok 16 - access request repeats return one active organization request
+  ---
+  duration_ms: 46.1993
+  type: 'test'
+  ...
+# Subtest: cross-tenant context forged for access request is rejected
+ok 17 - cross-tenant context forged for access request is rejected
+  ---
+  duration_ms: 13.7646
+  type: 'test'
+  ...
+# Subtest: normal owner cannot grant itself full access
+ok 18 - normal owner cannot grant itself full access
+  ---
+  duration_ms: 2.1687
+  type: 'test'
+  ...
+# Subtest: access mutation requires explicit confirmation
+ok 19 - access mutation requires explicit confirmation
+  ---
+  duration_ms: 1.1769
+  type: 'test'
+  ...
+# Subtest: approval grants full access and records actor before after target and reason
+ok 20 - approval grants full access and records actor before after target and reason
+  ---
+  duration_ms: 37.7193
+  type: 'test'
+  ...
+# Subtest: stale confirmation cannot overwrite a concurrent access decision
+ok 21 - stale confirmation cannot overwrite a concurrent access decision
+  ---
+  duration_ms: 10.2254
+  type: 'test'
+  ...
+# Subtest: full access still enforces tenant isolation
+ok 22 - full access still enforces tenant isolation
+  ---
+  duration_ms: 12.3832
+  type: 'test'
+  ...
+# Subtest: revocation applies to an old context without deleting assessment data
+ok 23 - revocation applies to an old context without deleting assessment data
+  ---
+  duration_ms: 115.0448
+  type: 'test'
+  ...
+# Subtest: rejection records a decision without granting access
+ok 24 - rejection records a decision without granting access
+  ---
+  duration_ms: 49.3747
+  type: 'test'
+  ...
+# Subtest: request target cannot be swapped to another organization
+ok 25 - request target cannot be swapped to another organization
+  ---
+  duration_ms: 40.2145
+  type: 'test'
+  ...
+# Subtest: dedicated admin projection never exposes authentication credentials or sessions
+ok 26 - dedicated admin projection never exposes authentication credentials or sessions
+  ---
+  duration_ms: 40.7894
+  type: 'test'
+  ...
+# Subtest: suspended operator loses platform privileges
+ok 27 - suspended operator loses platform privileges
+  ---
+  duration_ms: 10.3985
+  type: 'test'
+  ...
+1..27
+# tests 27
+# suites 0
+# pass 27
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 17968.138

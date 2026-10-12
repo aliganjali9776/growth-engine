@@ -7,6 +7,7 @@ const value = (raw: string | null): RecordValue => (raw ? JSON.parse(raw) : {});
 const equal = (a: unknown, b: unknown) =>
   JSON.stringify(a) === JSON.stringify(b);
 export function workspaceViewPermission(key: string): Permission {
+  if (key === "growth-engine.assessment.v2") return "organization.view";
   return key.includes("agent") || key.includes("advisor")
     ? "agent.view"
     : key.includes("strategy")
@@ -24,6 +25,11 @@ export function authorizeWorkspaceChange(
 ) {
   const before = value(oldRaw),
     after = value(newRaw);
+  if (key === "growth-engine.assessment.v2") {
+    if (context.accessTier === "full_access" && context.permissions.includes("system.edit")) requirePermission(context,"system.edit");
+    else requirePermission(context, "organization.update");
+    return;
+  }
   const module = workspaceViewPermission(key).split(".")[0] as
     "system" | "strategy" | "scale" | "agent";
   requirePermission(context, workspaceViewPermission(key));

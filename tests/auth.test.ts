@@ -99,7 +99,7 @@ async function call(
   org?: string,
   operation = "context",
 ) {
-  return api(
+  const response = await api(
     new Request(baseURL + "/api/saas?operation=" + operation, {
       method: body ? "POST" : "GET",
       headers: new Headers({
@@ -109,6 +109,12 @@ async function call(
       body: body ? JSON.stringify(body) : undefined,
     }),
   );
+  // Preserve pre-8A full-customer regression fixtures; new-default tests are separate.
+  if ((body as {operation?:string})?.operation === "createCompany" && response.ok) {
+    const result = await response.clone().json();
+    await db.update(S.organizations).set({accessTier:"full_access"}).where(eq(S.organizations.id,result.organization.id));
+  }
+  return response;
 }
 const company = (name: string) => ({
   operation: "createCompany",

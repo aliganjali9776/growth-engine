@@ -2,12 +2,14 @@ import { appMode, getSaaSRuntime } from "@/lib/server/saas-runtime";
 import { activeContext } from "@/lib/server/session";
 import { exportOrganization } from "@/lib/server/services/migration";
 import { DataError, safeDataError } from "@/lib/server/db/errors";
+import { requireFullAccess } from "@/lib/server/services/platform-admin";
 
 export async function GET(request: Request) {
   if (appMode() !== "saas") return new Response(null, { status: 404 });
   try {
     const { db, auth } = await getSaaSRuntime();
     const { context } = await activeContext(db, auth, request.headers);
+    await requireFullAccess(db,context);
     // Native download links cannot set a custom header. Bind their explicit
     // target to the fresh session to prevent a switch downloading another org.
     if (new URL(request.url).searchParams.get("organizationId") !== context.organizationId) throw new DataError("Conflict", 409);

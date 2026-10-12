@@ -62,7 +62,7 @@ export async function seedSaaSDevelopment(db: Database) {
         });
         [org] = await tx
           .update(S.organizations)
-          .set({ slug })
+          .set({ slug, accessTier: "full_access" })
           .where(eq(S.organizations.id, made.organization.id))
           .returning();
       }

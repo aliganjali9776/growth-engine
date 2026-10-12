@@ -11,6 +11,8 @@ import {
 } from "@/components/saas/shell";
 import { safeReturn } from "@/lib/saas/navigation";
 import { permissionForPage } from "@/lib/server/permissions";
+import { ProductLock } from "@/components/saas/product-lock";
+import { requirePlatformAdmin } from "@/lib/server/services/platform-admin";
 export default async function Template({
   children,
 }: {
@@ -50,6 +52,11 @@ export default async function Template({
     current: null,
     permissions: [],
   };
+  try { await requirePlatformAdmin(db,identity.user.id);view.platformAdmin=true; } catch { view.platformAdmin=false; }
+  if (pathname === "/admin" || pathname.startsWith("/admin/")) {
+    // The admin page enforces authorization inside its not-found boundary.
+    return children;
+  }
   if (
     ["/organizations", "/onboarding/company", "/settings/profile"].includes(
       pathname,
@@ -77,6 +84,9 @@ export default async function Template({
   view.current =
     organizations.find((o) => o.id === active.context.organizationId) ?? null;
   view.permissions = active.context.permissions;
+  view.accessTier = active.context.accessTier;
+  if (view.accessTier === "assessment_only" && !["/assessment","/settings/company"].includes(pathname))
+    return <SaaSShell view={view}><ProductLock/></SaaSShell>;
   if (!view.permissions.includes(permissionForPage(pathname)))
     return (
       <SaaSShell view={view}>

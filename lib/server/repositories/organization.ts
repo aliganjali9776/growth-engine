@@ -17,6 +17,7 @@ export class OrganizationRepository {
         id: organizations.id,
         name: organizations.name,
         slug: organizations.slug,
+        accessTier: organizations.accessTier,
         status: organizations.status,
         membershipId: memberships.id,
       })

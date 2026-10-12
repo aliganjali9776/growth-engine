@@ -11,6 +11,7 @@ import {
   date,
   jsonb,
   unique,
+  uniqueIndex,
   index,
   foreignKey,
   check,
@@ -190,6 +191,7 @@ export const organizations = pgTable(
     id: uuid().defaultRandom().primaryKey(),
     name: text().notNull(),
     slug: text().notNull().unique(),
+    accessTier: text("access_tier").$type<"assessment_only" | "full_access">().default("assessment_only").notNull(),
     legalName: text("legal_name"),
     industry: text(),
     businessModel: text("business_model"),
@@ -202,6 +204,7 @@ export const organizations = pgTable(
     ...times(),
   },
   (t) => [
+    check("organization_access_tier", sql`${t.accessTier} in ('assessment_only','full_access')`),
     check(
       "organization_status",
       sql`${t.status} in ('Active','Trial','Suspended','Archived')`,
@@ -209,6 +212,30 @@ export const organizations = pgTable(
     check("organization_slug", sql`${t.slug} ~ '^[a-z0-9]+(-[a-z0-9]+)*$'`),
   ],
 );
+export const platformAccessRequests = pgTable("platform_access_requests", {
+  id: uuid().defaultRandom().primaryKey(),
+  organizationId: uuid("organization_id").notNull().references(() => organizations.id),
+  userId: uuid("user_id").notNull().references(() => users.id),
+  status: text().$type<"pending" | "approved" | "rejected">().notNull().default("pending"),
+  ...times(),
+}, t => [index().on(t.organizationId), uniqueIndex("one_pending_access_request").on(t.organizationId).where(sql`${t.status}='pending'`), check("access_request_status", sql`${t.status} in ('pending','approved','rejected')`)]);
+export const platformAudit = pgTable("platform_audit", {
+  id: uuid().defaultRandom().primaryKey(),
+  actorUserId: uuid("actor_user_id").references(() => users.id),
+  organizationId: uuid("organization_id").notNull().references(() => organizations.id),
+  action: text().notNull(),
+  previousTier: text("previous_tier"),
+  newTier: text("new_tier"),
+  reason: text(),
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+}, t => [index().on(t.organizationId, t.createdAt)]);
+export const platformAssessmentLeads = pgTable("platform_assessment_leads", {
+  id: uuid().defaultRandom().primaryKey(),
+  organizationId: uuid("organization_id").notNull().references(() => organizations.id),
+  userId: uuid("user_id").notNull().references(() => users.id),
+  draft: jsonb().$type<import("../../assessment/types").AssessmentDraft>().notNull(),
+  ...times(),
+}, t => [unique().on(t.organizationId, t.userId)]);
 const tenant = () => ({
   id: uuid().defaultRandom().primaryKey(),
   organizationId: uuid("organization_id")

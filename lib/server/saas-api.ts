@@ -8,6 +8,7 @@ import { safeDataError, DataError } from "./db/errors";
 import { reauthorize, resolveOrganizationContext } from "./context";
 import * as C from "./services/companies";
 import * as AgentAuthorization from "./services/agent-authorization";
+import { requireFullAccess, requestAccess } from "./services/platform-admin";
 import {
   previewDataMigration,
   listDataMigrations,
@@ -78,6 +79,7 @@ export function createSaaSHandlers(
           throw new DataError("Conflict", 409);
         if (operation === "workspace")
           return reply(await readTenantWorkspace(db, context));
+        if (!["company"].includes(operation)) await requireFullAccess(db,context);
         if (operation === "dataMigrations")
           return reply({ migrations: await listDataMigrations(db, context) });
         if (operation === "members")
@@ -259,6 +261,8 @@ export function createSaaSHandlers(
           body.organizationId !== context.organizationId
         )
           throw new DataError("Forbidden", 403);
+        if (body.operation === "requestAccess") return reply(await requestAccess(tx,context));
+        if (!["workspace","company"].includes(body.operation)) await requireFullAccess(tx,context);
         if (body.operation === "prepareAgentAction")
           return reply(
             await AgentAuthorization.prepareAgentAction(

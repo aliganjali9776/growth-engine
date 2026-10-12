@@ -6,7 +6,7 @@ import { drizzle } from "drizzle-orm/pglite";
 import { migrate } from "drizzle-orm/pglite/migrator";
 import { and, eq } from "drizzle-orm";
 import * as S from "../lib/server/db/schema";
-import { createOrganizationWithOwner } from "../lib/server/services/organization";
+import { createOrganizationWithOwner } from "./full-access-fixture";
 import { seedDevelopment } from "../lib/server/dev/seed";
 import { splitDomainStore, joinDomainStore } from "../lib/persistence/domain-records";
 import { localStoreKeys } from "../lib/persistence/export";

@@ -18,6 +18,8 @@ export interface CompanyChoice {
   roles: string[];
 }
 export interface SaaSView {
+  accessTier?: "assessment_only" | "full_access";
+  platformAdmin?: boolean;
   user: {
     id: string;
     name: string;
@@ -178,7 +180,7 @@ export function SaaSShell({
           <nav aria-label="ناوبری اصلی">
             {navigation
               .filter((n) =>
-                view.permissions.includes(permissionForPage(n.href)),
+                view.permissions.includes(permissionForPage(n.href)) || view.accessTier === "assessment_only",
               )
               .map((n) => (
                 <Link
@@ -191,11 +193,12 @@ export function SaaSShell({
                       : undefined
                   }
                 >
-                  {n.label}
+                  {n.label}{view.accessTier === "assessment_only" && /^\/(system|strategy|scale|advisor|agent)(\/|$)/.test(n.href) ? " 🔒" : ""}
                 </Link>
               ))}
           </nav>
           <nav aria-label="مدیریت حساب و شرکت">
+            {view.platformAdmin && <Link href="/admin">مدیریت پلتفرم</Link>}
             {view.permissions.includes("organization.view") && (
               <Link href="/settings/company">تنظیمات شرکت</Link>
             )}
@@ -274,10 +277,9 @@ export function WorkspaceBridge({
 }) {
   const pathname = usePathname();
   const readOnly =
-    /^\/(system|strategy|scale|assessment)(\/|$)/.test(pathname) &&
-    !view.permissions.includes(
-      `${pathname.split("/")[1] === "assessment" ? "system" : pathname.split("/")[1]}.edit`,
-    );
+    pathname === "/assessment" ? !(view.permissions.includes("organization.update") || view.permissions.includes("system.edit")) :
+    /^\/(system|strategy|scale)(\/|$)/.test(pathname) &&
+    !view.permissions.includes(`${pathname.split("/")[1]}.edit`);
   const [ready, setReady] = useState(false),
     [status, setStatus] = useState("saved"),
     [error, setError] = useState("");

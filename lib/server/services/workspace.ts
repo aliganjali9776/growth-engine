@@ -141,7 +141,7 @@ export async function readTenantWorkspace(
           ),
         }).map(([key, raw]) => [
           key,
-          fresh.permissions.includes(workspaceViewPermission(key)) ? raw : null,
+          fresh.permissions.includes(workspaceViewPermission(key)) && (fresh.accessTier === "full_access" || key === localStoreKeys[0]) ? raw : null,
         ]),
       ),
       sharedVersion: a.version,
@@ -218,7 +218,7 @@ export async function writeTenantWorkspace(
     const previousStore = (key: string) => (isPrivateStore(key) ? activePrivate : activeShared)[key] ?? null;
     // Masked stores are returned as null; retain them without granting write access.
     for (const key of localStoreKeys)
-      if (!fresh.permissions.includes(workspaceViewPermission(key))) {
+      if (!fresh.permissions.includes(workspaceViewPermission(key)) || (fresh.accessTier !== "full_access" && key !== localStoreKeys[0])) {
         if (stores[key] !== null) throw new DataError("Forbidden", 403);
         stores[key] = previousStore(key);
       }

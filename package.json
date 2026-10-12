@@ -30,14 +30,15 @@
     "test:database": "node --conditions=react-server --import tsx --test tests/saas.test.ts",
     "test:auth": "node --conditions=react-server --import tsx --test tests/auth.test.ts",
     "db:seed:saas": "node --conditions=react-server --import tsx scripts/database.ts seed-saas",
-    "test:all": "npm run test && npm run test:database && npm run test:auth && npm run test:rbac && npm run test:migration && npm run test:domain-records && npm run test:production",
+    "test:all": "npm run test && npm run test:database && npm run test:auth && npm run test:rbac && npm run test:migration && npm run test:domain-records && npm run test:production && npm run test:platform-admin",
     "test:rbac": "node --conditions=react-server --import tsx --test tests/rbac.test.ts",
     "test:migration": "node --conditions=react-server --import tsx --test tests/data-migration.test.ts",
     "test:domain-records": "node --conditions=react-server --import tsx --test tests/domain-records.test.ts",
     "db:status": "node --conditions=react-server --import tsx scripts/database.ts status",
     "typecheck": "tsc --noEmit",
     "test:production": "node --conditions=react-server --import tsx --test tests/production.test.ts",
-    "prestart": "node --import tsx scripts/validate-production.ts"
+    "prestart": "node --import tsx scripts/validate-production.ts",
+    "test:platform-admin": "node --conditions=react-server --import tsx --test tests/platform-admin.test.ts"
   },
   "devDependencies": {
     "@electric-sql/pglite": "^0.5.8",

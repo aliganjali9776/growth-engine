@@ -23,6 +23,7 @@ import type {
   Screen,
 } from "@/lib/assessment/types";
 import { fa } from "@/lib/mock-data";
+import { useSaaS } from "@/components/saas/shell";
 const dimensionIcons = { system: Network, strategy: Target, scale: TrendingUp };
 export function AssessmentIntro({ onStart }: { onStart: () => void }) {
   return (
@@ -174,6 +175,7 @@ export function CompanyProfileForm({
   onNext: () => void;
   onBack: () => void;
 }) {
+  const saas = useSaaS();
   const update = (key: keyof CompanyProfile, value: string) =>
     onChange({ ...profile, [key]: value });
   return (
@@ -242,7 +244,9 @@ export function CompanyProfileForm({
         </div>
         <div className="assessment-privacy">
           <LockKeyhole size={15} />
-          اطلاعات به سرور ارسال نمی‌شود و تنها در همین مرورگر باقی می‌ماند.
+          {saas
+            ? "اطلاعات و نتایج ارزیابی در فضای شرکت ذخیره می‌شوند و برای بررسی در دسترس تیم مجاز سامانه قرار می‌گیرند."
+            : "اطلاعات به سرور ارسال نمی‌شود و تنها در همین مرورگر باقی می‌ماند."}
         </div>
         <AssessmentNavigation
           onBack={onBack}

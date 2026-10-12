@@ -12,6 +12,7 @@ import {
 import { DataError } from "./db/errors";
 import type { Permission } from "./permissions";
 export interface OrganizationContext {
+  readonly accessTier?: "assessment_only" | "full_access";
   readonly organizationId: string;
   readonly userId: string;
   readonly membershipId: string;
@@ -101,11 +102,12 @@ export async function resolveOrganizationContext(
       ),
     ].sort();
   return Object.freeze({
+    accessTier: org.accessTier,
     organizationId,
     userId,
     membershipId: member.id,
     roleIds: Object.freeze(ids.sort()),
-    permissions: Object.freeze(permissions),
+    permissions: Object.freeze(org.accessTier === "full_access" ? permissions : permissions.filter(p => !/^(system|strategy|scale|agent)\./.test(p))),
     roles: Object.freeze(roles.map((r) => Object.freeze(r))),
     status: "Active",
     membership: Object.freeze(member),
@@ -124,6 +126,8 @@ export function assertPermission(
   context: OrganizationContext,
   permission: Permission,
 ) {
+  if (context.accessTier !== "full_access" && /^(system|strategy|scale|agent)\./.test(permission))
+    throw new DataError("Forbidden", 403);
   if (!context.permissions.includes(permission))
     throw new DataError("Forbidden", 403);
 }

@@ -14,6 +14,7 @@ import { assertExperimentTransition } from "../../scale/experiments/validation";
 import { assertFunnelTransition } from "../../scale/funnel/validation";
 import { assertNetworkTransition } from "../../scale/network/validation";
 import { assertReadinessTransition } from "../../scale/readiness/validation";
+import { captureAssessmentLead } from "./platform-admin";
 type Repository = SystemDomainRepository | StrategyDomainRepository | ScaleDomainRepository | AgentDomainRepository | AssessmentDomainRepository;
 async function read(repo: Repository, db: Database, context: OrganizationContext, key: string, ownerKey: string) {
   if (ownerKey !== "shared" && ownerKey !== context.userId) throw new DataError("Forbidden", 403);
@@ -24,10 +25,12 @@ async function write(factory: (db: Database) => Repository, db: Database, contex
   if (ownerKey !== "shared" && ownerKey !== context.userId) throw new DataError("Forbidden", 403);
   validateCanonicalStores({ [key]: after }, false);
   return db.transaction(async tx => {
-    const fresh = await reauthorize(tx, context, workspaceViewPermission(key));
+    await reauthorize(tx, context, workspaceViewPermission(key));
     // The org lock serializes store creation and read/compare/write, including
     // two users creating the same external ID before a row exists to lock.
-    await tx.select({ id: organizations.id }).from(organizations).where(eq(organizations.id, fresh.organizationId)).for("update");
+    await tx.select({ id: organizations.id }).from(organizations).where(eq(organizations.id, context.organizationId)).for("update");
+    // Recheck after waiting for the same lock used by entitlement changes.
+    const fresh = await reauthorize(tx, context, workspaceViewPermission(key));
     const repo = factory(tx), current = (await repo.read(fresh.organizationId, ownerKey))[key] ?? null;
     if (!equalStoreData(current, before)) throw new DataError("Conflict", 409);
     authorizeWorkspaceChange(fresh, key, current, after);
@@ -57,6 +60,7 @@ async function write(factory: (db: Database) => Repository, db: Database, contex
       } catch { throw new DataError("InvalidInput"); }
     }
     await repo.save(fresh.organizationId, ownerKey, key, after, { actorType: "User", userId: fresh.userId });
+    if (key === localStoreKeys[0]) await captureAssessmentLead(tx, fresh, after);
     await tx.insert(auditEvents).values({ organizationId: fresh.organizationId, actorUserId: fresh.userId, actorType: "User", module: moduleForStore(key), action: "DomainStateChanged", entityType: "DomainStore", metadata: { storeKey: key, ownerScope: ownerKey === "shared" ? "Company" : "Personal" } });
   });
 }

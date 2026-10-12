@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-12T19:35:37.068Z",
+  "environment": "Isolated port 3001 QA database; synthetic fixtures only",
+  "defaultTier": "assessment_only",
+  "tenantListsIsolated": true,
+  "crossTenantHeaderConflictStatuses": [
+    409,
+    409
+  ],
+  "crossTenantSwitchDeniedStatuses": [
+    403,
+    403
+  ],
+  "ordinaryOwnerAdminApiStatus": 403,
+  "revokedBackupExportStatus": 403,
+  "assessmentWorkspaceStatus": 200,
+  "adminApiStatus": 200,
+  "preservedAssessmentScore": 60,
+  "accessAuditEntries": 2
+}

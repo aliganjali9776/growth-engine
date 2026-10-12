@@ -34,11 +34,11 @@ async function seedRows(db: Database) {
       .select()
       .from(S.organizations)
       .where(eq(S.organizations.slug, slug));
-    return (
-      old ??
-      (await createOrganizationWithOwner(db, userId, { name, slug }))
-        .organization
-    );
+    if (old) return old;
+    const made = await createOrganizationWithOwner(db, userId, { name, slug });
+    // Newly created disposable demo customers explicitly exercise full modules.
+    const [enabled] = await db.update(S.organizations).set({accessTier:"full_access"}).where(eq(S.organizations.id,made.organization.id)).returning();
+    return enabled;
   }
   const alpha = await company(
       ali.id,

@@ -14,7 +14,7 @@ import {
   requirePermission,
 } from "../lib/server/context";
 import { defaultRolePermissions } from "../lib/server/permissions";
-import { createOrganizationWithOwner } from "../lib/server/services/organization";
+import { createOrganizationWithOwner } from "./full-access-fixture";
 import { StrategyService, AgentService } from "../lib/server/services/domains";
 import {
   SystemRepository,
@@ -710,6 +710,8 @@ test("7A dev API real database smoke: health organizations create/read objective
   assert.equal(created.status, 201);
   const made = await created.json();
   assert.equal(made.membership.userId, seed.actorUserId);
+  // This legacy objective scenario exercises an explicitly enabled customer.
+  await db.update(S.organizations).set({accessTier:"full_access"}).where(eq(S.organizations.id,made.organization.id));
   const [cycle] = await db
     .insert(S.strategyCycles)
     .values({
