@@ -23,6 +23,7 @@
     "start": "next start",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "node --conditions=react-server --import tsx scripts/database.ts migrate",
+    "db:migrate:prod": "node --conditions=react-server --import tsx scripts/database.ts migrate-prod",
     "db:seed": "node --conditions=react-server --import tsx scripts/database.ts seed",
     "db:health": "node --conditions=react-server --import tsx scripts/database.ts health",
     "db:reset:dev": "node --conditions=react-server --import tsx scripts/database.ts reset",

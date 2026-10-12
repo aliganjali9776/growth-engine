@@ -4,15 +4,38 @@ import { DataError } from "../lib/server/db/errors";
 import * as schema from "../lib/server/db/schema";
 import { sql } from "drizzle-orm";
 import { readMigrationFiles } from "drizzle-orm/migrator";
-const action = process.argv[2];
+const productionMigration = process.argv[2] === "migrate-prod";
+const action = productionMigration ? "migrate" : process.argv[2];
+class MigrationConfigurationError extends Error {}
 async function main() {
+  if (productionMigration) {
+    // Runtime environment only: never load workstation env files or select PGlite.
+    if (!process.env.DATABASE_URL?.trim())
+      throw new MigrationConfigurationError(
+        "DATABASE_URL is required for production migrations",
+      );
+    try {
+      const url = new URL(process.env.DATABASE_URL);
+      if (
+        !["postgres:", "postgresql:"].includes(url.protocol) ||
+        !url.hostname ||
+        url.pathname.length <= 1
+      )
+        throw Error();
+    } catch {
+      throw new MigrationConfigurationError(
+        "DATABASE_URL must be a valid PostgreSQL connection URL with a database name",
+      );
+    }
+  }
   if (
     !["migrate", "status", "seed", "seed-saas", "health", "reset"].includes(
       action,
     )
   )
     throw new DataError("InvalidInput");
-  const embedded = process.env.DATABASE_DRIVER === "pglite";
+  const embedded =
+    !productionMigration && process.env.DATABASE_DRIVER === "pglite";
   if (
     ["seed", "seed-saas", "reset"].includes(action) &&
     process.env.NODE_ENV !== "development"
@@ -118,6 +141,11 @@ async function main() {
   }
 }
 main().catch(async (error) => {
+  if (error instanceof MigrationConfigurationError) {
+    console.error(error.message);
+    process.exitCode = 1;
+    return;
+  }
   const { safeDataError } = await import("../lib/server/db/errors");
   console.error(safeDataError(error).code);
   process.exitCode = 1;

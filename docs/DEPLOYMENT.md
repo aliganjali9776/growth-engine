@@ -14,6 +14,25 @@ Store secrets in your host's secret manager; never use NEXT_PUBLIC_ variables fo
 
 ## C. Install and migrate
 
+### One-off Netlify / Neon production migration
+
+In a trusted cloud shell with Node.js 22 and a checkout of the exact release, open the repository root. Configure `DATABASE_URL` as a secret environment variable using Neon's **direct (non-pooled)** PostgreSQL connection string, preserving its TLS settings. Do not paste the connection string into commands or logs. The migration command reads only the process environment; it does not load `.env.local`.
+
+```sh
+npm ci --include=dev
+npm run db:migrate:prod
+```
+
+Use this as a separate, manually started cloud-shell job before your normal Netlify deployment. No interactive Netlify runtime shell is assumed. This change does not add a Netlify build hook, modify its build command, or run migrations during application requests/startup. Keep the migration secret available only to trusted jobs, never deploy previews or untrusted branches.
+
+This reuses the committed Drizzle migrations and migration journal: sequential retries skip applied migrations. Run one migration job at a time; idempotence is not a guarantee for concurrent migration runners. It forces the standard PostgreSQL path regardless of development database settings, never seeds, never resets, and fails with exit code 1 for missing/invalid configuration or connection/migration errors. Only safe error messages/codes are logged, never DATABASE_URL. Take a database-level backup first for an existing database. No migration was run against Neon during this change.
+
+For optional status verification in the same Linux cloud shell:
+
+```sh
+NODE_ENV=production DATABASE_DRIVER=postgresql npm run db:status
+```
+
 From the application root, using the configured production environment:
 
 ```sh
