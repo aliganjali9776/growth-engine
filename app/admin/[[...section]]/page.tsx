@@ -7,6 +7,7 @@ import {
   requirePlatformAdmin,
 } from "@/lib/server/services/platform-admin";
 import { PlatformAdmin } from "@/components/admin/platform-admin";
+import { DataError } from "@/lib/server/db/errors";
 export default async function Page({
   params,
 }: {
@@ -36,8 +37,9 @@ export default async function Page({
   }
   try {
     await requirePlatformAdmin(runtime.db, runtime.user.id);
-  } catch {
-    notFound();
+  } catch (error) {
+    if (error instanceof DataError && error.status === 403) notFound();
+    throw error;
   }
   return (
     <PlatformAdmin

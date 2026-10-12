@@ -9,19 +9,25 @@ import { isComplete } from "../../assessment/scoring";
 import { diagnose } from "../../assessment/diagnostics";
 import { questions } from "../../assessment/questions";
 export type AccessTier = "assessment_only" | "full_access";
+function platformAdminEmails() {
+  return (process.env.PLATFORM_ADMIN_EMAILS ?? "")
+    .split(",")
+    .map((email) => email.trim().toLowerCase())
+    .filter(Boolean);
+}
+export function platformAdminEnvPresent() {
+  return platformAdminEmails().length > 0;
+}
 export async function requirePlatformAdmin(db: Database, userId: string) {
   const [user] = await db
     .select({ id: S.users.id, email: S.users.email, status: S.users.status })
     .from(S.users)
     .where(eq(S.users.id, userId));
-  const allowed = (process.env.PLATFORM_ADMIN_EMAILS ?? "")
-    .split(",")
-    .map((email) => email.trim().toLowerCase())
-    .filter(Boolean);
+  const allowed = platformAdminEmails();
   if (
     !user ||
     user.status !== "Active" ||
-    !allowed.includes(user.email.toLowerCase())
+    !allowed.includes(user.email.trim().toLowerCase())
   )
     throw new DataError("Forbidden", 403);
   return user;

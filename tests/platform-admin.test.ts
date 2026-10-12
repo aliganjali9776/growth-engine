@@ -24,6 +24,8 @@ import { SystemDomainService } from "../lib/server/services/domain-state";
 import { emptyDraft, profileOptions } from "../lib/assessment/persistence";
 import { questions } from "../lib/assessment/questions";
 import { diagnose } from "../lib/assessment/diagnostics";
+import { DataError } from "../lib/server/db/errors";
+import { diagnosePlatformAdmin } from "../lib/server/services/platform-admin-diagnostic";
 const pg = new PGlite(),
   db = drizzle(pg, { schema: S });
 let admin: string,
@@ -124,6 +126,49 @@ test("organization Owner is not Platform Admin", async () => {
 });
 test("server allowlist normalization authorizes platform operator", async () => {
   assert.equal((await requirePlatformAdmin(db, admin)).id, admin);
+});
+test("persisted email normalization is enforced by the database", async () => {
+  await assert.rejects(db.update(S.users).set({ email: " Platform@Build8A.Example.Invalid " }).where(eq(S.users.id, admin)));
+  assert.equal((await requirePlatformAdmin(db, admin)).id, admin);
+});
+test("diagnostic reports only five booleans for the authenticated operator", async () => {
+  const result = await diagnosePlatformAdmin(async () => ({ db, user: { id: admin, email: "platform@build8a.example.invalid" } }));
+  assert.equal(result.status, 200);
+  assert.deepEqual(result.diagnostic, { routeExists: true, authenticated: true, sessionEmailPresent: true, platformAdminEnvPresent: true, isPlatformAdmin: true });
+});
+test("diagnostic distinguishes an authenticated non-admin", async () => {
+  const result = await diagnosePlatformAdmin(async () => ({ db, user: { id: owner, email: "customer@build8a.example.invalid" } }));
+  assert.equal(result.diagnostic.authenticated, true);
+  assert.equal(result.diagnostic.isPlatformAdmin, false);
+});
+test("diagnostic distinguishes unauthenticated requests", async () => {
+  const result = await diagnosePlatformAdmin(async () => { throw new DataError("Forbidden", 401); });
+  assert.equal(result.status, 200);
+  assert.equal(result.diagnostic.authenticated, false);
+  assert.equal(result.diagnostic.sessionEmailPresent, false);
+});
+test("diagnostic observes missing runtime environment without caching it", async () => {
+  const previous = process.env.PLATFORM_ADMIN_EMAILS;
+  try {
+    process.env.PLATFORM_ADMIN_EMAILS = " ,  ";
+    const result = await diagnosePlatformAdmin(async () => ({ db, user: { id: admin, email: "platform@build8a.example.invalid" } }));
+    assert.equal(result.diagnostic.platformAdminEnvPresent, false);
+    assert.equal(result.diagnostic.isPlatformAdmin, false);
+    process.env.PLATFORM_ADMIN_EMAILS = " PLATFORM@BUILD8A.EXAMPLE.INVALID ";
+    const restored = await diagnosePlatformAdmin(async () => ({ db, user: { id: admin, email: "platform@build8a.example.invalid" } }));
+    assert.equal(restored.diagnostic.isPlatformAdmin, true);
+  } finally { if (previous === undefined) delete process.env.PLATFORM_ADMIN_EMAILS; else process.env.PLATFORM_ADMIN_EMAILS = previous; }
+});
+test("diagnostic handles absent email without exposing identity", async () => {
+  const result = await diagnosePlatformAdmin(async () => ({ db, user: { id: owner, email: " " } }));
+  assert.equal(result.diagnostic.sessionEmailPresent, false);
+  assert.equal(result.diagnostic.isPlatformAdmin, false);
+});
+test("diagnostic infrastructure failure returns 503 and never exposes error details", async () => {
+  const result = await diagnosePlatformAdmin(async () => { throw Error("sensitive simulated connection details"); });
+  assert.equal(result.status, 503);
+  assert.ok(Object.values(result.diagnostic).every(value => typeof value === "boolean"));
+  assert.ok(!JSON.stringify(result).includes("sensitive"));
 });
 test("unknown identity cannot acquire platform permissions", async () => {
   await assert.rejects(requirePlatformAdmin(db, randomUUID()), forbidden);
